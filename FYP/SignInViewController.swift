@@ -14,6 +14,8 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
     
+    let defaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,7 +24,7 @@ class SignInViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let defaults = UserDefaults.standard
+        
         let isRegistered = defaults.bool(forKey: "isRegistered")
         
         print("HELOOOO", isRegistered)
@@ -44,13 +46,13 @@ class SignInViewController: UIViewController {
     @IBAction func signInPressed(_ sender: Any) {
         print("Sign In Pressed")
 
-        let defaults = UserDefaults.standard
         let email = defaults.string(forKey: "emailAddressKey")
-        print(email)
         
-        if email != nil {
-            if (emailAddressTextField.text?.isEqual(email))! {
-                print("Success")
+        let password = defaults.string(forKey: "passwordKey")
+        
+        if email != nil && password != nil {
+            if (emailAddressTextField.text?.isEqual(email))! && (passwordTextField.text?.isEqual(password))! {
+                print("We did it baby!!")
             }
         }
     }
