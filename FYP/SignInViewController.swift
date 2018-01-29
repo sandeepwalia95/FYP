@@ -19,16 +19,17 @@ class SignInViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         passwordTextField.layer.cornerRadius = 7.0
-        passwordTextField.layer.borderWidth = 1.5
+        passwordTextField.layer.borderWidth = 3
+        passwordTextField.layer.borderColor = UIColor.white.cgColor
         passwordTextField.clipsToBounds = true
         
         emailAddressTextField.layer.cornerRadius = 7.0
-        emailAddressTextField.layer.borderWidth = 1.5
+        emailAddressTextField.layer.borderWidth = 3
+        emailAddressTextField.layer.borderColor = UIColor.white.cgColor
         emailAddressTextField.clipsToBounds = true
         
         signInButton.layer.cornerRadius = 7.0
         signInButton.clipsToBounds = true
-        print("Gotcha")
     }
 
     override func didReceiveMemoryWarning() {

@@ -83,27 +83,33 @@ class RegisterViewController: UIViewController {
     
     func setupViews() {
         firstNameTextField.layer.cornerRadius = 7.0
-        firstNameTextField.layer.borderWidth = 1.5
+        firstNameTextField.layer.borderWidth = 3.0
+        firstNameTextField.layer.borderColor = UIColor.white.cgColor
         firstNameTextField.clipsToBounds = true
         
         lastNameTextField.layer.cornerRadius = 7.0
-        lastNameTextField.layer.borderWidth = 1.5
+        lastNameTextField.layer.borderWidth = 3.0
+        lastNameTextField.layer.borderColor = UIColor.white.cgColor
         lastNameTextField.clipsToBounds = true
         
         ageTextField.layer.cornerRadius = 7.0
-        ageTextField.layer.borderWidth = 1.5
+        ageTextField.layer.borderWidth = 3.0
+        ageTextField.layer.borderColor = UIColor.white.cgColor
         ageTextField.clipsToBounds = true
         
         emailAddressTextField.layer.cornerRadius = 7.0
-        emailAddressTextField.layer.borderWidth = 1.5
+        emailAddressTextField.layer.borderWidth = 3.0
+        emailAddressTextField.layer.borderColor = UIColor.white.cgColor
         emailAddressTextField.clipsToBounds = true
         
         passwordTextField.layer.cornerRadius = 7.0
-        passwordTextField.layer.borderWidth = 1.5
+        passwordTextField.layer.borderWidth = 3.0
+        passwordTextField.layer.borderColor = UIColor.white.cgColor
         passwordTextField.clipsToBounds = true
         
         reEnterPasswordTextField.layer.cornerRadius = 7.0
-        reEnterPasswordTextField.layer.borderWidth = 1.5
+        reEnterPasswordTextField.layer.borderWidth = 3.0
+        reEnterPasswordTextField.layer.borderColor = UIColor.white.cgColor
         reEnterPasswordTextField.clipsToBounds = true
         
         createButton.layer.cornerRadius = 7.0
