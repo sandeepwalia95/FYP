@@ -18,18 +18,21 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        passwordTextField.layer.cornerRadius = 7.0
-        passwordTextField.layer.borderWidth = 3
-        passwordTextField.layer.borderColor = UIColor.white.cgColor
-        passwordTextField.clipsToBounds = true
+        setupViews()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let defaults = UserDefaults.standard
+        let isRegistered = defaults.bool(forKey: "isRegistered")
         
-        emailAddressTextField.layer.cornerRadius = 7.0
-        emailAddressTextField.layer.borderWidth = 3
-        emailAddressTextField.layer.borderColor = UIColor.white.cgColor
-        emailAddressTextField.clipsToBounds = true
+        print("HELOOOO", isRegistered)
         
-        signInButton.layer.cornerRadius = 7.0
-        signInButton.clipsToBounds = true
+        if isRegistered == false {
+            
+            let registerViewController = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
+            
+            self.present(registerViewController, animated: true)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,6 +62,22 @@ class SignInViewController: UIViewController {
         
         self.present(registerViewController, animated: true)
     }
+    
+    func setupViews() {
+        passwordTextField.layer.cornerRadius = 7.0
+        passwordTextField.layer.borderWidth = 3
+        passwordTextField.layer.borderColor = UIColor.white.cgColor
+        passwordTextField.clipsToBounds = true
+        
+        emailAddressTextField.layer.cornerRadius = 7.0
+        emailAddressTextField.layer.borderWidth = 3
+        emailAddressTextField.layer.borderColor = UIColor.white.cgColor
+        emailAddressTextField.clipsToBounds = true
+        
+        signInButton.layer.cornerRadius = 7.0
+        signInButton.clipsToBounds = true
+    }
+    
     /*
     // MARK: - Navigation
 

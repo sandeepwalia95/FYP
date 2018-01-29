@@ -60,8 +60,14 @@ class RegisterViewController: UIViewController {
         defaults.set(emailAddressTextField.text, forKey: "emailAddressKey")
         defaults.set(passwordTextField.text, forKey: "passwordKey")
         
+        defaults.set(true, forKey: "isRegistered")
+        
         let email = defaults.string(forKey: "emailAddressKey")
         print(email)
+        
+        let registered = defaults.bool(forKey: "isRegistered")
+        
+        print(registered)
         
         self.dismiss(animated: true, completion: nil)
     }
