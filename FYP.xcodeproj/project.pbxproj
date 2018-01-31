@@ -14,6 +14,7 @@
 		DD3596DF201CB4840096A84C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD3596DD201CB4840096A84C /* LaunchScreen.storyboard */; };
 		DD3596E7201CCC840096A84C /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3596E6201CCC840096A84C /* SignInViewController.swift */; };
 		DD3596E9201CCF160096A84C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3596E8201CCF160096A84C /* RegisterViewController.swift */; };
+		DD887CD720222A71003BCFE3 /* LogEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD887CD620222A71003BCFE3 /* LogEntryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		DD3596E0201CB4840096A84C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD3596E6201CCC840096A84C /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		DD3596E8201CCF160096A84C /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		DD887CD620222A71003BCFE3 /* LogEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEntryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				DD3596E0201CB4840096A84C /* Info.plist */,
 				DD3596E6201CCC840096A84C /* SignInViewController.swift */,
 				DD3596E8201CCF160096A84C /* RegisterViewController.swift */,
+				DD887CD620222A71003BCFE3 /* LogEntryViewController.swift */,
 			);
 			path = FYP;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD3596D7201CB4840096A84C /* ViewController.swift in Sources */,
+				DD887CD720222A71003BCFE3 /* LogEntryViewController.swift in Sources */,
 				DD3596D5201CB4840096A84C /* AppDelegate.swift in Sources */,
 				DD3596E7201CCC840096A84C /* SignInViewController.swift in Sources */,
 				DD3596E9201CCF160096A84C /* RegisterViewController.swift in Sources */,
