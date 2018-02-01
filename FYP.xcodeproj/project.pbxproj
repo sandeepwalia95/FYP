@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1DF7484BAF4592B255EB50C1 /* Pods_FYP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD1773FB594F28E25B4FA7D3 /* Pods_FYP.framework */; };
 		DD3596D5201CB4840096A84C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3596D4201CB4840096A84C /* AppDelegate.swift */; };
 		DD3596D7201CB4840096A84C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3596D6201CB4840096A84C /* ViewController.swift */; };
 		DD3596DA201CB4840096A84C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD3596D8201CB4840096A84C /* Main.storyboard */; };
@@ -18,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08EB26EF0073F8EC21D50595 /* Pods-FYP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FYP.release.xcconfig"; path = "Pods/Target Support Files/Pods-FYP/Pods-FYP.release.xcconfig"; sourceTree = "<group>"; };
+		6CAB64F2B7C0EF8AD60380AB /* Pods-FYP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FYP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FYP/Pods-FYP.debug.xcconfig"; sourceTree = "<group>"; };
+		CD1773FB594F28E25B4FA7D3 /* Pods_FYP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FYP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD3596D1201CB4840096A84C /* FYP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FYP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD3596D4201CB4840096A84C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD3596D6201CB4840096A84C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,17 +39,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DF7484BAF4592B255EB50C1 /* Pods_FYP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4EE39B89B80F21D78010DAF1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CD1773FB594F28E25B4FA7D3 /* Pods_FYP.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7C59FB3A0B7F8330CE57139D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6CAB64F2B7C0EF8AD60380AB /* Pods-FYP.debug.xcconfig */,
+				08EB26EF0073F8EC21D50595 /* Pods-FYP.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		DD3596C8201CB4840096A84C = {
 			isa = PBXGroup;
 			children = (
 				DD3596D3201CB4840096A84C /* FYP */,
 				DD3596D2201CB4840096A84C /* Products */,
+				7C59FB3A0B7F8330CE57139D /* Pods */,
+				4EE39B89B80F21D78010DAF1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,9 +104,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DD3596E3201CB4840096A84C /* Build configuration list for PBXNativeTarget "FYP" */;
 			buildPhases = (
+				B44F123FFB7E893660AB41D7 /* [CP] Check Pods Manifest.lock */,
 				DD3596CD201CB4840096A84C /* Sources */,
 				DD3596CE201CB4840096A84C /* Frameworks */,
 				DD3596CF201CB4840096A84C /* Resources */,
+				FC115AF2B0012F8F6AC8B68B /* [CP] Embed Pods Frameworks */,
+				D1668B776FD1DE1BB19BF7E2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -139,6 +166,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B44F123FFB7E893660AB41D7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FYP-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1668B776FD1DE1BB19BF7E2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FYP/Pods-FYP-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC115AF2B0012F8F6AC8B68B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FYP/Pods-FYP-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DynamicColor/DynamicColor.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicColor.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FYP/Pods-FYP-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DD3596CD201CB4840096A84C /* Sources */ = {
@@ -284,6 +365,7 @@
 		};
 		DD3596E4201CB4840096A84C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6CAB64F2B7C0EF8AD60380AB /* Pods-FYP.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -299,6 +381,7 @@
 		};
 		DD3596E5201CB4840096A84C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 08EB26EF0073F8EC21D50595 /* Pods-FYP.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
