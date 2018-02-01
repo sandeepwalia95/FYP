@@ -10,10 +10,19 @@ import UIKit
 
 class LogEntryViewController: UIViewController {
 
+    @IBOutlet weak var button1: UIButton!
+    @IBOutlet weak var button2: UIButton!
+    @IBOutlet weak var button3: UIButton!
+    @IBOutlet weak var button4: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        button1.layer.cornerRadius = button1.bounds.size.width/2;
+        button2.layer.cornerRadius = button2.bounds.size.width/2;
+        button3.layer.cornerRadius = button3.bounds.size.width/2;
+        button4.layer.cornerRadius = button4.bounds.size.width/2;
     }
 
     override func didReceiveMemoryWarning() {
