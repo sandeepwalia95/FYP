@@ -12,6 +12,9 @@ import DynamicColor
 class LogEntryViewController: UIViewController {
 
     @IBOutlet weak var moodLabel: UILabel!
+    @IBOutlet weak var sleepLabel: UILabel!
+    @IBOutlet weak var alcoholLabel: UILabel!
+    @IBOutlet weak var workLabel: UILabel!
     
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
@@ -19,6 +22,9 @@ class LogEntryViewController: UIViewController {
     @IBOutlet weak var button4: UIButton!
     
     @IBOutlet weak var moodSlider: UISlider!
+    @IBOutlet weak var sleepSlider: UISlider!
+    @IBOutlet weak var alcoholSlider: UISlider!
+    @IBOutlet weak var workSlider: UISlider!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +79,39 @@ class LogEntryViewController: UIViewController {
             moodLabel.backgroundColor = DynamicColor(hexString: "#00A6FF")
             moodSlider.minimumTrackTintColor = DynamicColor(hexString: "#00A6FF")
             moodSlider.thumbTintColor = DynamicColor(hexString: "#00A6FF")
+        }
+    }
+    
+    @IBAction func selectSleep(_ sender: Any) {
+        sleepSlider.value = roundf(sleepSlider.value)
+        
+        sleepLabel.text = Int(sleepSlider.value).description + " hrs"
+    }
+    
+    
+    @IBAction func selectAlcohol(_ sender: Any) {
+        alcoholSlider.value = roundf(alcoholSlider.value)
+        
+        alcoholLabel.text = Int(alcoholSlider.value).description + " units"
+    }
+    
+    @IBAction func alcoholInfo(_ sender: Any) {
+        displayAlertMessage(alertMessage: "Beer(pint): 2 units \n Spirts(25ml): 1 unit \n Wine(175ml): 2 units")
+    }
+    
+    @IBAction func selectWork(_ sender: Any) {
+        workSlider.value = roundf(workSlider.value)
+        
+        workLabel.text = Int(workSlider.value).description + " hrs"
+    }
+    
+    func displayAlertMessage(alertMessage: String) -> Void {
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: "Alcohol Unit Information \n", message: alertMessage, preferredStyle: .alert)
+            
+            alertController.addAction(UIAlertAction(title: "Got it!", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
         }
     }
     
