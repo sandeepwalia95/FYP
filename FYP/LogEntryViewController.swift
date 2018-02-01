@@ -15,6 +15,8 @@ class LogEntryViewController: UIViewController {
     @IBOutlet weak var button3: UIButton!
     @IBOutlet weak var button4: UIButton!
     
+    @IBOutlet weak var moodSlider: UISlider!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,7 +32,10 @@ class LogEntryViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func changeMood(_ sender: Any) {
+        moodSlider.value = roundf(moodSlider.value)
+    }
+    
     /*
     // MARK: - Navigation
 

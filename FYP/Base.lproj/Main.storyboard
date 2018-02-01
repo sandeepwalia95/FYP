@@ -263,9 +263,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="Hoi-X5-PiB">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="Hoi-X5-PiB">
                                 <rect key="frame" x="38" y="82" width="299" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="changeMood:" destination="tbB-uC-LLS" eventType="valueChanged" id="Xzy-cH-oer"/>
+                                </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MTH-Ym-G1t">
                                 <rect key="frame" x="40" y="146" width="50" height="50"/>
@@ -301,6 +304,7 @@
                         <outlet property="button2" destination="Ffo-h7-c5S" id="xEv-di-M6v"/>
                         <outlet property="button3" destination="aIh-OP-bkP" id="Rvs-tt-hDb"/>
                         <outlet property="button4" destination="bxO-Le-wbr" id="cyh-WZ-ZT3"/>
+                        <outlet property="moodSlider" destination="Hoi-X5-PiB" id="ove-SP-PDN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u5Y-KT-Y6u" userLabel="First Responder" sceneMemberID="firstResponder"/>
