@@ -42,24 +42,37 @@ class LogEntryViewController: UIViewController {
         case 1:
             moodLabel.text = "Excellent"
             moodLabel.backgroundColor = DynamicColor(hexString: "#976DD0")
+            moodSlider.thumbTintColor = DynamicColor(hexString: "#976DD0")
         case 2:
             moodLabel.text = "Great"
             moodLabel.backgroundColor = DynamicColor(hexString: "#00A6FF")
+            moodSlider.minimumTrackTintColor = DynamicColor(hexString: "#00A6FF")
+            moodSlider.thumbTintColor = DynamicColor(hexString: "#00A6FF")
         case 3:
             moodLabel.text = "Good"
             moodLabel.backgroundColor = DynamicColor(hexString: "#13CE66")
+            moodSlider.minimumTrackTintColor = DynamicColor(hexString: "#13CE66")
+            moodSlider.thumbTintColor = DynamicColor(hexString: "#13CE66")
         case 4:
             moodLabel.text = "Fair"
             moodLabel.backgroundColor = DynamicColor(hexString: "#E9F50C")
+            moodSlider.minimumTrackTintColor = DynamicColor(hexString: "#E9F50C")
+            moodSlider.thumbTintColor = DynamicColor(hexString: "#E9F50C")
         case 5:
             moodLabel.text = "Uh-Oh"
             moodLabel.backgroundColor = DynamicColor(hexString: "#FFBA5C")
+            moodSlider.minimumTrackTintColor = DynamicColor(hexString: "#FFBA5C")
+            moodSlider.thumbTintColor = DynamicColor(hexString: "#FFBA5C")
         case 6:
             moodLabel.text = "Bad"
             moodLabel.backgroundColor = DynamicColor(hexString: "#F95F62")
+            moodSlider.minimumTrackTintColor = DynamicColor(hexString: "#F95F62")
+            moodSlider.thumbTintColor = DynamicColor(hexString: "#F95F62")
         default:
             moodLabel.text = "Great"
             moodLabel.backgroundColor = DynamicColor(hexString: "#00A6FF")
+            moodSlider.minimumTrackTintColor = DynamicColor(hexString: "#00A6FF")
+            moodSlider.thumbTintColor = DynamicColor(hexString: "#00A6FF")
         }
     }
     

@@ -259,14 +259,15 @@
                                 <rect key="frame" x="136" y="20" width="103" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.32087966799736023" green="0.70396119356155396" blue="0.97651171684265137" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="1" maxValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="Hoi-X5-PiB">
                                 <rect key="frame" x="38" y="82" width="299" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="minimumTrackTintColor" red="0.52156862749999999" green="0.75686274509999996" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="minimumTrackTintColor" red="0.0" green="0.65098039215686276" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="thumbTintColor" red="0.0" green="0.65098039215686276" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="changeMood:" destination="tbB-uC-LLS" eventType="valueChanged" id="Xzy-cH-oer"/>
                                 </connections>
