@@ -16,6 +16,8 @@
 		DD3596E7201CCC840096A84C /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3596E6201CCC840096A84C /* SignInViewController.swift */; };
 		DD3596E9201CCF160096A84C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3596E8201CCF160096A84C /* RegisterViewController.swift */; };
 		DD887CD720222A71003BCFE3 /* LogEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD887CD620222A71003BCFE3 /* LogEntryViewController.swift */; };
+		DDDACAB5202676F500CE4FFD /* ViewLogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDACAB4202676F500CE4FFD /* ViewLogsViewController.swift */; };
+		DDDACAB72026833B00CE4FFD /* ViewLogsViewControllerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDACAB62026833B00CE4FFD /* ViewLogsViewControllerTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		DD3596E6201CCC840096A84C /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		DD3596E8201CCF160096A84C /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		DD887CD620222A71003BCFE3 /* LogEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEntryViewController.swift; sourceTree = "<group>"; };
+		DDDACAB4202676F500CE4FFD /* ViewLogsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLogsViewController.swift; sourceTree = "<group>"; };
+		DDDACAB62026833B00CE4FFD /* ViewLogsViewControllerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLogsViewControllerTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,8 @@
 				DD3596E6201CCC840096A84C /* SignInViewController.swift */,
 				DD3596E8201CCF160096A84C /* RegisterViewController.swift */,
 				DD887CD620222A71003BCFE3 /* LogEntryViewController.swift */,
+				DDDACAB4202676F500CE4FFD /* ViewLogsViewController.swift */,
+				DDDACAB62026833B00CE4FFD /* ViewLogsViewControllerTableViewCell.swift */,
 			);
 			path = FYP;
 			sourceTree = "<group>";
@@ -228,7 +234,9 @@
 			files = (
 				DD3596D7201CB4840096A84C /* ViewController.swift in Sources */,
 				DD887CD720222A71003BCFE3 /* LogEntryViewController.swift in Sources */,
+				DDDACAB5202676F500CE4FFD /* ViewLogsViewController.swift in Sources */,
 				DD3596D5201CB4840096A84C /* AppDelegate.swift in Sources */,
+				DDDACAB72026833B00CE4FFD /* ViewLogsViewControllerTableViewCell.swift in Sources */,
 				DD3596E7201CCC840096A84C /* SignInViewController.swift in Sources */,
 				DD3596E9201CCF160096A84C /* RegisterViewController.swift in Sources */,
 			);

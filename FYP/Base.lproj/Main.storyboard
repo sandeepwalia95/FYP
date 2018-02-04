@@ -613,10 +613,10 @@
             </objects>
             <point key="canvasLocation" x="3143" y="644"/>
         </scene>
-        <!--View Controller-->
+        <!--View Logs View Controller-->
         <scene sceneID="l1I-A0-dal">
             <objects>
-                <viewController id="wbi-tK-Pq2" sceneMemberID="viewController">
+                <viewController id="wbi-tK-Pq2" customClass="ViewLogsViewController" customModule="FYP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nuD-4v-Pmp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -723,7 +723,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="logCell" rowHeight="105" id="EtQ-YO-ePf">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="logCell" rowHeight="105" id="EtQ-YO-ePf" customClass="ViewLogsViewControllerTableViewCell" customModule="FYP" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="105"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EtQ-YO-ePf" id="wgh-Pv-4Nx">
@@ -805,8 +805,16 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="date" destination="de2-Jq-cLz" id="u7c-Rv-SK3"/>
+                                            <outlet property="firstMoodColor" destination="ni1-lg-9OB" id="eVw-c6-uMp"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="wbi-tK-Pq2" id="1Go-pB-hlH"/>
+                                    <outlet property="delegate" destination="wbi-tK-Pq2" id="08c-n2-JyU"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
