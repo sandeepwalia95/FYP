@@ -18,6 +18,7 @@
 		DD887CD720222A71003BCFE3 /* LogEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD887CD620222A71003BCFE3 /* LogEntryViewController.swift */; };
 		DDDACAB5202676F500CE4FFD /* ViewLogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDACAB4202676F500CE4FFD /* ViewLogsViewController.swift */; };
 		DDDACAB72026833B00CE4FFD /* ViewLogsViewControllerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDACAB62026833B00CE4FFD /* ViewLogsViewControllerTableViewCell.swift */; };
+		DDF022F72028F83900B1416B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDF022F62028F83900B1416B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		DD887CD620222A71003BCFE3 /* LogEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEntryViewController.swift; sourceTree = "<group>"; };
 		DDDACAB4202676F500CE4FFD /* ViewLogsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLogsViewController.swift; sourceTree = "<group>"; };
 		DDDACAB62026833B00CE4FFD /* ViewLogsViewControllerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLogsViewControllerTableViewCell.swift; sourceTree = "<group>"; };
+		DDF022F62028F83900B1416B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 		DD3596D3201CB4840096A84C /* FYP */ = {
 			isa = PBXGroup;
 			children = (
+				DDF022F62028F83900B1416B /* GoogleService-Info.plist */,
 				DD3596D4201CB4840096A84C /* AppDelegate.swift */,
 				DD3596D6201CB4840096A84C /* ViewController.swift */,
 				DD3596D8201CB4840096A84C /* Main.storyboard */,
@@ -166,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD3596DF201CB4840096A84C /* LaunchScreen.storyboard in Resources */,
+				DDF022F72028F83900B1416B /* GoogleService-Info.plist in Resources */,
 				DD3596DC201CB4840096A84C /* Assets.xcassets in Resources */,
 				DD3596DA201CB4840096A84C /* Main.storyboard in Resources */,
 			);
@@ -215,10 +219,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FYP/Pods-FYP-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DynamicColor/DynamicColor.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicColor.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
