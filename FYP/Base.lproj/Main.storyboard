@@ -839,18 +839,46 @@
         <!--View Controller-->
         <scene sceneID="mL4-Fe-3eO">
             <objects>
-                <viewController id="zGN-Wh-EUW" sceneMemberID="viewController">
+                <viewController id="zGN-Wh-EUW" customClass="ViewController" customModule="FYP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ztn-mZ-jYm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S2v-yM-PwZ">
+                                <rect key="frame" x="51" y="420" width="43" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sunny"/>
+                                <connections>
+                                    <action selector="sunnyPressed:" destination="zGN-Wh-EUW" eventType="touchUpInside" id="4HZ-6q-Ctu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="De5-op-tcf">
+                                <rect key="frame" x="273" y="420" width="43" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Foggy"/>
+                                <connections>
+                                    <action selector="foggyPressed:" destination="zGN-Wh-EUW" eventType="touchUpInside" id="Y6r-Zg-9Oo"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RE7-Z0-xb3">
+                                <rect key="frame" x="16" y="186" width="235" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="B6I-2w-ukb"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="topRated" id="tld-MA-A86"/>
+                    <connections>
+                        <outlet property="conditionLabel" destination="RE7-Z0-xb3" id="e5B-bc-dwh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GGl-FB-kpQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2546" y="-396"/>
+            <point key="canvasLocation" x="2544.8000000000002" y="-396.25187406296857"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="3zY-jU-Mlw">
