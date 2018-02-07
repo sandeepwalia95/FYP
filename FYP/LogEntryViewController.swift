@@ -21,6 +21,15 @@ class LogEntryViewController: UIViewController {
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
     @IBOutlet weak var button4: UIButton!
+    @IBOutlet weak var button5: UIButton!
+    @IBOutlet weak var button6: UIButton!
+    @IBOutlet weak var button7: UIButton!
+    @IBOutlet weak var button8: UIButton!
+    @IBOutlet weak var button9: UIButton!
+    @IBOutlet weak var button10: UIButton!
+    @IBOutlet weak var button11: UIButton!
+    @IBOutlet weak var button12: UIButton!
+    
     
     @IBOutlet weak var moodSlider: UISlider!
     @IBOutlet weak var sleepSlider: UISlider!
@@ -30,6 +39,9 @@ class LogEntryViewController: UIViewController {
     
     var ref: DatabaseReference!
     
+    var activityButtons: [UIButton] = []
+    var activitiesSelected: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,6 +50,19 @@ class LogEntryViewController: UIViewController {
         button2.layer.cornerRadius = button2.bounds.size.width/2;
         button3.layer.cornerRadius = button3.bounds.size.width/2;
         button4.layer.cornerRadius = button4.bounds.size.width/2;
+        button5.layer.cornerRadius = button5.bounds.size.width/2;
+        button6.layer.cornerRadius = button6.bounds.size.width/2;
+        button7.layer.cornerRadius = button7.bounds.size.width/2;
+        button8.layer.cornerRadius = button8.bounds.size.width/2;
+        button9.layer.cornerRadius = button9.bounds.size.width/2;
+        button10.layer.cornerRadius = button10.bounds.size.width/2;
+        button11.layer.cornerRadius = button11.bounds.size.width/2;
+        button12.layer.cornerRadius = button12.bounds.size.width/2;
+        
+        activityButtons.append(button1)
+        activityButtons.append(button2)
+        activityButtons.append(button3)
+        activityButtons.append(button4)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -92,6 +117,20 @@ class LogEntryViewController: UIViewController {
         }
     }
     
+    @IBAction func activityPressed(_ sender: Any) {
+        if let button = sender as? UIButton {
+            if button.isSelected {
+                // set deselected
+                button.isSelected = false
+                button.backgroundColor = UIColor.lightGray
+            } else {
+                // set selected
+                button.isSelected = true
+                button.backgroundColor = UIColor.brown
+            }
+        }
+    }
+    
     @IBAction func selectSleep(_ sender: Any) {
         sleepSlider.value = roundf(sleepSlider.value)
         
@@ -101,7 +140,6 @@ class LogEntryViewController: UIViewController {
         print(timeInterval)
         
     }
-    
     
     @IBAction func selectAlcohol(_ sender: Any) {
         alcoholSlider.value = roundf(alcoholSlider.value)
@@ -147,10 +185,18 @@ class LogEntryViewController: UIViewController {
         }
         
         logBranch.child(getCurrentDate()).child("medication").setValue(medValue)
+        
+        checkActivitiesSelected()
     }
     
-    func logMedication() {
+    func checkActivitiesSelected() {
         
+        for button in activityButtons {
+            if (button.isSelected) {
+                activitiesSelected.append((button.titleLabel?.text)!)
+            }
+        }
+        dump(activitiesSelected)
     }
     
     func displayAlertMessage(alertMessage: String) -> Void {
@@ -165,11 +211,9 @@ class LogEntryViewController: UIViewController {
     
     func getCurrentDate() -> String {
         let date = Date()
-        print(date)
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
         let currDate = formatter.string(from: date)
-        print(currDate)
         return currDate
     }
     /*
