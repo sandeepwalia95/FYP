@@ -28,7 +28,9 @@ class ViewController: UIViewController {
         let conditionRef = ref.child("condition")
         conditionRef.observe(.value) { (snap: DataSnapshot) in
             self.conditionLabel.text = (snap.value as! String).description
+            print(snap)
         }
+    
     }
 
     override func didReceiveMemoryWarning() {

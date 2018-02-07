@@ -8,6 +8,7 @@
 
 import UIKit
 import DynamicColor
+import FirebaseDatabase
 
 class LogEntryViewController: UIViewController {
 
@@ -26,6 +27,8 @@ class LogEntryViewController: UIViewController {
     @IBOutlet weak var alcoholSlider: UISlider!
     @IBOutlet weak var workSlider: UISlider!
     
+    var ref: DatabaseReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,6 +37,12 @@ class LogEntryViewController: UIViewController {
         button2.layer.cornerRadius = button2.bounds.size.width/2;
         button3.layer.cornerRadius = button3.bounds.size.width/2;
         button4.layer.cornerRadius = button4.bounds.size.width/2;
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        ref = Database.database().reference()
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,6 +95,10 @@ class LogEntryViewController: UIViewController {
         sleepSlider.value = roundf(sleepSlider.value)
         
         sleepLabel.text = Int(sleepSlider.value).description + " hrs"
+        
+        let timeInterval = NSDate().timeIntervalSince1970
+        print(timeInterval)
+        
     }
     
     
@@ -93,6 +106,9 @@ class LogEntryViewController: UIViewController {
         alcoholSlider.value = roundf(alcoholSlider.value)
         
         alcoholLabel.text = Int(alcoholSlider.value).description + " units"
+        
+        let date = NSDate(timeIntervalSince1970: 1517955151)
+        print(date)
     }
     
     @IBAction func alcoholInfo(_ sender: Any) {
@@ -105,6 +121,28 @@ class LogEntryViewController: UIViewController {
         workLabel.text = Int(workSlider.value).description + " hrs"
     }
     
+    @IBAction func logPressed(_ sender: Any) {
+//        let timeInterval = NSDate().timeIntervalSince1970
+//        let timeIntervalString = String (Int(timeInterval))
+//        print(timeIntervalString)
+//
+//        ref.child(timeIntervalString).child("mood").setValue(moodLabel.text)
+        
+        // Create a child in the 'logs' branch with the child being the current date.
+        // Then branch another child off this and set the first parameter value (mood)
+        // to the value taken from the moodSlider.
+        let logBranch = ref.child("logs")
+        logBranch.child(getCurrentDate()).child("mood").setValue(moodLabel.text)
+        
+        logBranch.child(getCurrentDate()).child("sleep").setValue(sleepSlider.value)
+        
+        logBranch.child(getCurrentDate()).child("alcohol").setValue(alcoholSlider.value)
+        
+        logBranch.child(getCurrentDate()).child("work").setValue(workSlider.value)
+        
+        
+    }
+    
     func displayAlertMessage(alertMessage: String) -> Void {
         DispatchQueue.main.async {
             let alertController = UIAlertController(title: "Alcohol Unit Information \n", message: alertMessage, preferredStyle: .alert)
@@ -115,6 +153,15 @@ class LogEntryViewController: UIViewController {
         }
     }
     
+    func getCurrentDate() -> String {
+        let date = Date()
+        print(date)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
+        let currDate = formatter.string(from: date)
+        print(currDate)
+        return currDate
+    }
     /*
     // MARK: - Navigation
 
