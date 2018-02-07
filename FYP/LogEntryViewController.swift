@@ -63,6 +63,14 @@ class LogEntryViewController: UIViewController {
         activityButtons.append(button2)
         activityButtons.append(button3)
         activityButtons.append(button4)
+        activityButtons.append(button5)
+        activityButtons.append(button6)
+        activityButtons.append(button7)
+        activityButtons.append(button8)
+        activityButtons.append(button9)
+        activityButtons.append(button10)
+        activityButtons.append(button11)
+        activityButtons.append(button12)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -123,10 +131,12 @@ class LogEntryViewController: UIViewController {
                 // set deselected
                 button.isSelected = false
                 button.backgroundColor = UIColor.lightGray
+                button.tintColor = UIColor.lightGray
             } else {
                 // set selected
                 button.isSelected = true
-                button.backgroundColor = UIColor.brown
+                button.backgroundColor = DynamicColor(hexString: "#85C1E9")
+                button.tintColor = DynamicColor(hexString: "#85C1E9")
             }
         }
     }
