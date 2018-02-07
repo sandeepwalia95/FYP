@@ -577,6 +577,7 @@
                         <outlet property="button2" destination="Ffo-h7-c5S" id="xEv-di-M6v"/>
                         <outlet property="button3" destination="aIh-OP-bkP" id="Rvs-tt-hDb"/>
                         <outlet property="button4" destination="bxO-Le-wbr" id="cyh-WZ-ZT3"/>
+                        <outlet property="medicationSwitch" destination="b8n-Zr-8Z3" id="8q9-ih-Z2Q"/>
                         <outlet property="moodLabel" destination="y9z-h0-O2Y" id="41y-uW-b55"/>
                         <outlet property="moodSlider" destination="Hoi-X5-PiB" id="ove-SP-PDN"/>
                         <outlet property="sleepLabel" destination="GSu-8r-hj4" id="HDf-kg-tGR"/>

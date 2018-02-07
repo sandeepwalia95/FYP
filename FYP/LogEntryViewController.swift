@@ -26,6 +26,7 @@ class LogEntryViewController: UIViewController {
     @IBOutlet weak var sleepSlider: UISlider!
     @IBOutlet weak var alcoholSlider: UISlider!
     @IBOutlet weak var workSlider: UISlider!
+    @IBOutlet weak var medicationSwitch: UISwitch!
     
     var ref: DatabaseReference!
     
@@ -140,6 +141,15 @@ class LogEntryViewController: UIViewController {
         
         logBranch.child(getCurrentDate()).child("work").setValue(workSlider.value)
         
+        var medValue = false
+        if (medicationSwitch.isOn) {
+            medValue = true
+        }
+        
+        logBranch.child(getCurrentDate()).child("medication").setValue(medValue)
+    }
+    
+    func logMedication() {
         
     }
     
