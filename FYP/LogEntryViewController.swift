@@ -76,6 +76,7 @@ class LogEntryViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        // Set Firebase reference
         ref = Database.database().reference()
         
         activitiesSelected.removeAll()
