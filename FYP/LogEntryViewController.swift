@@ -77,6 +77,8 @@ class LogEntryViewController: UIViewController {
         super.viewDidAppear(animated)
         
         ref = Database.database().reference()
+        
+        activitiesSelected.removeAll()
     }
 
     override func didReceiveMemoryWarning() {
@@ -197,16 +199,22 @@ class LogEntryViewController: UIViewController {
         logBranch.child(getCurrentDate()).child("medication").setValue(medValue)
         
         checkActivitiesSelected()
+        
+        for activity in activitiesSelected {
+            logBranch.child(getCurrentDate()).child("activities").child(activity).setValue(true)
+        }
     }
     
     func checkActivitiesSelected() {
         
         for button in activityButtons {
             if (button.isSelected) {
-                activitiesSelected.append((button.titleLabel?.text)!)
+                // Only add the activity to the list if it hasn't already been added (prevent duplicates)
+                if (activitiesSelected.contains((button.titleLabel?.text)!) == false) {
+                    activitiesSelected.append((button.titleLabel?.text)!)
+                }
             }
         }
-        dump(activitiesSelected)
     }
     
     func displayAlertMessage(alertMessage: String) -> Void {
