@@ -18,7 +18,7 @@ class ViewLogsViewController: UIViewController, UITableViewDelegate, UITableView
     
     let list = ["Milk", "Cheese", "Bread"]
     
-    var logData = [String]()
+    var logData = [Log]()
     
     let dict: [String : AnyObject] = [:]
 
@@ -60,7 +60,11 @@ class ViewLogsViewController: UIViewController, UITableViewDelegate, UITableView
             print(dataDict)
             
             print(snapshot.key)
-            self.logData.append(snapshot.key)
+            
+            let logDate = snapshot.key
+            
+            let log = Log(date: logDate)
+            self.logData.append(log)
             print(self.logData)
             
             self.tableView.reloadData()
@@ -91,7 +95,7 @@ class ViewLogsViewController: UIViewController, UITableViewDelegate, UITableView
         let row = indexPath.row
         let task = self.logData[row]
         
-        cell.date.text = task
+        cell.date.text = task.date
         
         return cell
     }

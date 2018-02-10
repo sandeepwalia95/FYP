@@ -13,8 +13,6 @@ class ViewLogsViewControllerTableViewCell: UITableViewCell {
     @IBOutlet weak var firstMoodColor: UILabel!
     @IBOutlet weak var date: UILabel!
     
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
