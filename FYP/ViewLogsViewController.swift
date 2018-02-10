@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DynamicColor
 import FirebaseDatabase
 
 class ViewLogsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -62,8 +63,11 @@ class ViewLogsViewController: UIViewController, UITableViewDelegate, UITableView
             print(snapshot.key)
             
             let logDate = snapshot.key
+            let logMood = dataDict!["mood"] as! String
+            print(logMood)
             
-            let log = Log(date: logDate)
+            
+            let log = Log(date: logDate, mood: logMood)
             self.logData.append(log)
             print(self.logData)
             
@@ -93,11 +97,39 @@ class ViewLogsViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "logCell", for: indexPath) as! ViewLogsViewControllerTableViewCell
         
         let row = indexPath.row
-        let task = self.logData[row]
+        let log = self.logData[row]
         
-        cell.date.text = task.date
+        cell.date.text = log.date
+        
+        let moodColor = moodToColor(mood: log.mood)
+        cell.moodLabel.text = log.mood
+        cell.firstMoodColor.backgroundColor = DynamicColor(hexString: moodColor)
         
         return cell
+    }
+    
+    // Method to convert a string to a mood based on mood retrieved from Firebase within snapshot.
+    func moodToColor(mood: String) -> String {
+        
+        let color: String
+        switch mood {
+        case "Excellent":
+            color = "#976DD0"
+        case "Great":
+            color = "#00A6FF"
+        case "Good":
+            color = "#13CE66"
+        case "Fair":
+            color = "#E9F50C"
+        case "Uh-Oh":
+            color = "#FFBA5C"
+        case "Bad":
+            color = "#F95F62"
+        default:
+            color = "#976DD0"
+        }
+        
+        return color
     }
     
 

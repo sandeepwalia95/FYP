@@ -961,6 +961,7 @@
                                         <connections>
                                             <outlet property="date" destination="de2-Jq-cLz" id="u7c-Rv-SK3"/>
                                             <outlet property="firstMoodColor" destination="ni1-lg-9OB" id="eVw-c6-uMp"/>
+                                            <outlet property="moodLabel" destination="Xsb-AS-tVv" id="Zmn-qD-fnl"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

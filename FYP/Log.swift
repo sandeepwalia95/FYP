@@ -11,8 +11,10 @@ import Foundation
 class Log {
     
     var date: String
+    var mood: String
     
-    init(date: String) {
+    init(date: String, mood: String) {
         self.date = date
+        self.mood = mood
     }
 }
