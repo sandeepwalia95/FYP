@@ -974,6 +974,9 @@
                         <viewLayoutGuide key="safeArea" id="5lX-VU-ide"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="contacts" id="TbS-Rc-hIi"/>
+                    <connections>
+                        <outlet property="tableView" destination="RVV-nT-NUW" id="r80-pX-avW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jeC-ZB-CJc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

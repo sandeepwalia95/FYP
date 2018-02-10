@@ -11,6 +11,7 @@ import FirebaseDatabase
 
 class ViewLogsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var tableView: UITableView!
     
     var ref: DatabaseReference!
     var databasehandle: DatabaseHandle?
@@ -58,13 +59,19 @@ class ViewLogsViewController: UIViewController, UITableViewDelegate, UITableView
             var dataDict = snapshot.value as? [String : Any]
             print(dataDict)
             
-            print("Wooooohooooo")
-            var actDict = snapshot.childSnapshot(forPath: "activities").value as? [String : Any]
-            print(actDict)
+            print(snapshot.key)
+            self.logData.append(snapshot.key)
+            print(self.logData)
             
-            for x in actDict! {
-                print(x.key)
-            }
+            self.tableView.reloadData()
+            
+//            print("Wooooohooooo")
+//            var actDict = snapshot.childSnapshot(forPath: "activities").value as? [String : Any]
+//            print(actDict)
+//
+//            for x in actDict! {
+//                print(x.key)
+//            }
             
         })
     }
@@ -75,14 +82,14 @@ class ViewLogsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.count
+        return logData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "logCell", for: indexPath) as! ViewLogsViewControllerTableViewCell
         
         let row = indexPath.row
-        let task = self.list[row]
+        let task = self.logData[row]
         
         cell.date.text = task
         
