@@ -67,10 +67,13 @@ class ViewLogsViewController: UIViewController, UITableViewDelegate, UITableView
             let logDate = snapshot.key
             let logMood = dataDict!["mood"] as! String
             let logSleep = dataDict!["sleep"] as! Int
+            let logAlcohol = dataDict!["alcohol"] as! Int
+            let logWork = dataDict!["work"] as! Int
+            let logMedication = dataDict!["medication"] as! Bool
             print(logMood)
             
             
-            let log = Log(date: logDate, mood: logMood, sleep: logSleep)
+            let log = Log(date: logDate, mood: logMood, sleep: logSleep, alcohol: logAlcohol, work: logWork, medication: logMedication)
             self.logData.append(log)
             print(self.logData)
             

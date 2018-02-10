@@ -13,10 +13,16 @@ class Log {
     var date: String
     var mood: String
     var sleep: Int
+    var alcohol: Int
+    var work: Int
+    var medication: Bool
     
-    init(date: String, mood: String, sleep: Int) {
+    init(date: String, mood: String, sleep: Int, alcohol: Int, work: Int, medication: Bool) {
         self.date = date
         self.mood = mood
         self.sleep = sleep
+        self.alcohol = alcohol
+        self.work = work
+        self.medication = medication
     }
 }
