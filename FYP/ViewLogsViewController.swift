@@ -70,10 +70,29 @@ class ViewLogsViewController: UIViewController, UITableViewDelegate, UITableView
             let logAlcohol = dataDict!["alcohol"] as! Int
             let logWork = dataDict!["work"] as! Int
             let logMedication = dataDict!["medication"] as! Bool
+            
+            var logActivities = [String]()
+            
+            if (dataDict!["activities"] != nil) {
+                print("WE DID IT")
+                logActivities = dataDict!["activities"] as! [String]
+            }
+            
+            print("Wooooohooooo")
+            print(logActivities)
+//
+//            if snapshot.hasChild("activites") {
+//                var actDict = snapshot.childSnapshot(forPath: "activities").value as? [String]
+//                print(actDict)
+//
+//                for x in actDict! {
+//                    print(x)
+//                }
+//            }
             print(logMood)
             
             
-            let log = Log(date: logDate, mood: logMood, sleep: logSleep, alcohol: logAlcohol, work: logWork, medication: logMedication)
+            let log = Log(date: logDate, mood: logMood, sleep: logSleep, alcohol: logAlcohol, work: logWork, medication: logMedication, activities: logActivities)
             self.logData.append(log)
             print(self.logData)
             
