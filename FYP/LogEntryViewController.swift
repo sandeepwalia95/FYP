@@ -188,7 +188,8 @@ class LogEntryViewController: UIViewController {
                                                     "sleep" : sleepSlider.value,
                                                     "alcohol" : alcoholSlider.value,
                                                     "work" : workSlider.value,
-                                                    "medication" : medValue])
+                                                    "medication" : medValue,
+                                                    "activities" : activitiesSelected])
         
 //        logBranch.child(getCurrentDate()).child("sleep").setValue(sleepSlider.value)
 //
