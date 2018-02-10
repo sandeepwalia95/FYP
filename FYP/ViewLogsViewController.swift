@@ -32,6 +32,8 @@ class ViewLogsViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        self.logData.removeAll()
+        
         // Set Firebase reference
         ref = Database.database().reference()
         
@@ -64,10 +66,11 @@ class ViewLogsViewController: UIViewController, UITableViewDelegate, UITableView
             
             let logDate = snapshot.key
             let logMood = dataDict!["mood"] as! String
+            let logSleep = dataDict!["sleep"] as! Int
             print(logMood)
             
             
-            let log = Log(date: logDate, mood: logMood)
+            let log = Log(date: logDate, mood: logMood, sleep: logSleep)
             self.logData.append(log)
             print(self.logData)
             

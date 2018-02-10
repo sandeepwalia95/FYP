@@ -12,9 +12,11 @@ class Log {
     
     var date: String
     var mood: String
+    var sleep: Int
     
-    init(date: String, mood: String) {
+    init(date: String, mood: String, sleep: Int) {
         self.date = date
         self.mood = mood
+        self.sleep = sleep
     }
 }

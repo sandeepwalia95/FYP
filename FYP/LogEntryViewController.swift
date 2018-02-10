@@ -148,19 +148,12 @@ class LogEntryViewController: UIViewController {
         sleepSlider.value = roundf(sleepSlider.value)
         
         sleepLabel.text = Int(sleepSlider.value).description + " hrs"
-        
-        let timeInterval = NSDate().timeIntervalSince1970
-        print(timeInterval)
-        
     }
     
     @IBAction func selectAlcohol(_ sender: Any) {
         alcoholSlider.value = roundf(alcoholSlider.value)
         
         alcoholLabel.text = Int(alcoholSlider.value).description + " units"
-        
-        let date = NSDate(timeIntervalSince1970: 1517955151)
-        print(date)
     }
     
     @IBAction func alcoholInfo(_ sender: Any) {
@@ -183,27 +176,33 @@ class LogEntryViewController: UIViewController {
         // Create a child in the 'logs' branch with the child being the current date.
         // Then branch another child off this and set the first parameter value (mood)
         // to the value taken from the moodSlider.
-        let logBranch = ref.child("logs")
-        logBranch.child(getCurrentDate()).child("mood").setValue(moodLabel.text)
-        
-        logBranch.child(getCurrentDate()).child("sleep").setValue(sleepSlider.value)
-        
-        logBranch.child(getCurrentDate()).child("alcohol").setValue(alcoholSlider.value)
-        
-        logBranch.child(getCurrentDate()).child("work").setValue(workSlider.value)
-        
         var medValue = false
         if (medicationSwitch.isOn) {
             medValue = true
         }
         
-        logBranch.child(getCurrentDate()).child("medication").setValue(medValue)
-        
         checkActivitiesSelected()
         
-        for activity in activitiesSelected {
-            logBranch.child(getCurrentDate()).child("activities").child(activity).setValue(true)
-        }
+        let logBranch = ref.child("logs")
+        logBranch.child(getCurrentDate()).setValue(["mood" : moodLabel.text,
+                                                    "sleep" : sleepSlider.value,
+                                                    "alcohol" : alcoholSlider.value,
+                                                    "work" : workSlider.value,
+                                                    "medication" : medValue])
+        
+//        logBranch.child(getCurrentDate()).child("sleep").setValue(sleepSlider.value)
+//
+//        logBranch.child(getCurrentDate()).child("alcohol").setValue(alcoholSlider.value)
+//
+//        logBranch.child(getCurrentDate()).child("work").setValue(workSlider.value)
+//
+//        logBranch.child(getCurrentDate()).child("medication").setValue(medValue)
+//
+//        checkActivitiesSelected()
+//
+//        for activity in activitiesSelected {
+//            logBranch.child(getCurrentDate()).child("activities").child(activity).setValue(true)
+//        }
     }
     
     func checkActivitiesSelected() {
