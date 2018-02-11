@@ -8,6 +8,7 @@
 
 import UIKit
 import DynamicColor
+import FirebaseDatabase
 
 class LogEntryViewController: UIViewController {
 
@@ -20,20 +21,43 @@ class LogEntryViewController: UIViewController {
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
     @IBOutlet weak var button4: UIButton!
+    @IBOutlet weak var button5: UIButton!
+    @IBOutlet weak var button6: UIButton!
+    @IBOutlet weak var button7: UIButton!
+    @IBOutlet weak var button8: UIButton!
+    @IBOutlet weak var button9: UIButton!
+    @IBOutlet weak var button10: UIButton!
+    @IBOutlet weak var button11: UIButton!
+    @IBOutlet weak var button12: UIButton!
+    
     
     @IBOutlet weak var moodSlider: UISlider!
     @IBOutlet weak var sleepSlider: UISlider!
     @IBOutlet weak var alcoholSlider: UISlider!
     @IBOutlet weak var workSlider: UISlider!
+    @IBOutlet weak var medicationSwitch: UISwitch!
+    
+    var ref: DatabaseReference!
+    
+    var activityButtons: [UIButton] = []
+    var activitiesSelected: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        button1.layer.cornerRadius = button1.bounds.size.width/2;
-        button2.layer.cornerRadius = button2.bounds.size.width/2;
-        button3.layer.cornerRadius = button3.bounds.size.width/2;
-        button4.layer.cornerRadius = button4.bounds.size.width/2;
+        
+        setupActivityButtons()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Set Firebase reference
+        ref = Database.database().reference()
+        
+        // Ensure no previous activities are being included
+        activitiesSelected.removeAll()
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,6 +65,7 @@ class LogEntryViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // Change mood slider and label color and values
     @IBAction func changeMood(_ sender: Any) {
         moodSlider.value = roundf(moodSlider.value)
         
@@ -82,29 +107,88 @@ class LogEntryViewController: UIViewController {
         }
     }
     
+    // Change activity button color and selected attribute
+    @IBAction func activityPressed(_ sender: Any) {
+        if let button = sender as? UIButton {
+            if button.isSelected {
+                // set deselected
+                button.isSelected = false
+                button.backgroundColor = UIColor.lightGray
+                button.tintColor = UIColor.lightGray
+            } else {
+                // set selected
+                button.isSelected = true
+                button.backgroundColor = DynamicColor(hexString: "#85C1E9")
+                button.tintColor = DynamicColor(hexString: "#85C1E9")
+            }
+        }
+    }
+    
+    // Change sleep slider
     @IBAction func selectSleep(_ sender: Any) {
         sleepSlider.value = roundf(sleepSlider.value)
         
         sleepLabel.text = Int(sleepSlider.value).description + " hrs"
     }
     
-    
+    // Change alcohol slider
     @IBAction func selectAlcohol(_ sender: Any) {
         alcoholSlider.value = roundf(alcoholSlider.value)
         
         alcoholLabel.text = Int(alcoholSlider.value).description + " units"
     }
     
+    // Display Alcohol information for units
     @IBAction func alcoholInfo(_ sender: Any) {
         displayAlertMessage(alertMessage: "Beer(pint): 2 units \n Spirts(25ml): 1 unit \n Wine(175ml): 2 units")
     }
     
+    // Change work slider
     @IBAction func selectWork(_ sender: Any) {
         workSlider.value = roundf(workSlider.value)
         
         workLabel.text = Int(workSlider.value).description + " hrs"
     }
     
+    @IBAction func logPressed(_ sender: Any) {
+        
+        // Checks if the medication switch is on or not
+        var medValue = false
+        if (medicationSwitch.isOn) {
+            medValue = true
+        }
+        
+        // Method to check what activites have been selected by the user.
+        checkActivitiesSelected()
+        
+        // Create a child in the 'logs' branch with the child being the current date.
+        // Then branch another child off this and set the parameter values.
+        
+        // ** NB -> Need to set these values in one go to avoid error of nil being read when this
+        // is being observed in the ViewLogs VC **
+        let logBranch = ref.child("logs")
+        logBranch.child(getCurrentDate()).setValue(["mood" : moodLabel.text,
+                                                    "sleep" : sleepSlider.value,
+                                                    "alcohol" : alcoholSlider.value,
+                                                    "work" : workSlider.value,
+                                                    "medication" : medValue,
+                                                    "activities" : activitiesSelected])
+    }
+    
+    // Method to check what activities have been selected by the user
+    func checkActivitiesSelected() {
+        
+        for button in activityButtons {
+            if (button.isSelected) {
+                // Only add the activity to the list if it hasn't already been added (prevent duplicates)
+                if (activitiesSelected.contains((button.titleLabel?.text)!) == false) {
+                    activitiesSelected.append((button.titleLabel?.text)!)
+                }
+            }
+        }
+    }
+    
+    // Alert message to display the Alcohol Unit Information
     func displayAlertMessage(alertMessage: String) -> Void {
         DispatchQueue.main.async {
             let alertController = UIAlertController(title: "Alcohol Unit Information \n", message: alertMessage, preferredStyle: .alert)
@@ -115,6 +199,44 @@ class LogEntryViewController: UIViewController {
         }
     }
     
+    // Return the the current date in the format below
+    // *** TODO: Change the format of how the date is presented
+    func getCurrentDate() -> String {
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
+        let currDate = formatter.string(from: date)
+        return currDate
+    }
+    
+    // Setup the buttons as circular and add them to an array.
+    func setupActivityButtons() {
+        button1.layer.cornerRadius = button1.bounds.size.width/2;
+        button2.layer.cornerRadius = button2.bounds.size.width/2;
+        button3.layer.cornerRadius = button3.bounds.size.width/2;
+        button4.layer.cornerRadius = button4.bounds.size.width/2;
+        button5.layer.cornerRadius = button5.bounds.size.width/2;
+        button6.layer.cornerRadius = button6.bounds.size.width/2;
+        button7.layer.cornerRadius = button7.bounds.size.width/2;
+        button8.layer.cornerRadius = button8.bounds.size.width/2;
+        button9.layer.cornerRadius = button9.bounds.size.width/2;
+        button10.layer.cornerRadius = button10.bounds.size.width/2;
+        button11.layer.cornerRadius = button11.bounds.size.width/2;
+        button12.layer.cornerRadius = button12.bounds.size.width/2;
+        
+        activityButtons.append(button1)
+        activityButtons.append(button2)
+        activityButtons.append(button3)
+        activityButtons.append(button4)
+        activityButtons.append(button5)
+        activityButtons.append(button6)
+        activityButtons.append(button7)
+        activityButtons.append(button8)
+        activityButtons.append(button9)
+        activityButtons.append(button10)
+        activityButtons.append(button11)
+        activityButtons.append(button12)
+    }
     /*
     // MARK: - Navigation
 
