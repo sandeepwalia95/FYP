@@ -130,7 +130,71 @@ class ViewLogsViewController: UIViewController, UITableViewDelegate, UITableView
         cell.moodLabel.text = log.mood
         cell.firstMoodColor.backgroundColor = DynamicColor(hexString: moodColor)
         
+        let displayActivities = activitiesFromLog(activities: log.activities)
+        
+        switch displayActivities.count {
+        case 1:
+            cell.activityOne.text = displayActivities[0]
+        case 2:
+            cell.activityOne.text = displayActivities[0]
+            cell.activityTwo.text = displayActivities[1]
+            cell.activityThree.text = " "
+            cell.activityFour.text = " "
+            cell.activityFive.text = " "
+            cell.activitySix.text = " "
+        case 3:
+            cell.activityOne.text = displayActivities[0]
+            cell.activityTwo.text = displayActivities[1]
+            cell.activityThree.text = displayActivities[2]
+            cell.activityFour.text = " "
+            cell.activityFive.text = " "
+            cell.activitySix.text = " "
+        case 4:
+            cell.activityOne.text = displayActivities[0]
+            cell.activityTwo.text = displayActivities[1]
+            cell.activityThree.text = displayActivities[2]
+            cell.activityFour.text = displayActivities[3]
+            cell.activityFive.text = " "
+            cell.activitySix.text = " "
+        case 5:
+            cell.activityOne.text = displayActivities[0]
+            cell.activityTwo.text = displayActivities[1]
+            cell.activityThree.text = displayActivities[2]
+            cell.activityFour.text = displayActivities[3]
+            cell.activityFive.text = displayActivities[4]
+            cell.activitySix.text = " "
+        case 6:
+            cell.activityOne.text = displayActivities[0]
+            cell.activityTwo.text = displayActivities[1]
+            cell.activityThree.text = displayActivities[2]
+            cell.activityFour.text = displayActivities[3]
+            cell.activityFive.text = displayActivities[4]
+            cell.activitySix.text = displayActivities[5]
+        default:
+            cell.activityOne.text = " "
+            cell.activityTwo.text = " "
+            cell.activityThree.text = " "
+            cell.activityFour.text = " "
+            cell.activityFive.text = " "
+            cell.activitySix.text = " "
+        }
+        
         return cell
+    }
+    
+    func activitiesFromLog(activities: [String]) -> [String] {
+        var displayActivities = [String]()
+        
+        let activitiesLength = activities.count
+        
+        if (activitiesLength > 6) {
+            for i in 0...5 {
+                displayActivities.append(activities[i])
+            }
+            return displayActivities
+        } else {
+            return activities
+        }
     }
     
     // Method to convert a string to a mood based on mood retrieved from Firebase within snapshot.

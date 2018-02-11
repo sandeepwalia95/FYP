@@ -13,6 +13,12 @@ class ViewLogsViewControllerTableViewCell: UITableViewCell {
     @IBOutlet weak var firstMoodColor: UILabel!
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var moodLabel: UILabel!
+    @IBOutlet weak var activityOne: UILabel!
+    @IBOutlet weak var activityTwo: UILabel!
+    @IBOutlet weak var activityThree: UILabel!
+    @IBOutlet weak var activityFour: UILabel!
+    @IBOutlet weak var activityFive: UILabel!
+    @IBOutlet weak var activitySix: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
