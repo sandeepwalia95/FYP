@@ -17,8 +17,6 @@ class ViewLogsViewController: UIViewController, UITableViewDelegate, UITableView
     var ref: DatabaseReference!
     var databasehandle: DatabaseHandle?
     
-    let list = ["Milk", "Cheese", "Bread"]
-    
     var logData = [Log]()
     
     let dict: [String : AnyObject] = [:]
@@ -32,6 +30,7 @@ class ViewLogsViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        // Ensure that there is no duplicates in the logs
         self.logData.removeAll()
         
         // Set Firebase reference
@@ -50,20 +49,9 @@ class ViewLogsViewController: UIViewController, UITableViewDelegate, UITableView
             // UInt is a reference to the particular reference that we have open here
             // so we can use it to detach the listener.
             
-            //self.logData.append(snapshot.children)
-//            let allData = snapshot.children.allObjects
-//            for i in allData {
-//                print(i)
-//            }
-            
-            // Pick up from here tomorrow....
-            // We can get all the normal keys by just going through the dataDict
-            // And use the method below to access the keys within activities
             var dataDict = snapshot.value as? [String : Any]
-            print(dataDict)
             
-            print(snapshot.key)
-            
+            // Extract data from the dictionary (snapshot)
             let logDate = snapshot.key
             let logMood = dataDict!["mood"] as! String
             let logSleep = dataDict!["sleep"] as! Int
@@ -73,39 +61,17 @@ class ViewLogsViewController: UIViewController, UITableViewDelegate, UITableView
             
             var logActivities = [String]()
             
+            // If activities have been logged then extract them from the dictionary (snapshot)
             if (dataDict!["activities"] != nil) {
-                print("WE DID IT")
                 logActivities = dataDict!["activities"] as! [String]
             }
             
-            print("Wooooohooooo")
-            print(logActivities)
-//
-//            if snapshot.hasChild("activites") {
-//                var actDict = snapshot.childSnapshot(forPath: "activities").value as? [String]
-//                print(actDict)
-//
-//                for x in actDict! {
-//                    print(x)
-//                }
-//            }
-            print(logMood)
-            
-            
+            // Create log object and add it to the LogDate list which will be accessed with the tableView methods.
             let log = Log(date: logDate, mood: logMood, sleep: logSleep, alcohol: logAlcohol, work: logWork, medication: logMedication, activities: logActivities)
             self.logData.append(log)
-            print(self.logData)
             
+            // Reload the tableView to make sure new log is visible in the tableView.
             self.tableView.reloadData()
-            
-//            print("Wooooohooooo")
-//            var actDict = snapshot.childSnapshot(forPath: "activities").value as? [String : Any]
-//            print(actDict)
-//
-//            for x in actDict! {
-//                print(x.key)
-//            }
-            
         })
     }
 
@@ -135,6 +101,11 @@ class ViewLogsViewController: UIViewController, UITableViewDelegate, UITableView
         switch displayActivities.count {
         case 1:
             cell.activityOne.text = displayActivities[0]
+            cell.activityTwo.text = " "
+            cell.activityThree.text = " "
+            cell.activityFour.text = " "
+            cell.activityFive.text = " "
+            cell.activitySix.text = " "
         case 2:
             cell.activityOne.text = displayActivities[0]
             cell.activityTwo.text = displayActivities[1]
@@ -182,6 +153,7 @@ class ViewLogsViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
+    // Returns an array of string toi be displayed (max 6 activities)
     func activitiesFromLog(activities: [String]) -> [String] {
         var displayActivities = [String]()
         
@@ -221,7 +193,6 @@ class ViewLogsViewController: UIViewController, UITableViewDelegate, UITableView
         return color
     }
     
-
     /*
     // MARK: - Navigation
 

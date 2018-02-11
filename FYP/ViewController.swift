@@ -7,13 +7,8 @@
 //
 
 import UIKit
-import FirebaseDatabase
 
 class ViewController: UIViewController {
-
-    @IBOutlet weak var conditionLabel: UILabel!
-    
-    var ref: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,27 +17,11 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        ref = Database.database().reference()
-        
-        let conditionRef = ref.child("condition")
-        conditionRef.observe(.value) { (snap: DataSnapshot) in
-            self.conditionLabel.text = (snap.value as! String).description
-            print(snap)
-        }
-    
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    @IBAction func sunnyPressed(_ sender: Any) {
-        ref.child("Hilary").childByAutoId().setValue("Sandeep")
-    }
-    
-    @IBAction func foggyPressed(_ sender: Any) {
     }
 }
 

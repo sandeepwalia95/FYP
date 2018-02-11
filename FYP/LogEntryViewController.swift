@@ -46,31 +46,8 @@ class LogEntryViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        button1.layer.cornerRadius = button1.bounds.size.width/2;
-        button2.layer.cornerRadius = button2.bounds.size.width/2;
-        button3.layer.cornerRadius = button3.bounds.size.width/2;
-        button4.layer.cornerRadius = button4.bounds.size.width/2;
-        button5.layer.cornerRadius = button5.bounds.size.width/2;
-        button6.layer.cornerRadius = button6.bounds.size.width/2;
-        button7.layer.cornerRadius = button7.bounds.size.width/2;
-        button8.layer.cornerRadius = button8.bounds.size.width/2;
-        button9.layer.cornerRadius = button9.bounds.size.width/2;
-        button10.layer.cornerRadius = button10.bounds.size.width/2;
-        button11.layer.cornerRadius = button11.bounds.size.width/2;
-        button12.layer.cornerRadius = button12.bounds.size.width/2;
         
-        activityButtons.append(button1)
-        activityButtons.append(button2)
-        activityButtons.append(button3)
-        activityButtons.append(button4)
-        activityButtons.append(button5)
-        activityButtons.append(button6)
-        activityButtons.append(button7)
-        activityButtons.append(button8)
-        activityButtons.append(button9)
-        activityButtons.append(button10)
-        activityButtons.append(button11)
-        activityButtons.append(button12)
+        setupActivityButtons()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -79,6 +56,7 @@ class LogEntryViewController: UIViewController {
         // Set Firebase reference
         ref = Database.database().reference()
         
+        // Ensure no previous activities are being included
         activitiesSelected.removeAll()
     }
 
@@ -87,6 +65,7 @@ class LogEntryViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // Change mood slider and label color and values
     @IBAction func changeMood(_ sender: Any) {
         moodSlider.value = roundf(moodSlider.value)
         
@@ -128,6 +107,7 @@ class LogEntryViewController: UIViewController {
         }
     }
     
+    // Change activity button color and selected attribute
     @IBAction func activityPressed(_ sender: Any) {
         if let button = sender as? UIButton {
             if button.isSelected {
@@ -144,22 +124,26 @@ class LogEntryViewController: UIViewController {
         }
     }
     
+    // Change sleep slider
     @IBAction func selectSleep(_ sender: Any) {
         sleepSlider.value = roundf(sleepSlider.value)
         
         sleepLabel.text = Int(sleepSlider.value).description + " hrs"
     }
     
+    // Change alcohol slider
     @IBAction func selectAlcohol(_ sender: Any) {
         alcoholSlider.value = roundf(alcoholSlider.value)
         
         alcoholLabel.text = Int(alcoholSlider.value).description + " units"
     }
     
+    // Display Alcohol information for units
     @IBAction func alcoholInfo(_ sender: Any) {
         displayAlertMessage(alertMessage: "Beer(pint): 2 units \n Spirts(25ml): 1 unit \n Wine(175ml): 2 units")
     }
     
+    // Change work slider
     @IBAction func selectWork(_ sender: Any) {
         workSlider.value = roundf(workSlider.value)
         
@@ -167,22 +151,21 @@ class LogEntryViewController: UIViewController {
     }
     
     @IBAction func logPressed(_ sender: Any) {
-//        let timeInterval = NSDate().timeIntervalSince1970
-//        let timeIntervalString = String (Int(timeInterval))
-//        print(timeIntervalString)
-//
-//        ref.child(timeIntervalString).child("mood").setValue(moodLabel.text)
         
-        // Create a child in the 'logs' branch with the child being the current date.
-        // Then branch another child off this and set the first parameter value (mood)
-        // to the value taken from the moodSlider.
+        // Checks if the medication switch is on or not
         var medValue = false
         if (medicationSwitch.isOn) {
             medValue = true
         }
         
+        // Method to check what activites have been selected by the user.
         checkActivitiesSelected()
         
+        // Create a child in the 'logs' branch with the child being the current date.
+        // Then branch another child off this and set the parameter values.
+        
+        // ** NB -> Need to set these values in one go to avoid error of nil being read when this
+        // is being observed in the ViewLogs VC **
         let logBranch = ref.child("logs")
         logBranch.child(getCurrentDate()).setValue(["mood" : moodLabel.text,
                                                     "sleep" : sleepSlider.value,
@@ -190,22 +173,9 @@ class LogEntryViewController: UIViewController {
                                                     "work" : workSlider.value,
                                                     "medication" : medValue,
                                                     "activities" : activitiesSelected])
-        
-//        logBranch.child(getCurrentDate()).child("sleep").setValue(sleepSlider.value)
-//
-//        logBranch.child(getCurrentDate()).child("alcohol").setValue(alcoholSlider.value)
-//
-//        logBranch.child(getCurrentDate()).child("work").setValue(workSlider.value)
-//
-//        logBranch.child(getCurrentDate()).child("medication").setValue(medValue)
-//
-//        checkActivitiesSelected()
-//
-//        for activity in activitiesSelected {
-//            logBranch.child(getCurrentDate()).child("activities").child(activity).setValue(true)
-//        }
     }
     
+    // Method to check what activities have been selected by the user
     func checkActivitiesSelected() {
         
         for button in activityButtons {
@@ -218,6 +188,7 @@ class LogEntryViewController: UIViewController {
         }
     }
     
+    // Alert message to display the Alcohol Unit Information
     func displayAlertMessage(alertMessage: String) -> Void {
         DispatchQueue.main.async {
             let alertController = UIAlertController(title: "Alcohol Unit Information \n", message: alertMessage, preferredStyle: .alert)
@@ -228,12 +199,43 @@ class LogEntryViewController: UIViewController {
         }
     }
     
+    // Return the the current date in the format below
+    // *** TODO: Change the format of how the date is presented
     func getCurrentDate() -> String {
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
         let currDate = formatter.string(from: date)
         return currDate
+    }
+    
+    // Setup the buttons as circular and add them to an array.
+    func setupActivityButtons() {
+        button1.layer.cornerRadius = button1.bounds.size.width/2;
+        button2.layer.cornerRadius = button2.bounds.size.width/2;
+        button3.layer.cornerRadius = button3.bounds.size.width/2;
+        button4.layer.cornerRadius = button4.bounds.size.width/2;
+        button5.layer.cornerRadius = button5.bounds.size.width/2;
+        button6.layer.cornerRadius = button6.bounds.size.width/2;
+        button7.layer.cornerRadius = button7.bounds.size.width/2;
+        button8.layer.cornerRadius = button8.bounds.size.width/2;
+        button9.layer.cornerRadius = button9.bounds.size.width/2;
+        button10.layer.cornerRadius = button10.bounds.size.width/2;
+        button11.layer.cornerRadius = button11.bounds.size.width/2;
+        button12.layer.cornerRadius = button12.bounds.size.width/2;
+        
+        activityButtons.append(button1)
+        activityButtons.append(button2)
+        activityButtons.append(button3)
+        activityButtons.append(button4)
+        activityButtons.append(button5)
+        activityButtons.append(button6)
+        activityButtons.append(button7)
+        activityButtons.append(button8)
+        activityButtons.append(button9)
+        activityButtons.append(button10)
+        activityButtons.append(button11)
+        activityButtons.append(button12)
     }
     /*
     // MARK: - Navigation
