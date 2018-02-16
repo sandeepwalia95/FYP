@@ -14,6 +14,7 @@ class DetailLogViewController: UIViewController {
     
     @IBOutlet weak var moodLabel: UILabel!
     @IBOutlet weak var moodView: UIView!
+    @IBOutlet weak var medImageView: UIImageView!
     
     @IBOutlet weak var sleepProgressView: MBCircularProgressBarView!
     @IBOutlet weak var alcoholProgressView: MBCircularProgressBarView!
@@ -42,6 +43,12 @@ class DetailLogViewController: UIViewController {
         self.sleepProgressView.progressStrokeColor = DynamicColor(hexString: moodColor)
         self.alcoholProgressView.progressStrokeColor = DynamicColor(hexString: moodColor)
         self.workProgressView.progressStrokeColor = DynamicColor(hexString: moodColor)
+        
+        if self.log.medication == true {
+            self.medImageView.image = UIImage(named: "yesMeds.png")!
+        } else {
+            self.medImageView.image = UIImage(named: "noMeds.png")!
+        }
         
     }
 
