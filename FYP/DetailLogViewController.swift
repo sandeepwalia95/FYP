@@ -7,13 +7,27 @@
 //
 
 import UIKit
+import MBCircularProgressBar
 
 class DetailLogViewController: UIViewController {
+    
+    @IBOutlet weak var moodLabel: UILabel!
+    @IBOutlet weak var sleepProgressView: MBCircularProgressBarView!
+    @IBOutlet weak var alcoholProgressView: MBCircularProgressBarView!
+    @IBOutlet weak var workProgressView: MBCircularProgressBarView!
+    
+    var log = Log(date: "", mood: "", sleep: 0, alcohol: 0, work: 0, medication: true, activities: [])
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        self.moodLabel.text = self.log.mood
+        
+        self.sleepProgressView.value = 0
+        self.alcoholProgressView.value = 0
+        self.workProgressView.value = 0
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +35,14 @@ class DetailLogViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        UIView.animate(withDuration: 1.0) {
+            self.sleepProgressView.value = CGFloat(self.log.sleep)
+            self.alcoholProgressView.value = CGFloat(self.log.alcohol)
+            self.workProgressView.value = CGFloat(self.log.work)
+        }
+    }
 
     /*
     // MARK: - Navigation

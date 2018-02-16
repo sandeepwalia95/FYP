@@ -975,7 +975,7 @@
                                             <outlet property="date" destination="de2-Jq-cLz" id="u7c-Rv-SK3"/>
                                             <outlet property="firstMoodColor" destination="ni1-lg-9OB" id="eVw-c6-uMp"/>
                                             <outlet property="moodLabel" destination="Xsb-AS-tVv" id="Zmn-qD-fnl"/>
-                                            <segue destination="HZL-ko-c1Q" kind="show" id="HG2-om-BJS"/>
+                                            <segue destination="HZL-ko-c1Q" kind="show" identifier="DetailLogSegue" id="HG2-om-BJS"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -997,29 +997,139 @@
             </objects>
             <point key="canvasLocation" x="1887" y="-1260"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail Log View Controller-->
         <scene sceneID="ffe-bs-9Gt">
             <objects>
-                <viewController id="HZL-ko-c1Q" sceneMemberID="viewController">
+                <viewController id="HZL-ko-c1Q" customClass="DetailLogViewController" customModule="FYP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RRl-N5-ayE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07z-3u-PqV">
-                                <rect key="frame" x="186" y="115" width="42" height="21"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BbN-78-PPV">
+                                <rect key="frame" x="0.0" y="64" width="414" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D1p-Q9-IrP">
+                                        <rect key="frame" x="44" y="37" width="327" height="77"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OOM-cM-4pJ">
+                                <rect key="frame" x="0.0" y="202" width="414" height="749"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fbh-Sw-WWC">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hcl-ev-qQB" customClass="MBCircularProgressBarView">
+                                                <rect key="frame" x="10" y="23" width="117" height="110"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="unitString" value="hrs"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="unitFontSize">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="valueFontSize">
+                                                        <real key="value" value="36"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="progressLineWidth">
+                                                        <real key="value" value="3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rxA-Yc-zlA" customClass="MBCircularProgressBarView">
+                                                <rect key="frame" x="149" y="23" width="117" height="110"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="unitString" value="units"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="unitFontSize">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="valueFontSize">
+                                                        <real key="value" value="36"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="progressLineWidth">
+                                                        <real key="value" value="3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vGf-yf-WqG" customClass="MBCircularProgressBarView">
+                                                <rect key="frame" x="287" y="23" width="117" height="110"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="unitString" value="hrs"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="unitFontSize">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="valueFontSize">
+                                                        <real key="value" value="36"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="progressLineWidth">
+                                                        <real key="value" value="3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1000" id="20o-kd-tMZ"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="fbh-Sw-WWC" secondAttribute="bottom" id="Hn4-MA-uNu"/>
+                                    <constraint firstAttribute="trailing" secondItem="fbh-Sw-WWC" secondAttribute="trailing" id="RtF-nP-B3t"/>
+                                    <constraint firstItem="fbh-Sw-WWC" firstAttribute="leading" secondItem="OOM-cM-4pJ" secondAttribute="leading" id="aeK-r4-L81"/>
+                                    <constraint firstItem="fbh-Sw-WWC" firstAttribute="top" secondItem="OOM-cM-4pJ" secondAttribute="top" id="g2f-q9-j1b"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fbh-Sw-WWC" firstAttribute="width" secondItem="RRl-N5-ayE" secondAttribute="width" id="3Lh-wl-YJm"/>
+                            <constraint firstItem="OOM-cM-4pJ" firstAttribute="top" secondItem="zXB-ax-hgy" secondAttribute="top" constant="138" id="4S3-In-bhM"/>
+                            <constraint firstItem="OOM-cM-4pJ" firstAttribute="leading" secondItem="zXB-ax-hgy" secondAttribute="leading" id="QS5-b5-dn0"/>
+                            <constraint firstItem="OOM-cM-4pJ" firstAttribute="bottom" secondItem="zXB-ax-hgy" secondAttribute="bottom" id="nWR-pc-xuN"/>
+                            <constraint firstItem="OOM-cM-4pJ" firstAttribute="trailing" secondItem="zXB-ax-hgy" secondAttribute="trailing" id="vzU-U6-7b1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="zXB-ax-hgy"/>
                     </view>
+                    <size key="freeformSize" width="414" height="1000"/>
+                    <connections>
+                        <outlet property="alcoholProgressView" destination="rxA-Yc-zlA" id="ZDr-Hj-Wpv"/>
+                        <outlet property="moodLabel" destination="D1p-Q9-IrP" id="GcI-PV-jpv"/>
+                        <outlet property="sleepProgressView" destination="hcl-ev-qQB" id="4XZ-Qe-fbd"/>
+                        <outlet property="workProgressView" destination="vGf-yf-WqG" id="EKQ-LJ-lib"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zpj-65-5zg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2801" y="-1260"/>
+            <point key="canvasLocation" x="2976.811594202899" y="-1339.4021739130435"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="mL4-Fe-3eO">

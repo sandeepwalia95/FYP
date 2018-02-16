@@ -80,6 +80,15 @@ class ViewLogsViewController: UIViewController, UITableViewDelegate, UITableView
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "DetailLogSegue" {
+            let selectedRow = self.tableView.indexPathForSelectedRow
+            let destination = segue.destination as! DetailLogViewController
+            destination.log = self.logData[selectedRow!.row]
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return logData.count
     }
