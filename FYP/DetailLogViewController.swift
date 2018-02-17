@@ -40,6 +40,8 @@ class DetailLogViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
+        self.title = log.date
+        
         self.moodLabel.text = self.log.mood
         
         let moodColor = moodToColor(mood: self.log.mood)

@@ -997,7 +997,7 @@
             </objects>
             <point key="canvasLocation" x="1887" y="-1260"/>
         </scene>
-        <!--Detail Log View Controller-->
+        <!--Title-->
         <scene sceneID="ffe-bs-9Gt">
             <objects>
                 <viewController id="HZL-ko-c1Q" customClass="DetailLogViewController" customModule="FYP" customModuleProvider="target" sceneMemberID="viewController">
@@ -1257,6 +1257,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zXB-ax-hgy"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="yXU-fh-s1O"/>
                     <size key="freeformSize" width="414" height="1000"/>
                     <connections>
                         <outlet property="activityEight" destination="r1x-UH-2MI" id="Uuh-14-Zrz"/>
