@@ -16,6 +16,19 @@ class DetailLogViewController: UIViewController {
     @IBOutlet weak var moodView: UIView!
     @IBOutlet weak var medImageView: UIImageView!
     
+    @IBOutlet weak var activityOne: UILabel!
+    @IBOutlet weak var activityTwo: UILabel!
+    @IBOutlet weak var activityThree: UILabel!
+    @IBOutlet weak var activityFour: UILabel!
+    @IBOutlet weak var activityFive: UILabel!
+    @IBOutlet weak var activitySix: UILabel!
+    @IBOutlet weak var activitySeven: UILabel!
+    @IBOutlet weak var activityEight: UILabel!
+    @IBOutlet weak var activityNine: UILabel!
+    @IBOutlet weak var activityTen: UILabel!
+    @IBOutlet weak var activityEleven: UILabel!
+    @IBOutlet weak var acvtivityTweleve: UILabel!
+    
     @IBOutlet weak var sleepProgressView: MBCircularProgressBarView!
     @IBOutlet weak var alcoholProgressView: MBCircularProgressBarView!
     @IBOutlet weak var workProgressView: MBCircularProgressBarView!
@@ -50,6 +63,177 @@ class DetailLogViewController: UIViewController {
             self.medImageView.image = UIImage(named: "noMeds.png")!
         }
         
+        switch log.activities.count {
+        case 1:
+            self.activityOne.text = log.activities[0]
+            self.activityTwo.text = " "
+            self.activityThree.text = " "
+            self.activityFour.text = " "
+            self.activityFive.text = " "
+            self.activitySix.text = " "
+            self.activitySeven.text = " "
+            self.activityEight.text = " "
+            self.activityNine.text = " "
+            self.activityTen.text = " "
+            self.activityEleven.text = " "
+            self.acvtivityTweleve.text = " "
+        case 2:
+            self.activityOne.text = log.activities[0]
+            self.activityTwo.text = log.activities[1]
+            self.activityThree.text = " "
+            self.activityFour.text = " "
+            self.activityFive.text = " "
+            self.activitySix.text = " "
+            self.activitySeven.text = " "
+            self.activityEight.text = " "
+            self.activityNine.text = " "
+            self.activityTen.text = " "
+            self.activityEleven.text = " "
+            self.acvtivityTweleve.text = " "
+        case 3:
+            self.activityOne.text = log.activities[0]
+            self.activityTwo.text = log.activities[1]
+            self.activityThree.text = log.activities[2]
+            self.activityFour.text = " "
+            self.activityFive.text = " "
+            self.activitySix.text = " "
+            self.activitySeven.text = " "
+            self.activityEight.text = " "
+            self.activityNine.text = " "
+            self.activityTen.text = " "
+            self.activityEleven.text = " "
+            self.acvtivityTweleve.text = " "
+        case 4:
+            self.activityOne.text = log.activities[0]
+            self.activityTwo.text = log.activities[1]
+            self.activityThree.text = log.activities[2]
+            self.activityFour.text = log.activities[3]
+            self.activityFive.text = " "
+            self.activitySix.text = " "
+            self.activitySeven.text = " "
+            self.activityEight.text = " "
+            self.activityNine.text = " "
+            self.activityTen.text = " "
+            self.activityEleven.text = " "
+            self.acvtivityTweleve.text = " "
+        case 5:
+            self.activityOne.text = log.activities[0]
+            self.activityTwo.text = log.activities[1]
+            self.activityThree.text = log.activities[2]
+            self.activityFour.text = log.activities[3]
+            self.activityFive.text = log.activities[4]
+            self.activitySix.text = " "
+            self.activitySeven.text = " "
+            self.activityEight.text = " "
+            self.activityNine.text = " "
+            self.activityTen.text = " "
+            self.activityEleven.text = " "
+            self.acvtivityTweleve.text = " "
+        case 6:
+            self.activityOne.text = log.activities[0]
+            self.activityTwo.text = log.activities[1]
+            self.activityThree.text = log.activities[2]
+            self.activityFour.text = log.activities[3]
+            self.activityFive.text = log.activities[4]
+            self.activitySix.text = log.activities[5]
+            self.activitySeven.text = " "
+            self.activityEight.text = " "
+            self.activityNine.text = " "
+            self.activityTen.text = " "
+            self.activityEleven.text = " "
+            self.acvtivityTweleve.text = " "
+        case 7:
+            self.activityOne.text = log.activities[0]
+            self.activityTwo.text = log.activities[1]
+            self.activityThree.text = log.activities[2]
+            self.activityFour.text = log.activities[3]
+            self.activityFive.text = log.activities[4]
+            self.activitySix.text = log.activities[5]
+            self.activitySeven.text = log.activities[6]
+            self.activityEight.text = " "
+            self.activityNine.text = " "
+            self.activityTen.text = " "
+            self.activityEleven.text = " "
+            self.acvtivityTweleve.text = " "
+        case 8:
+            self.activityOne.text = log.activities[0]
+            self.activityTwo.text = log.activities[1]
+            self.activityThree.text = log.activities[2]
+            self.activityFour.text = log.activities[3]
+            self.activityFive.text = log.activities[4]
+            self.activitySix.text = log.activities[5]
+            self.activitySeven.text = log.activities[6]
+            self.activityEight.text = log.activities[7]
+            self.activityNine.text = " "
+            self.activityTen.text = " "
+            self.activityEleven.text = " "
+            self.acvtivityTweleve.text = " "
+        case 9:
+            self.activityOne.text = log.activities[0]
+            self.activityTwo.text = log.activities[1]
+            self.activityThree.text = log.activities[2]
+            self.activityFour.text = log.activities[3]
+            self.activityFive.text = log.activities[4]
+            self.activitySix.text = log.activities[5]
+            self.activitySeven.text = log.activities[6]
+            self.activityEight.text = log.activities[7]
+            self.activityNine.text = log.activities[8]
+            self.activityTen.text = " "
+            self.activityEleven.text = " "
+            self.acvtivityTweleve.text = " "
+        case 10:
+            self.activityOne.text = log.activities[0]
+            self.activityTwo.text = log.activities[1]
+            self.activityThree.text = log.activities[2]
+            self.activityFour.text = log.activities[3]
+            self.activityFive.text = log.activities[4]
+            self.activitySix.text = log.activities[5]
+            self.activitySeven.text = log.activities[6]
+            self.activityEight.text = log.activities[7]
+            self.activityNine.text = log.activities[8]
+            self.activityTen.text = log.activities[9]
+            self.activityEleven.text = " "
+            self.acvtivityTweleve.text = " "
+        case 11:
+            self.activityOne.text = log.activities[0]
+            self.activityTwo.text = log.activities[1]
+            self.activityThree.text = log.activities[2]
+            self.activityFour.text = log.activities[3]
+            self.activityFive.text = log.activities[4]
+            self.activitySix.text = log.activities[5]
+            self.activitySeven.text = log.activities[6]
+            self.activityEight.text = log.activities[7]
+            self.activityNine.text = log.activities[8]
+            self.activityTen.text = log.activities[9]
+            self.activityEleven.text = log.activities[10]
+            self.acvtivityTweleve.text = " "
+        case 12:
+            self.activityOne.text = log.activities[0]
+            self.activityTwo.text = log.activities[1]
+            self.activityThree.text = log.activities[2]
+            self.activityFour.text = log.activities[3]
+            self.activityFive.text = log.activities[4]
+            self.activitySix.text = log.activities[5]
+            self.activitySeven.text = log.activities[6]
+            self.activityEight.text = log.activities[7]
+            self.activityNine.text = log.activities[8]
+            self.activityTen.text = log.activities[9]
+            self.activityEleven.text = log.activities[10]
+            self.acvtivityTweleve.text = log.activities[11]
+        default:
+            self.activityOne.text = " "
+            self.activityTwo.text = " "
+            self.activityThree.text = " "
+            self.activityFour.text = " "
+            self.activityFive.text = " "
+            self.activitySix.text = " "
+            self.activitySeven.text = " "
+            self.activityEight.text = " "
+            self.activityNine.text = " "
+            self.activityTen.text = " "
+            self.activityEleven.text = " "
+            self.acvtivityTweleve.text = " "
+        }
     }
 
     override func didReceiveMemoryWarning() {
