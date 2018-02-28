@@ -21,9 +21,16 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let series = ChartSeries([0, 6.5, 2, 8, 4.1, 7, 3.1, 10, 8])
-        chart.xLabels = [0, 3, 6, 9, 12, 15, 18, 21, 24]
-        chart.xLabelsFormatter = { String(Int(round($1))) + "h" }
+        let series = ChartSeries([0, 6.5, 2, 5, 8])
+        
+        series.area = true
+        
+        let hours = ["jan", "feb", "mar"]
+        //chart.xLabels = [0, 3, 6, 9, 12, 15, 18, 21, 24]
+        //chart.xLabelsFormatter = { _,_ in "jan" }
+//        chart.xLabelsFormatter = { (labelIndex: Int, labelValue: Double) -> String in
+//            return String(describing: (hours[labelIndex]))
+//        }
         chart.add(series)
     }
 
