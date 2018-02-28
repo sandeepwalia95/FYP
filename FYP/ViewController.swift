@@ -11,8 +11,6 @@ import SwiftChart
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var chart: Chart!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -31,7 +29,7 @@ class ViewController: UIViewController {
 //        chart.xLabelsFormatter = { (labelIndex: Int, labelValue: Double) -> String in
 //            return String(describing: (hours[labelIndex]))
 //        }
-        chart.add(series)
+        //chart.add(series)
     }
 
     override func didReceiveMemoryWarning() {

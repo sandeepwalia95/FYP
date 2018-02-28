@@ -724,10 +724,10 @@
             </objects>
             <point key="canvasLocation" x="3264.8000000000002" y="-26.53673163418291"/>
         </scene>
-        <!--View Controller-->
+        <!--Chart View Controller-->
         <scene sceneID="h6S-Xt-9ua">
             <objects>
-                <viewController id="Mnc-f3-YBL" customClass="ViewController" customModule="FYP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Mnc-f3-YBL" customClass="ChartViewController" customModule="FYP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A9R-td-PH4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -743,7 +743,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="2hd-KP-h65"/>
                     <connections>
-                        <outlet property="chart" destination="yUh-05-bpQ" id="OPf-wr-MJy"/>
+                        <outlet property="chart" destination="yUh-05-bpQ" id="J7U-Vr-IZk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1qz-Zo-hr5" userLabel="First Responder" sceneMemberID="firstResponder"/>
