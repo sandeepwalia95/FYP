@@ -24,7 +24,10 @@ class ChartViewController: UIViewController {
     var alcoholData = [Double]()
     var workData = [Double]()
 
+    var moodSeven = [Double]()
     var sleepSeven = [Double]()
+    var alcoholSeven = [Double]()
+    var workSeven = [Double]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,38 +82,7 @@ class ChartViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let sample = self.sleepData.suffix(7)
-        
-        sleepSeven = Array(sample)
-        
-        chart.removeAllSeries()
-        
-        chart.yLabels = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
-        
-//        let moodSeries = ChartSeries(moodSeven)
-//        moodSeries.color = ChartColors.yellowColor()
-//        moodSeries.area = true
-        
-        let sleepSeries = ChartSeries(sleepSeven)
-        sleepSeries.color = ChartColors.blueColor()
-//        //sleepSeries.area = true
-//
-//        let alcoholSeries = ChartSeries(alcoholData)
-//        alcoholSeries.color = ChartColors.redColor()
-//        //alcoholSeries.area = true
-//
-//        let workSeries = ChartSeries(workData)
-//        workSeries.color = ChartColors.greenColor()
-        //workSeries.area = true
-        
-        //let hours = ["jan", "feb", "mar"]
-        
-        //chart.xLabels = [0, 3, 6, 9, 12, 15, 18, 21, 24]
-        //chart.xLabelsFormatter = { _,_ in "jan" }
-//        chart.xLabelsFormatter = { (labelIndex: Int, labelValue: Double) -> String in return String(describing: (hours[labelIndex]))
-//        }
-        
-        chart.add([sleepSeries])
+        setChartData(suffixValue: 7)
     }
 
     override func didReceiveMemoryWarning() {
@@ -118,6 +90,53 @@ class ChartViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func setChartData(suffixValue: Int) {
+        
+        chart.removeAllSeries()
+        
+        let moodSuffixData = self.moodData.suffix(suffixValue)
+        self.moodSeven = Array(moodSuffixData)
+        print(self.moodSeven.capacity)
+        
+        let sleepSuffixData = self.sleepData.suffix(suffixValue)
+        self.sleepSeven = Array(sleepSuffixData)
+        print(self.sleepSeven.capacity)
+        
+        let alcoholSuffixData = self.alcoholData.suffix(suffixValue)
+        self.alcoholSeven = Array(alcoholSuffixData)
+        print(self.alcoholSeven.capacity)
+        
+        let workSuffixData = self.workData.suffix(suffixValue)
+        self.workSeven = Array(workSuffixData)
+        print(self.workSeven.capacity)
+        
+        chart.yLabels = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+        
+        let moodSeries = ChartSeries(moodSeven)
+        moodSeries.color = ChartColors.yellowColor()
+        moodSeries.area = true
+        
+        let sleepSeries = ChartSeries(sleepSeven)
+        sleepSeries.color = ChartColors.blueColor()
+        //sleepSeries.area = true
+        
+        let alcoholSeries = ChartSeries(alcoholSeven)
+        alcoholSeries.color = ChartColors.redColor()
+        //alcoholSeries.area = true
+        
+        let workSeries = ChartSeries(workSeven)
+        workSeries.color = ChartColors.greenColor()
+        //workSeries.area = true
+        
+        //let hours = ["jan", "feb", "mar"]
+        
+        //chart.xLabels = [0, 3, 6, 9, 12, 15, 18, 21, 24]
+        //chart.xLabelsFormatter = { _,_ in "jan" }
+        //        chart.xLabelsFormatter = { (labelIndex: Int, labelValue: Double) -> String in return String(describing: (hours[labelIndex]))
+        //        }
+        
+        chart.add([moodSeries, sleepSeries, alcoholSeries, workSeries])
+    }
     
     func moodRangeConverter(moodValue: String) -> Double {
         
