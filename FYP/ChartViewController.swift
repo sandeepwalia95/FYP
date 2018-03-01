@@ -24,6 +24,7 @@ class ChartViewController: UIViewController {
     var alcoholData = [Double]()
     var workData = [Double]()
 
+    var sleepSeven = [Double]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,35 +68,39 @@ class ChartViewController: UIViewController {
             let log = Log(date: logDate, mood: logMood, sleep: logSleep, alcohol: logAlcohol, work: logWork, medication: logMedication, activities: logActivities)
             self.logData.append(log)
             
+            self.moodData.append(self.moodRangeConverter(moodValue: log.mood))
             self.sleepData.append(Double(log.sleep))
             self.alcoholData.append(Double(log.alcohol))
             self.workData.append(Double(log.work))
             
-            self.moodData.append(self.moodRangeConverter(moodValue: log.mood))
         })
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        let sample = self.sleepData.suffix(7)
+        
+        sleepSeven = Array(sample)
+        
         chart.removeAllSeries()
         
         chart.yLabels = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
         
-        let moodSeries = ChartSeries(moodData)
-        moodSeries.color = ChartColors.yellowColor()
-        moodSeries.area = true
+//        let moodSeries = ChartSeries(moodSeven)
+//        moodSeries.color = ChartColors.yellowColor()
+//        moodSeries.area = true
         
-        let sleepSeries = ChartSeries(sleepData)
+        let sleepSeries = ChartSeries(sleepSeven)
         sleepSeries.color = ChartColors.blueColor()
-        //sleepSeries.area = true
-        
-        let alcoholSeries = ChartSeries(alcoholData)
-        alcoholSeries.color = ChartColors.redColor()
-        //alcoholSeries.area = true
-        
-        let workSeries = ChartSeries(workData)
-        workSeries.color = ChartColors.greenColor()
+//        //sleepSeries.area = true
+//
+//        let alcoholSeries = ChartSeries(alcoholData)
+//        alcoholSeries.color = ChartColors.redColor()
+//        //alcoholSeries.area = true
+//
+//        let workSeries = ChartSeries(workData)
+//        workSeries.color = ChartColors.greenColor()
         //workSeries.area = true
         
         //let hours = ["jan", "feb", "mar"]
@@ -105,7 +110,7 @@ class ChartViewController: UIViewController {
 //        chart.xLabelsFormatter = { (labelIndex: Int, labelValue: Double) -> String in return String(describing: (hours[labelIndex]))
 //        }
         
-        chart.add([moodSeries, sleepSeries, alcoholSeries, workSeries])
+        chart.add([sleepSeries])
     }
 
     override func didReceiveMemoryWarning() {
