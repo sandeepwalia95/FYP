@@ -19,7 +19,11 @@ class ChartViewController: UIViewController {
     
     var logData = [Log]()
     
+    var moodData = [Double]()
     var sleepData = [Double]()
+    var alcoholData = [Double]()
+    var workData = [Double]()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +68,10 @@ class ChartViewController: UIViewController {
             self.logData.append(log)
             
             self.sleepData.append(Double(log.sleep))
+            self.alcoholData.append(Double(log.alcohol))
+            self.workData.append(Double(log.work))
+            
+            self.moodData.append(self.moodRangeConverter(moodValue: log.mood))
         })
     }
     
@@ -72,23 +80,58 @@ class ChartViewController: UIViewController {
         
         chart.removeAllSeries()
         
-        let series = ChartSeries(sleepData)
+        chart.yLabels = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
         
-        series.area = true
+        let moodSeries = ChartSeries(moodData)
+        moodSeries.color = ChartColors.yellowColor()
+        moodSeries.area = true
+        
+        let sleepSeries = ChartSeries(sleepData)
+        sleepSeries.color = ChartColors.blueColor()
+        //sleepSeries.area = true
+        
+        let alcoholSeries = ChartSeries(alcoholData)
+        alcoholSeries.color = ChartColors.redColor()
+        //alcoholSeries.area = true
+        
+        let workSeries = ChartSeries(workData)
+        workSeries.color = ChartColors.greenColor()
+        //workSeries.area = true
         
         //let hours = ["jan", "feb", "mar"]
-        chart.yLabels = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+        
         //chart.xLabels = [0, 3, 6, 9, 12, 15, 18, 21, 24]
         //chart.xLabelsFormatter = { _,_ in "jan" }
 //        chart.xLabelsFormatter = { (labelIndex: Int, labelValue: Double) -> String in return String(describing: (hours[labelIndex]))
 //        }
         
-        chart.add(series)
+        chart.add([moodSeries, sleepSeries, alcoholSeries, workSeries])
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func moodRangeConverter(moodValue: String) -> Double {
+        
+        switch moodValue {
+        case "Excellent":
+            return 20.0
+        case "Great":
+            return ((20.0/6) * 5)
+        case "Good":
+            return ((20.0/6) * 4)
+        case "Fair":
+            return ((20.0/6) * 3)
+        case "Uh-Oh":
+            return ((20.0/6) * 2)
+        case "Bad":
+            return ((20.0/6) * 1)
+        default:
+            return 20.0
+        }
     }
     
 
