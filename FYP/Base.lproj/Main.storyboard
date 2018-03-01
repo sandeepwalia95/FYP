@@ -841,6 +841,17 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="0.1748715753" colorSpace="calibratedRGB"/>
                             </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="VP8-Sf-iAH">
+                                <rect key="frame" x="15" y="504" width="389" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="30"/>
+                                    <segment title="7"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentChanged:" destination="Mnc-f3-YBL" eventType="valueChanged" id="6te-Fd-gae"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="ZEN-bp-l8j"/>
@@ -848,11 +859,12 @@
                     <tabBarItem key="tabBarItem" systemItem="search" id="2hd-KP-h65"/>
                     <connections>
                         <outlet property="chart" destination="yUh-05-bpQ" id="J7U-Vr-IZk"/>
+                        <outlet property="daysSegmentController" destination="VP8-Sf-iAH" id="fSZ-PB-YLc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1qz-Zo-hr5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2366.666666666667" y="960.32608695652186"/>
+            <point key="canvasLocation" x="2398.5507246376815" y="960.32608695652186"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="KW8-7d-B11">

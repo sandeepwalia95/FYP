@@ -13,6 +13,7 @@ import FirebaseDatabase
 class ChartViewController: UIViewController {
 
     @IBOutlet weak var chart: Chart!
+    @IBOutlet weak var daysSegmentController: UISegmentedControl!
     
     var ref: DatabaseReference!
     var databasehandle: DatabaseHandle?
@@ -82,7 +83,11 @@ class ChartViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        setChartData(suffixValue: 7)
+        if (daysSegmentController.selectedSegmentIndex == 0) {
+            setChartData(suffixValue: 30)
+        } else if (daysSegmentController.selectedSegmentIndex == 1) {
+            setChartData(suffixValue: 7)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -90,6 +95,13 @@ class ChartViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func segmentChanged(_ sender: Any) {
+        if (daysSegmentController.selectedSegmentIndex == 0) {
+            setChartData(suffixValue: 30)
+        } else if (daysSegmentController.selectedSegmentIndex == 1) {
+            setChartData(suffixValue: 7)
+        }
+    }
     func setChartData(suffixValue: Int) {
         
         chart.removeAllSeries()
