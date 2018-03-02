@@ -24,11 +24,13 @@ class ChartViewController: UIViewController {
     var sleepData = [Double]()
     var alcoholData = [Double]()
     var workData = [Double]()
+    var dateData = [String]()
 
     var moodSeven = [Double]()
     var sleepSeven = [Double]()
     var alcoholSeven = [Double]()
     var workSeven = [Double]()
+    var dateSeven = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,6 +79,7 @@ class ChartViewController: UIViewController {
             self.alcoholData.append(Double(log.alcohol))
             self.workData.append(Double(log.work))
             
+            self.dateData.append(self.dateSubString(date: log.date))
         })
     }
     
@@ -125,6 +128,9 @@ class ChartViewController: UIViewController {
         self.workSeven = Array(workSuffixData)
         print(self.workSeven.capacity)
         
+        let dateSuffixData = self.dateData.suffix(suffixValue)
+        self.dateSeven = Array(dateSuffixData)
+        
         // Set up y-axis values
         chart.yLabels = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
         
@@ -155,8 +161,9 @@ class ChartViewController: UIViewController {
         
         //chart.xLabels = [0, 3, 6, 9, 12, 15, 18, 21, 24]
         //chart.xLabelsFormatter = { _,_ in "jan" }
-        //        chart.xLabelsFormatter = { (labelIndex: Int, labelValue: Double) -> String in return String(describing: (hours[labelIndex]))
-        //        }
+        chart.xLabelsFormatter = { (labelIndex: Int, labelValue: Double) -> String in
+            return String(describing: (self.dateSeven[labelIndex]))
+        }
         
         // Add all of the series to the charts
         chart.add([moodSeries, sleepSeries, alcoholSeries, workSeries])
@@ -182,7 +189,10 @@ class ChartViewController: UIViewController {
         }
     }
     
-
+    func dateSubString(date: String) -> String {
+        return String(date.prefix(5))
+    }
+    
     /*
     // MARK: - Navigation
 
