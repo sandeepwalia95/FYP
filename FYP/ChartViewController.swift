@@ -84,9 +84,9 @@ class ChartViewController: UIViewController {
         super.viewDidAppear(animated)
         
         if (daysSegmentController.selectedSegmentIndex == 0) {
-            setChartData(suffixValue: 30)
+            setChartData(suffixValue: 30, fontValue: 8)
         } else if (daysSegmentController.selectedSegmentIndex == 1) {
-            setChartData(suffixValue: 7)
+            setChartData(suffixValue: 7, fontValue: 10)
         }
     }
 
@@ -97,12 +97,12 @@ class ChartViewController: UIViewController {
     
     @IBAction func segmentChanged(_ sender: Any) {
         if (daysSegmentController.selectedSegmentIndex == 0) {
-            setChartData(suffixValue: 30)
+            setChartData(suffixValue: 30, fontValue: 8)
         } else if (daysSegmentController.selectedSegmentIndex == 1) {
-            setChartData(suffixValue: 7)
+            setChartData(suffixValue: 7, fontValue: 10)
         }
     }
-    func setChartData(suffixValue: Int) {
+    func setChartData(suffixValue: Int, fontValue: Double) {
         
         chart.removeAllSeries()
         
@@ -123,6 +123,15 @@ class ChartViewController: UIViewController {
         print(self.workSeven.capacity)
         
         chart.yLabels = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+        
+        chart.labelFont = UIFont (name: "Helvetica Neue", size: CGFloat(fontValue))
+        
+        chart.xLabelsOrientation = .vertical
+        
+        // Change the orientation of the labels to horizontal if showing '7-days'
+        if (fontValue == 10) {
+            chart.xLabelsOrientation = .horizontal
+        }
         
         let moodSeries = ChartSeries(moodSeven)
         moodSeries.color = ChartColors.yellowColor()
