@@ -104,8 +104,11 @@ class ChartViewController: UIViewController {
     }
     func setChartData(suffixValue: Int, fontValue: Double) {
         
+        // Clear all series to ensure blank graph
         chart.removeAllSeries()
         
+        // Retrieve data for all series and use ArraySlice to cut down amount
+        // of data based on how many days required
         let moodSuffixData = self.moodData.suffix(suffixValue)
         self.moodSeven = Array(moodSuffixData)
         print(self.moodSeven.capacity)
@@ -122,10 +125,11 @@ class ChartViewController: UIViewController {
         self.workSeven = Array(workSuffixData)
         print(self.workSeven.capacity)
         
+        // Set up y-axis values
         chart.yLabels = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
         
+        // Chamge font and orientation of x-axis values based on values required
         chart.labelFont = UIFont (name: "Helvetica Neue", size: CGFloat(fontValue))
-        
         chart.xLabelsOrientation = .vertical
         
         // Change the orientation of the labels to horizontal if showing '7-days'
@@ -133,21 +137,19 @@ class ChartViewController: UIViewController {
             chart.xLabelsOrientation = .horizontal
         }
         
+        // Set the data to the ChartSeries
         let moodSeries = ChartSeries(moodSeven)
         moodSeries.color = ChartColors.yellowColor()
         moodSeries.area = true
         
         let sleepSeries = ChartSeries(sleepSeven)
         sleepSeries.color = ChartColors.blueColor()
-        //sleepSeries.area = true
         
         let alcoholSeries = ChartSeries(alcoholSeven)
         alcoholSeries.color = ChartColors.redColor()
-        //alcoholSeries.area = true
         
         let workSeries = ChartSeries(workSeven)
         workSeries.color = ChartColors.greenColor()
-        //workSeries.area = true
         
         //let hours = ["jan", "feb", "mar"]
         
@@ -156,6 +158,7 @@ class ChartViewController: UIViewController {
         //        chart.xLabelsFormatter = { (labelIndex: Int, labelValue: Double) -> String in return String(describing: (hours[labelIndex]))
         //        }
         
+        // Add all of the series to the charts
         chart.add([moodSeries, sleepSeries, alcoholSeries, workSeries])
     }
     
