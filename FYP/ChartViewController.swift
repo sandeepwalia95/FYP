@@ -16,6 +16,8 @@ class ChartViewController: UIViewController {
     @IBOutlet weak var chart: Chart!
     @IBOutlet weak var daysSegmentController: UISegmentedControl!
     @IBOutlet weak var sleepProgressView: MBCircularProgressBarView!
+    @IBOutlet weak var alcoholProgressView: MBCircularProgressBarView!
+    @IBOutlet weak var workProgressView: MBCircularProgressBarView!
     
     
     var ref: DatabaseReference!
@@ -43,6 +45,14 @@ class ChartViewController: UIViewController {
         self.sleepProgressView.value = 0
         self.sleepProgressView.progressColor = UIColor.blue
         self.sleepProgressView.progressStrokeColor = UIColor.blue
+        
+        self.alcoholProgressView.value = 0
+        self.alcoholProgressView.progressColor = UIColor.red
+        self.alcoholProgressView.progressStrokeColor = UIColor.red
+        
+        self.workProgressView.value = 0
+        self.workProgressView.progressColor = UIColor.green
+        self.workProgressView.progressStrokeColor = UIColor.green
         
         // Set Firebase reference
         ref = Database.database().reference()
@@ -135,10 +145,20 @@ class ChartViewController: UIViewController {
         self.dateSeven = Array(dateSuffixData)
         
         UIView.animate(withDuration: 1.0) {
-            var arraySum = self.sleepSeven.reduce(0) { $0 + $1 }
-            arraySum = arraySum/Double(self.sleepSeven.count)
-            print(arraySum)
-            self.sleepProgressView.value = CGFloat(arraySum)
+            var arraySumSleep = self.sleepSeven.reduce(0) { $0 + $1 }
+            arraySumSleep = arraySumSleep/Double(self.sleepSeven.count)
+            print(arraySumSleep)
+            self.sleepProgressView.value = CGFloat(arraySumSleep)
+            
+            var arraySumAlcohol = self.alcoholSeven.reduce(0) { $0 + $1 }
+            arraySumAlcohol = arraySumAlcohol/Double(self.alcoholSeven.count)
+            print(arraySumAlcohol)
+            self.alcoholProgressView.value = CGFloat(arraySumAlcohol)
+            
+            var arraySumWork = self.workSeven.reduce(0) { $0 + $1 }
+            arraySumWork = arraySumWork/Double(self.workSeven.count)
+            print(arraySumWork)
+            self.workProgressView.value = CGFloat(arraySumWork)
         }
         
         // Set up y-axis values
