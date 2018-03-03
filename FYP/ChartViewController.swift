@@ -9,11 +9,14 @@
 import UIKit
 import SwiftChart
 import FirebaseDatabase
+import MBCircularProgressBar
 
 class ChartViewController: UIViewController {
 
     @IBOutlet weak var chart: Chart!
     @IBOutlet weak var daysSegmentController: UISegmentedControl!
+    @IBOutlet weak var sleepProgressView: MBCircularProgressBarView!
+    
     
     var ref: DatabaseReference!
     var databasehandle: DatabaseHandle?
@@ -36,6 +39,10 @@ class ChartViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        self.sleepProgressView.value = 0
+        self.sleepProgressView.progressColor = UIColor.blue
+        self.sleepProgressView.progressStrokeColor = UIColor.blue
         
         // Set Firebase reference
         ref = Database.database().reference()
@@ -114,22 +121,25 @@ class ChartViewController: UIViewController {
         // of data based on how many days required
         let moodSuffixData = self.moodData.suffix(suffixValue)
         self.moodSeven = Array(moodSuffixData)
-        print(self.moodSeven.capacity)
         
         let sleepSuffixData = self.sleepData.suffix(suffixValue)
         self.sleepSeven = Array(sleepSuffixData)
-        print(self.sleepSeven.capacity)
         
         let alcoholSuffixData = self.alcoholData.suffix(suffixValue)
         self.alcoholSeven = Array(alcoholSuffixData)
-        print(self.alcoholSeven.capacity)
         
         let workSuffixData = self.workData.suffix(suffixValue)
         self.workSeven = Array(workSuffixData)
-        print(self.workSeven.capacity)
         
         let dateSuffixData = self.dateData.suffix(suffixValue)
         self.dateSeven = Array(dateSuffixData)
+        
+        UIView.animate(withDuration: 1.0) {
+            var arraySum = self.sleepSeven.reduce(0) { $0 + $1 }
+            arraySum = arraySum/Double(self.sleepSeven.count)
+            print(arraySum)
+            self.sleepProgressView.value = CGFloat(arraySum)
+        }
         
         // Set up y-axis values
         chart.yLabels = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
