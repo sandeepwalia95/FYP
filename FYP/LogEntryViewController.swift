@@ -50,6 +50,10 @@ class LogEntryViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         setupActivityButtons()
+        
+        let x = defaults.string(forKey: "actOne")
+        print(x)
+        button1.setTitle(x, for: .normal)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -60,11 +64,6 @@ class LogEntryViewController: UIViewController {
         
         // Ensure no previous activities are being included
         activitiesSelected.removeAll()
-        
-        let x = defaults.string(forKey: "actOne")
-        print(x)
-        button1.setTitle(x, for: .normal)
-    
     }
 
     override func didReceiveMemoryWarning() {

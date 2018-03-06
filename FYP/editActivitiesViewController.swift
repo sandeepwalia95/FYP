@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DynamicColor
 
 class editActivitiesViewController: UIViewController {
 
@@ -23,6 +24,7 @@ class editActivitiesViewController: UIViewController {
     @IBOutlet weak var edit11: MaxLengthTextField!
     @IBOutlet weak var edit12: MaxLengthTextField!
     
+    var editTextFields = [MaxLengthTextField]()
     
     let defaults = UserDefaults.standard
     
@@ -30,6 +32,26 @@ class editActivitiesViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        editTextFields.append(edit1)
+        editTextFields.append(edit2)
+        editTextFields.append(edit3)
+        editTextFields.append(edit4)
+        editTextFields.append(edit5)
+        editTextFields.append(edit6)
+        editTextFields.append(edit7)
+        editTextFields.append(edit8)
+        editTextFields.append(edit9)
+        editTextFields.append(edit10)
+        editTextFields.append(edit11)
+        editTextFields.append(edit12)
+        
+        for textField in editTextFields {
+            textField.layer.cornerRadius = 7.0
+            textField.layer.borderWidth = 3
+            textField.layer.borderColor = (DynamicColor(hexString: "#85C1E9")).cgColor
+            textField.clipsToBounds = true
+        }
+        
         edit1.placeholder = defaults.string(forKey: "actOne")
     }
 
