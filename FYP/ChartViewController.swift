@@ -152,29 +152,24 @@ class ChartViewController: UIViewController {
         let dateSuffixData = self.dateData.suffix(suffixValue)
         self.dateSeven = Array(dateSuffixData)
         
+        // Animate the progressViews
         UIView.animate(withDuration: 1.0) {
             var arraySumSleep = self.sleepSeven.reduce(0) { $0 + $1 }
             arraySumSleep = arraySumSleep/Double(self.sleepSeven.count)
-            print(arraySumSleep)
             self.sleepProgressView.value = CGFloat(arraySumSleep)
             
             var arraySumAlcohol = self.alcoholSeven.reduce(0) { $0 + $1 }
             arraySumAlcohol = arraySumAlcohol/Double(self.alcoholSeven.count)
-            print(arraySumAlcohol)
             self.alcoholProgressView.value = CGFloat(arraySumAlcohol)
             
             var arraySumWork = self.workSeven.reduce(0) { $0 + $1 }
             arraySumWork = arraySumWork/Double(self.workSeven.count)
-            print(arraySumWork)
             self.workProgressView.value = CGFloat(arraySumWork)
             
             var arraySumMood = self.moodSeven.reduce(0) { $0 + $1 }
             arraySumMood = arraySumMood/Double(self.moodSeven.count)
-            print(arraySumMood)
             self.moodProgressBar.progress = Float(arraySumMood/20)
             self.changeMoodProgressColorLabel(moodValue: Float(arraySumMood))
-            
-            
         }
         
         // Set up y-axis values
@@ -203,10 +198,6 @@ class ChartViewController: UIViewController {
         let workSeries = ChartSeries(workSeven)
         workSeries.color = ChartColors.greenColor()
         
-        //let hours = ["jan", "feb", "mar"]
-        
-        //chart.xLabels = [0, 3, 6, 9, 12, 15, 18, 21, 24]
-        //chart.xLabelsFormatter = { _,_ in "jan" }
         chart.xLabelsFormatter = { (labelIndex: Int, labelValue: Double) -> String in
             return String(describing: (self.dateSeven[labelIndex]))
         }
@@ -215,6 +206,7 @@ class ChartViewController: UIViewController {
         chart.add([moodSeries, sleepSeries, alcoholSeries, workSeries])
     }
     
+    // Calculate value of mood to range between 0 and 20
     func moodRangeConverter(moodValue: String) -> Double {
         
         switch moodValue {
@@ -235,15 +227,15 @@ class ChartViewController: UIViewController {
         }
     }
     
+    // Return a shortened form of the date for chart
     func dateSubString(date: String) -> String {
         return String(date.prefix(5))
     }
     
+    // Change value of progressBar for mood
     func changeMoodProgressColorLabel(moodValue: Float) {
         var progressColor: UIColor
         var mood: String
-        
-        print(moodValue)
         
         if (moodValue <= (20.0/6) * 1) {
             progressColor = DynamicColor(hexString: "#F95F62")
