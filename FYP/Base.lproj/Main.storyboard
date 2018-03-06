@@ -1127,11 +1127,135 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QtG-yP-a9V">
-                                <rect key="frame" x="278" y="91" width="71" height="30"/>
+                                <rect key="frame" x="272" y="91" width="96" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <color key="backgroundColor" red="0.52156862745098043" green="0.75686274509803919" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="edit:" destination="uhD-we-iWS" eventType="touchUpInside" id="D1J-oL-hLB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ri3-ow-imk">
+                                <rect key="frame" x="272" y="140" width="96" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.52156862749999999" green="0.75686274509999996" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="edit:" destination="uhD-we-iWS" eventType="touchUpInside" id="kXY-w4-746"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zYt-wz-owi">
+                                <rect key="frame" x="272" y="187" width="96" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.52156862749999999" green="0.75686274509999996" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="edit:" destination="uhD-we-iWS" eventType="touchUpInside" id="R0n-BA-VSX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="krU-9B-Ie7">
+                                <rect key="frame" x="272" y="235" width="96" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.52156862749999999" green="0.75686274509999996" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="edit:" destination="uhD-we-iWS" eventType="touchUpInside" id="SuV-QS-uFk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJm-w6-MUd">
+                                <rect key="frame" x="272" y="283" width="96" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.52156862749999999" green="0.75686274509999996" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="edit:" destination="uhD-we-iWS" eventType="touchUpInside" id="l4X-Kv-9bd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dq7-2z-ObY">
+                                <rect key="frame" x="272" y="330" width="96" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.52156862749999999" green="0.75686274509999996" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="edit:" destination="uhD-we-iWS" eventType="touchUpInside" id="LG1-38-TiC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ew-dZ-1OS">
+                                <rect key="frame" x="272" y="380" width="96" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.52156862749999999" green="0.75686274509999996" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="edit:" destination="uhD-we-iWS" eventType="touchUpInside" id="k1V-8V-1d9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qCV-Ug-f8Q">
+                                <rect key="frame" x="272" y="430" width="96" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.52156862749999999" green="0.75686274509999996" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="edit:" destination="uhD-we-iWS" eventType="touchUpInside" id="ffX-KM-H7k"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEA-IC-GTv">
+                                <rect key="frame" x="272" y="481" width="96" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.52156862749999999" green="0.75686274509999996" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="edit:" destination="uhD-we-iWS" eventType="touchUpInside" id="wTm-wi-sAJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="faC-g6-dwJ">
+                                <rect key="frame" x="272" y="530" width="96" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.52156862749999999" green="0.75686274509999996" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="edit:" destination="uhD-we-iWS" eventType="touchUpInside" id="0We-lC-uUb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSc-xQ-fZX">
+                                <rect key="frame" x="272" y="581" width="96" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.52156862749999999" green="0.75686274509999996" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="edit:" destination="uhD-we-iWS" eventType="touchUpInside" id="dmW-ZW-kJ0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9i-q4-68s">
+                                <rect key="frame" x="272" y="632" width="96" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.52156862749999999" green="0.75686274509999996" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="edit:" destination="uhD-we-iWS" eventType="touchUpInside" id="bZa-s7-6GR"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1152,6 +1276,18 @@
                         <outlet property="edit7" destination="DBN-1f-p9y" id="2XR-qg-JXu"/>
                         <outlet property="edit8" destination="bFS-NF-2Xn" id="3Yw-05-mJg"/>
                         <outlet property="edit9" destination="dWv-US-qd3" id="OKp-5c-7f8"/>
+                        <outlet property="editButton1" destination="QtG-yP-a9V" id="ZpT-HX-6Bu"/>
+                        <outlet property="editButton10" destination="faC-g6-dwJ" id="oor-ER-K3C"/>
+                        <outlet property="editButton11" destination="LSc-xQ-fZX" id="CNz-dc-8ZR"/>
+                        <outlet property="editButton12" destination="d9i-q4-68s" id="5kn-T0-3XM"/>
+                        <outlet property="editButton2" destination="Ri3-ow-imk" id="avC-4b-9K7"/>
+                        <outlet property="editButton3" destination="zYt-wz-owi" id="A1F-cj-lgn"/>
+                        <outlet property="editButton4" destination="krU-9B-Ie7" id="jgQ-f8-EtN"/>
+                        <outlet property="editButton5" destination="BJm-w6-MUd" id="IGS-8h-x2w"/>
+                        <outlet property="editButton6" destination="dq7-2z-ObY" id="WQG-w9-reZ"/>
+                        <outlet property="editButton7" destination="7ew-dZ-1OS" id="I85-aD-ejz"/>
+                        <outlet property="editButton8" destination="qCV-Ug-f8Q" id="8aC-zV-XP7"/>
+                        <outlet property="editButton9" destination="qEA-IC-GTv" id="IEe-41-dDo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vgD-VN-WkR" userLabel="First Responder" sceneMemberID="firstResponder"/>

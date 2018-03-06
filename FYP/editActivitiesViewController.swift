@@ -24,7 +24,22 @@ class editActivitiesViewController: UIViewController {
     @IBOutlet weak var edit11: MaxLengthTextField!
     @IBOutlet weak var edit12: MaxLengthTextField!
     
+    @IBOutlet weak var editButton1: UIButton!
+    @IBOutlet weak var editButton2: UIButton!
+    @IBOutlet weak var editButton3: UIButton!
+    @IBOutlet weak var editButton4: UIButton!
+    @IBOutlet weak var editButton5: UIButton!
+    @IBOutlet weak var editButton6: UIButton!
+    @IBOutlet weak var editButton7: UIButton!
+    @IBOutlet weak var editButton8: UIButton!
+    @IBOutlet weak var editButton9: UIButton!
+    @IBOutlet weak var editButton10: UIButton!
+    @IBOutlet weak var editButton11: UIButton!
+    @IBOutlet weak var editButton12: UIButton!
+    
+    
     var editTextFields = [MaxLengthTextField]()
+    var editButtons = [UIButton]()
     
     let defaults = UserDefaults.standard
     
@@ -50,6 +65,23 @@ class editActivitiesViewController: UIViewController {
             textField.layer.borderWidth = 3
             textField.layer.borderColor = (DynamicColor(hexString: "#85C1E9")).cgColor
             textField.clipsToBounds = true
+        }
+        
+        editButtons.append(editButton1)
+        editButtons.append(editButton2)
+        editButtons.append(editButton3)
+        editButtons.append(editButton4)
+        editButtons.append(editButton5)
+        editButtons.append(editButton6)
+        editButtons.append(editButton7)
+        editButtons.append(editButton8)
+        editButtons.append(editButton9)
+        editButtons.append(editButton10)
+        editButtons.append(editButton11)
+        editButtons.append(editButton12)
+        
+        for button in editButtons {
+            button.layer.cornerRadius = 8
         }
         
         edit1.placeholder = defaults.string(forKey: "actOne")
