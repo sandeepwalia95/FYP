@@ -42,6 +42,8 @@ class LogEntryViewController: UIViewController {
     var activityButtons: [UIButton] = []
     var activitiesSelected: [String] = []
     
+    let defaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -58,6 +60,11 @@ class LogEntryViewController: UIViewController {
         
         // Ensure no previous activities are being included
         activitiesSelected.removeAll()
+        
+        let x = defaults.string(forKey: "actOne")
+        print(x)
+        button1.setTitle(x, for: .normal)
+    
     }
 
     override func didReceiveMemoryWarning() {
