@@ -10,15 +10,20 @@ import UIKit
 import SwiftChart
 import FirebaseDatabase
 import MBCircularProgressBar
+import DynamicColor
 
 class ChartViewController: UIViewController {
 
     @IBOutlet weak var chart: Chart!
+    
     @IBOutlet weak var daysSegmentController: UISegmentedControl!
+    
     @IBOutlet weak var sleepProgressView: MBCircularProgressBarView!
     @IBOutlet weak var alcoholProgressView: MBCircularProgressBarView!
     @IBOutlet weak var workProgressView: MBCircularProgressBarView!
+    @IBOutlet weak var moodProgressBar: UIProgressView!
     
+    @IBOutlet weak var moodLabel: UILabel!
     
     var ref: DatabaseReference!
     var databasehandle: DatabaseHandle?
@@ -53,6 +58,9 @@ class ChartViewController: UIViewController {
         self.workProgressView.value = 0
         self.workProgressView.progressColor = UIColor.green
         self.workProgressView.progressStrokeColor = UIColor.green
+        
+        self.moodProgressBar.progress = 20
+        self.moodProgressBar.progressTintColor = DynamicColor(hexString: "#976DD0")
         
         // Set Firebase reference
         ref = Database.database().reference()
@@ -159,6 +167,14 @@ class ChartViewController: UIViewController {
             arraySumWork = arraySumWork/Double(self.workSeven.count)
             print(arraySumWork)
             self.workProgressView.value = CGFloat(arraySumWork)
+            
+            var arraySumMood = self.moodSeven.reduce(0) { $0 + $1 }
+            arraySumMood = arraySumMood/Double(self.moodSeven.count)
+            print(arraySumMood)
+            self.moodProgressBar.progress = Float(arraySumMood/20)
+            self.changeMoodProgressColorLabel(moodValue: Float(arraySumMood))
+            
+            
         }
         
         // Set up y-axis values
@@ -221,6 +237,36 @@ class ChartViewController: UIViewController {
     
     func dateSubString(date: String) -> String {
         return String(date.prefix(5))
+    }
+    
+    func changeMoodProgressColorLabel(moodValue: Float) {
+        var progressColor: UIColor
+        var mood: String
+        
+        print(moodValue)
+        
+        if (moodValue <= (20.0/6) * 1) {
+            progressColor = DynamicColor(hexString: "#F95F62")
+            mood = "Bad"
+        } else if (moodValue <= (20.0/6) * 2) {
+            progressColor = DynamicColor(hexString: "#FFBA5C")
+            mood = "Uh-Oh"
+        } else if (moodValue <= (20.0/6) * 3) {
+            progressColor = DynamicColor(hexString: "#E9F50C")
+            mood = "Fair"
+        } else if (moodValue <= (20.0/6) * 4) {
+            progressColor = DynamicColor(hexString: "#13CE66")
+            mood = "Good"
+        } else if (moodValue <= (20.0/6) * 5) {
+            progressColor = DynamicColor(hexString: "#00A6FF")
+            mood = "Great"
+        } else {
+            progressColor = DynamicColor(hexString: "#976DD0")
+            mood = "Excellent"
+        }
+        
+        self.moodProgressBar.progressTintColor = progressColor
+        self.moodLabel.text = mood
     }
     
     /*
