@@ -17,6 +17,7 @@
 		DD3596DF201CB4840096A84C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD3596DD201CB4840096A84C /* LaunchScreen.storyboard */; };
 		DD3596E7201CCC840096A84C /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3596E6201CCC840096A84C /* SignInViewController.swift */; };
 		DD3596E9201CCF160096A84C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3596E8201CCF160096A84C /* RegisterViewController.swift */; };
+		DD3A19A22047252300673DAF /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A19A12047252300673DAF /* ChartViewController.swift */; };
 		DD887CD720222A71003BCFE3 /* LogEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD887CD620222A71003BCFE3 /* LogEntryViewController.swift */; };
 		DDAAA36220377BB0001E8C77 /* noMeds.png in Resources */ = {isa = PBXBuildFile; fileRef = DDAAA36120377BB0001E8C77 /* noMeds.png */; };
 		DDAAA36420377BB7001E8C77 /* yesMeds.png in Resources */ = {isa = PBXBuildFile; fileRef = DDAAA36320377BB7001E8C77 /* yesMeds.png */; };
@@ -40,6 +41,7 @@
 		DD3596E0201CB4840096A84C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD3596E6201CCC840096A84C /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		DD3596E8201CCF160096A84C /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		DD3A19A12047252300673DAF /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		DD887CD620222A71003BCFE3 /* LogEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEntryViewController.swift; sourceTree = "<group>"; };
 		DDAAA36120377BB0001E8C77 /* noMeds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = noMeds.png; path = ../../Downloads/noMeds.png; sourceTree = "<group>"; };
 		DDAAA36320377BB7001E8C77 /* yesMeds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yesMeds.png; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				DDDACAB62026833B00CE4FFD /* ViewLogsViewControllerTableViewCell.swift */,
 				DD354C86202F4074008DD9E3 /* Log.swift */,
 				DD2411B920375CEE00515757 /* DetailLogViewController.swift */,
+				DD3A19A12047252300673DAF /* ChartViewController.swift */,
 			);
 			path = FYP;
 			sourceTree = "<group>";
@@ -234,6 +237,8 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-FYP/Pods-FYP-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DynamicColor/DynamicColor.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/MBCircularProgressBar/MBCircularProgressBar.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftChart/SwiftChart.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -241,6 +246,8 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicColor.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBCircularProgressBar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftChart.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -265,6 +272,7 @@
 				DD3596E7201CCC840096A84C /* SignInViewController.swift in Sources */,
 				DD354C87202F4074008DD9E3 /* Log.swift in Sources */,
 				DD3596E9201CCF160096A84C /* RegisterViewController.swift in Sources */,
+				DD3A19A22047252300673DAF /* ChartViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
