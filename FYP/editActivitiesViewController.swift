@@ -37,7 +37,6 @@ class editActivitiesViewController: UIViewController {
     @IBOutlet weak var editButton11: UIButton!
     @IBOutlet weak var editButton12: UIButton!
     
-    
     var editTextFields = [MaxLengthTextField]()
     var editButtons = [UIButton]()
     
@@ -47,55 +46,8 @@ class editActivitiesViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        editTextFields.append(edit1)
-        editTextFields.append(edit2)
-        editTextFields.append(edit3)
-        editTextFields.append(edit4)
-        editTextFields.append(edit5)
-        editTextFields.append(edit6)
-        editTextFields.append(edit7)
-        editTextFields.append(edit8)
-        editTextFields.append(edit9)
-        editTextFields.append(edit10)
-        editTextFields.append(edit11)
-        editTextFields.append(edit12)
         
-        for textField in editTextFields {
-            textField.layer.cornerRadius = 7.0
-            textField.layer.borderWidth = 3
-            textField.layer.borderColor = (DynamicColor(hexString: "#85C1E9")).cgColor
-            textField.clipsToBounds = true
-        }
-        
-        editButtons.append(editButton1)
-        editButtons.append(editButton2)
-        editButtons.append(editButton3)
-        editButtons.append(editButton4)
-        editButtons.append(editButton5)
-        editButtons.append(editButton6)
-        editButtons.append(editButton7)
-        editButtons.append(editButton8)
-        editButtons.append(editButton9)
-        editButtons.append(editButton10)
-        editButtons.append(editButton11)
-        editButtons.append(editButton12)
-        
-        for button in editButtons {
-            button.layer.cornerRadius = 8
-        }
-        
-        edit1.placeholder = defaults.string(forKey: "actOne")
-        edit2.placeholder = defaults.string(forKey: "actTwo")
-        edit3.placeholder = defaults.string(forKey: "actThree")
-        edit4.placeholder = defaults.string(forKey: "actFour")
-        edit5.placeholder = defaults.string(forKey: "actFive")
-        edit6.placeholder = defaults.string(forKey: "actSix")
-        edit7.placeholder = defaults.string(forKey: "actSeven")
-        edit8.placeholder = defaults.string(forKey: "actEight")
-        edit9.placeholder = defaults.string(forKey: "actNine")
-        edit10.placeholder = defaults.string(forKey: "actTen")
-        edit11.placeholder = defaults.string(forKey: "actEleven")
-        edit12.placeholder = defaults.string(forKey: "actTwelve")
+        setupView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -103,6 +55,7 @@ class editActivitiesViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // Change activity in userDefaults based on edit button pressed
     @IBAction func edit(_ sender: UIButton) {
         switch sender.tag {
         case 1:
@@ -194,14 +147,58 @@ class editActivitiesViewController: UIViewController {
         }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func setupView() {
+        
+        // textfields
+        editTextFields.append(edit1)
+        editTextFields.append(edit2)
+        editTextFields.append(edit3)
+        editTextFields.append(edit4)
+        editTextFields.append(edit5)
+        editTextFields.append(edit6)
+        editTextFields.append(edit7)
+        editTextFields.append(edit8)
+        editTextFields.append(edit9)
+        editTextFields.append(edit10)
+        editTextFields.append(edit11)
+        editTextFields.append(edit12)
+        
+        for textField in editTextFields {
+            textField.layer.cornerRadius = 7.0
+            textField.layer.borderWidth = 3
+            textField.layer.borderColor = (DynamicColor(hexString: "#85C1E9")).cgColor
+            textField.clipsToBounds = true
+        }
+        
+        // buttons
+        editButtons.append(editButton1)
+        editButtons.append(editButton2)
+        editButtons.append(editButton3)
+        editButtons.append(editButton4)
+        editButtons.append(editButton5)
+        editButtons.append(editButton6)
+        editButtons.append(editButton7)
+        editButtons.append(editButton8)
+        editButtons.append(editButton9)
+        editButtons.append(editButton10)
+        editButtons.append(editButton11)
+        editButtons.append(editButton12)
+        
+        for button in editButtons {
+            button.layer.cornerRadius = 8
+        }
+        
+        edit1.placeholder = defaults.string(forKey: "actOne")
+        edit2.placeholder = defaults.string(forKey: "actTwo")
+        edit3.placeholder = defaults.string(forKey: "actThree")
+        edit4.placeholder = defaults.string(forKey: "actFour")
+        edit5.placeholder = defaults.string(forKey: "actFive")
+        edit6.placeholder = defaults.string(forKey: "actSix")
+        edit7.placeholder = defaults.string(forKey: "actSeven")
+        edit8.placeholder = defaults.string(forKey: "actEight")
+        edit9.placeholder = defaults.string(forKey: "actNine")
+        edit10.placeholder = defaults.string(forKey: "actTen")
+        edit11.placeholder = defaults.string(forKey: "actEleven")
+        edit12.placeholder = defaults.string(forKey: "actTwelve")
     }
-    */
-
 }

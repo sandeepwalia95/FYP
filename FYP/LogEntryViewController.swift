@@ -49,43 +49,24 @@ class LogEntryViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
+        // Button UI
         setupActivityButtons()
         
-        button1.setTitle(defaults.string(forKey: "actOne"), for: .normal)
-        button2.setTitle(defaults.string(forKey: "actTwo"), for: .normal)
-        button3.setTitle(defaults.string(forKey: "actThree"), for: .normal)
-        button4.setTitle(defaults.string(forKey: "actFour"), for: .normal)
-        button5.setTitle(defaults.string(forKey: "actFive"), for: .normal)
-        button6.setTitle(defaults.string(forKey: "actSix"), for: .normal)
-        button7.setTitle(defaults.string(forKey: "actSeven"), for: .normal)
-        button8.setTitle(defaults.string(forKey: "actEight"), for: .normal)
-        button9.setTitle(defaults.string(forKey: "actNine"), for: .normal)
-        button10.setTitle(defaults.string(forKey: "actTen"), for: .normal)
-        button11.setTitle(defaults.string(forKey: "actEleven"), for: .normal)
-        button12.setTitle(defaults.string(forKey: "actTwelve"), for: .normal)
+        // Button title
+        setActivityButtonTitles()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        // Button title
+        setActivityButtonTitles()
         
         // Set Firebase reference
         ref = Database.database().reference()
         
         // Ensure no previous activities are being included
         activitiesSelected.removeAll()
-        
-        button1.setTitle(defaults.string(forKey: "actOne"), for: .normal)
-        button2.setTitle(defaults.string(forKey: "actTwo"), for: .normal)
-        button3.setTitle(defaults.string(forKey: "actThree"), for: .normal)
-        button4.setTitle(defaults.string(forKey: "actFour"), for: .normal)
-        button5.setTitle(defaults.string(forKey: "actFive"), for: .normal)
-        button6.setTitle(defaults.string(forKey: "actSix"), for: .normal)
-        button7.setTitle(defaults.string(forKey: "actSeven"), for: .normal)
-        button8.setTitle(defaults.string(forKey: "actEight"), for: .normal)
-        button9.setTitle(defaults.string(forKey: "actNine"), for: .normal)
-        button10.setTitle(defaults.string(forKey: "actTen"), for: .normal)
-        button11.setTitle(defaults.string(forKey: "actEleven"), for: .normal)
-        button12.setTitle(defaults.string(forKey: "actTwelve"), for: .normal)
     }
 
     override func didReceiveMemoryWarning() {
@@ -265,14 +246,19 @@ class LogEntryViewController: UIViewController {
         activityButtons.append(button11)
         activityButtons.append(button12)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func setActivityButtonTitles() {
+        button1.setTitle(defaults.string(forKey: "actOne"), for: .normal)
+        button2.setTitle(defaults.string(forKey: "actTwo"), for: .normal)
+        button3.setTitle(defaults.string(forKey: "actThree"), for: .normal)
+        button4.setTitle(defaults.string(forKey: "actFour"), for: .normal)
+        button5.setTitle(defaults.string(forKey: "actFive"), for: .normal)
+        button6.setTitle(defaults.string(forKey: "actSix"), for: .normal)
+        button7.setTitle(defaults.string(forKey: "actSeven"), for: .normal)
+        button8.setTitle(defaults.string(forKey: "actEight"), for: .normal)
+        button9.setTitle(defaults.string(forKey: "actNine"), for: .normal)
+        button10.setTitle(defaults.string(forKey: "actTen"), for: .normal)
+        button11.setTitle(defaults.string(forKey: "actEleven"), for: .normal)
+        button12.setTitle(defaults.string(forKey: "actTwelve"), for: .normal)
     }
-    */
-
 }
