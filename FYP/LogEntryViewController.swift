@@ -51,9 +51,18 @@ class LogEntryViewController: UIViewController {
         
         setupActivityButtons()
         
-        let x = defaults.string(forKey: "actOne")
-        print(x)
-        button1.setTitle(x, for: .normal)
+        button1.setTitle(defaults.string(forKey: "actOne"), for: .normal)
+        button2.setTitle(defaults.string(forKey: "actTwo"), for: .normal)
+        button3.setTitle(defaults.string(forKey: "actThree"), for: .normal)
+        button4.setTitle(defaults.string(forKey: "actFour"), for: .normal)
+        button5.setTitle(defaults.string(forKey: "actFive"), for: .normal)
+        button6.setTitle(defaults.string(forKey: "actSix"), for: .normal)
+        button7.setTitle(defaults.string(forKey: "actSeven"), for: .normal)
+        button8.setTitle(defaults.string(forKey: "actEight"), for: .normal)
+        button9.setTitle(defaults.string(forKey: "actNine"), for: .normal)
+        button10.setTitle(defaults.string(forKey: "actTen"), for: .normal)
+        button11.setTitle(defaults.string(forKey: "actEleven"), for: .normal)
+        button12.setTitle(defaults.string(forKey: "actTwelve"), for: .normal)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -64,6 +73,19 @@ class LogEntryViewController: UIViewController {
         
         // Ensure no previous activities are being included
         activitiesSelected.removeAll()
+        
+        button1.setTitle(defaults.string(forKey: "actOne"), for: .normal)
+        button2.setTitle(defaults.string(forKey: "actTwo"), for: .normal)
+        button3.setTitle(defaults.string(forKey: "actThree"), for: .normal)
+        button4.setTitle(defaults.string(forKey: "actFour"), for: .normal)
+        button5.setTitle(defaults.string(forKey: "actFive"), for: .normal)
+        button6.setTitle(defaults.string(forKey: "actSix"), for: .normal)
+        button7.setTitle(defaults.string(forKey: "actSeven"), for: .normal)
+        button8.setTitle(defaults.string(forKey: "actEight"), for: .normal)
+        button9.setTitle(defaults.string(forKey: "actNine"), for: .normal)
+        button10.setTitle(defaults.string(forKey: "actTen"), for: .normal)
+        button11.setTitle(defaults.string(forKey: "actEleven"), for: .normal)
+        button12.setTitle(defaults.string(forKey: "actTwelve"), for: .normal)
     }
 
     override func didReceiveMemoryWarning() {

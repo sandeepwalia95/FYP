@@ -85,6 +85,17 @@ class editActivitiesViewController: UIViewController {
         }
         
         edit1.placeholder = defaults.string(forKey: "actOne")
+        edit2.placeholder = defaults.string(forKey: "actTwo")
+        edit3.placeholder = defaults.string(forKey: "actThree")
+        edit4.placeholder = defaults.string(forKey: "actFour")
+        edit5.placeholder = defaults.string(forKey: "actFive")
+        edit6.placeholder = defaults.string(forKey: "actSix")
+        edit7.placeholder = defaults.string(forKey: "actSeven")
+        edit8.placeholder = defaults.string(forKey: "actEight")
+        edit9.placeholder = defaults.string(forKey: "actNine")
+        edit10.placeholder = defaults.string(forKey: "actTen")
+        edit11.placeholder = defaults.string(forKey: "actEleven")
+        edit12.placeholder = defaults.string(forKey: "actTwelve")
     }
 
     override func didReceiveMemoryWarning() {
@@ -101,11 +112,87 @@ class editActivitiesViewController: UIViewController {
                 edit1.text = ""
                 edit1.placeholder = defaults.string(forKey: "actOne")
             }
+        case 2:
+            if let text = edit2.text, !text.isEmpty {
+                //do something if it's not empty
+                defaults.set(text, forKey: "actTwo")
+                edit2.text = ""
+                edit2.placeholder = defaults.string(forKey: "actTwo")
+            }
+        case 3:
+            if let text = edit3.text, !text.isEmpty {
+                //do something if it's not empty
+                defaults.set(text, forKey: "actThree")
+                edit3.text = ""
+                edit3.placeholder = defaults.string(forKey: "actThree")
+            }
+        case 4:
+            if let text = edit4.text, !text.isEmpty {
+                //do something if it's not empty
+                defaults.set(text, forKey: "actFour")
+                edit4.text = ""
+                edit4.placeholder = defaults.string(forKey: "actFour")
+            }
+        case 5:
+            if let text = edit5.text, !text.isEmpty {
+                //do something if it's not empty
+                defaults.set(text, forKey: "actFive")
+                edit5.text = ""
+                edit5.placeholder = defaults.string(forKey: "actFive")
+            }
+        case 6:
+            if let text = edit6.text, !text.isEmpty {
+                //do something if it's not empty
+                defaults.set(text, forKey: "actSix")
+                edit6.text = ""
+                edit6.placeholder = defaults.string(forKey: "actSix")
+            }
+        case 7:
+            if let text = edit7.text, !text.isEmpty {
+                //do something if it's not empty
+                defaults.set(text, forKey: "actSeven")
+                edit7.text = ""
+                edit7.placeholder = defaults.string(forKey: "actSeven")
+            }
+        case 8:
+            if let text = edit8.text, !text.isEmpty {
+                //do something if it's not empty
+                defaults.set(text, forKey: "actEight")
+                edit8.text = ""
+                edit8.placeholder = defaults.string(forKey: "actEight")
+            }
+        case 9:
+            if let text = edit9.text, !text.isEmpty {
+                //do something if it's not empty
+                defaults.set(text, forKey: "actNine")
+                edit9.text = ""
+                edit9.placeholder = defaults.string(forKey: "actNine")
+            }
+        case 10:
+            if let text = edit10.text, !text.isEmpty {
+                //do something if it's not empty
+                defaults.set(text, forKey: "actTen")
+                edit10.text = ""
+                edit10.placeholder = defaults.string(forKey: "actTen")
+            }
+        case 11:
+            if let text = edit11.text, !text.isEmpty {
+                //do something if it's not empty
+                defaults.set(text, forKey: "actEleven")
+                edit11.text = ""
+                edit11.placeholder = defaults.string(forKey: "actEleven")
+            }
+        case 12:
+            if let text = edit12.text, !text.isEmpty {
+                //do something if it's not empty
+                defaults.set(text, forKey: "actTwelve")
+                edit12.text = ""
+                edit12.placeholder = defaults.string(forKey: "actTwelve")
+            }
         default:
             print("Didnt Work")
         }
     }
-    //defaults.set("gav", forKey: "actOne")
     
     /*
     // MARK: - Navigation

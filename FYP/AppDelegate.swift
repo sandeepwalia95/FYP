@@ -22,11 +22,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         let hasLaunchedKey = "HasLaunched"
-        var hasLaunched = defaults.bool(forKey: hasLaunchedKey)
+        let hasLaunched = defaults.bool(forKey: hasLaunchedKey)
         
         if !hasLaunched {
             defaults.set(true, forKey: hasLaunchedKey)
-            defaults.set("hey", forKey: "actOne")
+            
+            defaults.set("Walking", forKey: "actOne")
+            defaults.set("Relax", forKey: "actTwo")
+            defaults.set("Friends", forKey: "actThree")
+            defaults.set("Alcohol", forKey: "actFour")
+            defaults.set("Exercise", forKey: "actFive")
+            defaults.set("Reading", forKey: "actSix")
+            defaults.set("College", forKey: "actSeven")
+            defaults.set("Shopping", forKey: "actEight")
+            defaults.set("Family", forKey: "actNine")
+            defaults.set("Party", forKey: "actTen")
+            defaults.set("Movie", forKey: "actEleven")
+            defaults.set("Eat out", forKey: "actTwelve")
         }
         return true
     }
