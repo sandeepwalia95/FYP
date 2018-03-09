@@ -33,18 +33,16 @@ class LogEntryViewController: UIViewController {
     
     @IBOutlet weak var alcoholInfo: UIButton!
     
+    @IBOutlet weak var moodSlider: Slider!
     @IBOutlet weak var sleepSlider: Slider!
     @IBOutlet weak var alcoholSlider: Slider!
     @IBOutlet weak var workSlider: Slider!
     
+    var moodValue = "Excellent"
     var sleepValue = 0
     var alcoholValue = 0
     var workValue = 0
     
-    @IBOutlet weak var moodSlider: UISlider!
-    //@IBOutlet weak var sleepSlider: UISlider!
-    //@IBOutlet weak var alcoholSlider: UISlider!
-    //@IBOutlet weak var workSlider: UISlider!
     @IBOutlet weak var medicationSwitch: UISwitch!
     
     var ref: DatabaseReference!
@@ -65,9 +63,10 @@ class LogEntryViewController: UIViewController {
         // Button title
         setActivityButtonTitles()
         
-        setFluidSlider(slider: sleepSlider, maxVal: 10, maxLabel: "10+", color: UIColor.blue)
-        setFluidSlider(slider: alcoholSlider, maxVal: 20, maxLabel: "20+", color: UIColor.red)
-        setFluidSlider(slider: workSlider, maxVal: 10, maxLabel: "10+", color: UIColor.green)
+        setFluidSlider(slider: moodSlider, maxVal: 5, minLabel: "Excellent", maxLabel: "Bad", color: DynamicColor(hexString: "#13CE66"))
+        setFluidSlider(slider: sleepSlider, maxVal: 10, minLabel: "0", maxLabel: "10+", color: UIColor.blue)
+        setFluidSlider(slider: alcoholSlider, maxVal: 20, minLabel: "0", maxLabel: "20+", color: UIColor.red)
+        setFluidSlider(slider: workSlider, maxVal: 10, minLabel: "0", maxLabel: "10+", color: UIColor.green)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -86,48 +85,6 @@ class LogEntryViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    // Change mood slider and label color and values
-    @IBAction func changeMood(_ sender: Any) {
-        moodSlider.value = roundf(moodSlider.value)
-        
-        switch moodSlider.value {
-        case 1:
-            moodLabel.text = "Excellent"
-            moodLabel.backgroundColor = DynamicColor(hexString: "#976DD0")
-            moodSlider.thumbTintColor = DynamicColor(hexString: "#976DD0")
-        case 2:
-            moodLabel.text = "Great"
-            moodLabel.backgroundColor = DynamicColor(hexString: "#00A6FF")
-            moodSlider.minimumTrackTintColor = DynamicColor(hexString: "#00A6FF")
-            moodSlider.thumbTintColor = DynamicColor(hexString: "#00A6FF")
-        case 3:
-            moodLabel.text = "Good"
-            moodLabel.backgroundColor = DynamicColor(hexString: "#13CE66")
-            moodSlider.minimumTrackTintColor = DynamicColor(hexString: "#13CE66")
-            moodSlider.thumbTintColor = DynamicColor(hexString: "#13CE66")
-        case 4:
-            moodLabel.text = "Fair"
-            moodLabel.backgroundColor = DynamicColor(hexString: "#E9F50C")
-            moodSlider.minimumTrackTintColor = DynamicColor(hexString: "#E9F50C")
-            moodSlider.thumbTintColor = DynamicColor(hexString: "#E9F50C")
-        case 5:
-            moodLabel.text = "Uh-Oh"
-            moodLabel.backgroundColor = DynamicColor(hexString: "#FFBA5C")
-            moodSlider.minimumTrackTintColor = DynamicColor(hexString: "#FFBA5C")
-            moodSlider.thumbTintColor = DynamicColor(hexString: "#FFBA5C")
-        case 6:
-            moodLabel.text = "Bad"
-            moodLabel.backgroundColor = DynamicColor(hexString: "#F95F62")
-            moodSlider.minimumTrackTintColor = DynamicColor(hexString: "#F95F62")
-            moodSlider.thumbTintColor = DynamicColor(hexString: "#F95F62")
-        default:
-            moodLabel.text = "Great"
-            moodLabel.backgroundColor = DynamicColor(hexString: "#00A6FF")
-            moodSlider.minimumTrackTintColor = DynamicColor(hexString: "#00A6FF")
-            moodSlider.thumbTintColor = DynamicColor(hexString: "#00A6FF")
-        }
     }
     
     // Change activity button color and selected attribute
@@ -169,7 +126,7 @@ class LogEntryViewController: UIViewController {
         // ** NB -> Need to set these values in one go to avoid error of nil being read when this
         // is being observed in the ViewLogs VC **
         let logBranch = ref.child("logs")
-        logBranch.child(getCurrentDate()).setValue(["mood" : moodLabel.text,
+        logBranch.child(getCurrentDate()).setValue(["mood" : moodValue,
                                                     "sleep" : sleepValue,
                                                     "alcohol" : alcoholValue,
                                                     "work" : workValue,
@@ -240,6 +197,7 @@ class LogEntryViewController: UIViewController {
         activityButtons.append(button12)
     }
     
+    // Set the titles of the activity buttons
     func setActivityButtonTitles() {
         button1.setTitle(defaults.string(forKey: "actOne"), for: .normal)
         button2.setTitle(defaults.string(forKey: "actTwo"), for: .normal)
@@ -255,24 +213,34 @@ class LogEntryViewController: UIViewController {
         button12.setTitle(defaults.string(forKey: "actTwelve"), for: .normal)
     }
     
-    func setFluidSlider(slider: Slider, maxVal: CGFloat, maxLabel: String, color: UIColor) {
+    // Initialise and set up the sliders
+    func setFluidSlider(slider: Slider, maxVal: CGFloat, minLabel: String, maxLabel: String, color: UIColor) {
         
         let labelTextAttributes: [NSAttributedStringKey : Any] = [.font: UIFont.systemFont(ofSize: 12, weight: .bold), .foregroundColor: UIColor.white]
         slider.attributedTextForFraction = { fraction in
+            var fontSize = 12
             let formatter = NumberFormatter()
             formatter.maximumIntegerDigits = 2
             formatter.maximumFractionDigits = 0
-            let string = formatter.string(from: (fraction * maxVal) as NSNumber) ?? ""
+            var string = formatter.string(from: (fraction * maxVal) as NSNumber) ?? ""
+            
             if slider.accessibilityIdentifier == "sleep" {
                 self.sleepValue = Int(string)!
             } else if slider.accessibilityIdentifier == "alcohol" {
                 self.alcoholValue = Int(string)!
             } else if slider.accessibilityIdentifier == "work" {
                 self.workValue = Int(string)!
+            } else if slider.accessibilityIdentifier == "mood" {
+                string = self.fluidMoodString(string: string, slider: slider)
+                // Must change font size due to 'excellent' taking up a larger space
+                fontSize = 10
+                if string == "Excellent" {
+                    fontSize = 7
+                }
             }
-            return NSAttributedString(string: string, attributes: [.font: UIFont.systemFont(ofSize: 12, weight: .bold), .foregroundColor: UIColor.black])
+            return NSAttributedString(string: string, attributes: [.font: UIFont.systemFont(ofSize: CGFloat(fontSize), weight: .bold), .foregroundColor: UIColor.black])
         }
-        slider.setMinimumLabelAttributedText(NSAttributedString(string: "0", attributes: labelTextAttributes))
+        slider.setMinimumLabelAttributedText(NSAttributedString(string: minLabel, attributes: labelTextAttributes))
         slider.setMaximumLabelAttributedText(NSAttributedString(string: maxLabel, attributes: labelTextAttributes))
         slider.fraction = 0.5
         slider.shadowOffset = CGSize(width: 0, height: 10)
@@ -288,6 +256,7 @@ class LogEntryViewController: UIViewController {
         }
     }
     
+    // Hides label when user interacts with slider
     private func setLabelHidden(slider: Slider, _ hidden: Bool, animated: Bool) {
         let animations = {
             if slider.accessibilityIdentifier == "sleep" {
@@ -297,6 +266,8 @@ class LogEntryViewController: UIViewController {
                 self.alcoholInfo.alpha = hidden ? 0 : 1
             } else if slider.accessibilityIdentifier == "work" {
                 self.workLabel.alpha = hidden ? 0 : 1
+            } else if slider.accessibilityIdentifier == "mood" {
+                self.moodLabel.alpha = hidden ? 0 : 1
             }
         }
         if animated {
@@ -304,5 +275,34 @@ class LogEntryViewController: UIViewController {
         } else {
             animations()
         }
+    }
+    
+    // Method to convert string to mood for moodSlider and also set the moodValue
+    func fluidMoodString(string: String, slider: Slider) -> String {
+        switch string {
+        case "0":
+            slider.contentViewColor = DynamicColor(hexString: "#976DD0")
+            moodValue = "Excellent"
+        case "1":
+            slider.contentViewColor = DynamicColor(hexString: "#00A6FF")
+            moodValue = "Great"
+        case "2":
+            slider.contentViewColor = DynamicColor(hexString: "#13CE66")
+            moodValue = "Good"
+        case "3":
+            slider.contentViewColor = DynamicColor(hexString: "#E9F50C")
+            moodValue = "Fair"
+        case "4":
+            slider.contentViewColor = DynamicColor(hexString: "#FFBA5C")
+            moodValue = "Uh-Oh"
+        case "5":
+            slider.contentViewColor = DynamicColor(hexString: "#F95F62")
+            moodValue = "Bad"
+        default:
+            slider.contentViewColor = DynamicColor(hexString: "#00A6FF")
+            moodValue = "Great"
+        }
+        
+        return moodValue
     }
 }

@@ -270,23 +270,6 @@
                                     <navigationItem title="Add Log" id="5uZ-ZH-a8E"/>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Great" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9z-h0-O2Y">
-                                <rect key="frame" x="160" y="82" width="103" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.32087966799736023" green="0.70396119356155396" blue="0.97651171684265137" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="1" maxValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="Hoi-X5-PiB">
-                                <rect key="frame" x="62" y="130" width="299" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="minimumTrackTintColor" red="0.0" green="0.65098039215686276" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="thumbTintColor" red="0.0" green="0.65098039215686276" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="changeMood:" destination="tbB-uC-LLS" eventType="valueChanged" id="Xzy-cH-oer"/>
-                                </connections>
-                            </slider>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MTH-Ym-G1t">
                                 <rect key="frame" x="35" y="196" width="55" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -548,6 +531,19 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="work"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="38H-1l-7W8" customClass="Slider" customModule="fluid_slider">
+                                <rect key="frame" x="24" y="115" width="374" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="mood"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mood" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9h-5v-i1X">
+                                <rect key="frame" x="184" y="86" width="47" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="daV-v9-3nY"/>
@@ -570,8 +566,8 @@
                         <outlet property="button8" destination="ecx-2F-gaS" id="IEZ-L0-5mv"/>
                         <outlet property="button9" destination="fnk-8N-9jx" id="DIm-Aa-iwD"/>
                         <outlet property="medicationSwitch" destination="b8n-Zr-8Z3" id="8q9-ih-Z2Q"/>
-                        <outlet property="moodLabel" destination="y9z-h0-O2Y" id="41y-uW-b55"/>
-                        <outlet property="moodSlider" destination="Hoi-X5-PiB" id="ove-SP-PDN"/>
+                        <outlet property="moodLabel" destination="e9h-5v-i1X" id="gyW-jz-nHq"/>
+                        <outlet property="moodSlider" destination="38H-1l-7W8" id="HJ2-xo-Qa4"/>
                         <outlet property="sleepLabel" destination="GSu-8r-hj4" id="HDf-kg-tGR"/>
                         <outlet property="sleepSlider" destination="R0K-O8-DWe" id="zQp-Hj-Hbj"/>
                         <outlet property="workLabel" destination="ehV-2X-GO9" id="bID-E7-IUq"/>
