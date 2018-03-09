@@ -44,6 +44,7 @@ class LogEntryViewController: UIViewController {
     var workValue = 0
     
     @IBOutlet weak var medicationSwitch: UISwitch!
+    @IBOutlet weak var logButton: UIButton!
     
     var ref: DatabaseReference!
     
@@ -67,6 +68,8 @@ class LogEntryViewController: UIViewController {
         setFluidSlider(slider: sleepSlider, maxVal: 10, minLabel: "0", maxLabel: "10+", color: UIColor.blue)
         setFluidSlider(slider: alcoholSlider, maxVal: 20, minLabel: "0", maxLabel: "20+", color: UIColor.red)
         setFluidSlider(slider: workSlider, maxVal: 10, minLabel: "0", maxLabel: "10+", color: UIColor.green)
+        
+        logButton.layer.cornerRadius = 8
     }
     
     override func viewDidAppear(_ animated: Bool) {
