@@ -65,9 +65,9 @@ class LogEntryViewController: UIViewController {
         // Button title
         setActivityButtonTitles()
         
-        setFluidSlider(slider: sleepSlider, maxVal: 10, maxLabel: "10+")
-        setFluidSlider(slider: alcoholSlider, maxVal: 20, maxLabel: "20+")
-        setFluidSlider(slider: workSlider, maxVal: 10, maxLabel: "10+")
+        setFluidSlider(slider: sleepSlider, maxVal: 10, maxLabel: "10+", color: UIColor.blue)
+        setFluidSlider(slider: alcoholSlider, maxVal: 20, maxLabel: "20+", color: UIColor.red)
+        setFluidSlider(slider: workSlider, maxVal: 10, maxLabel: "10+", color: UIColor.green)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -147,31 +147,10 @@ class LogEntryViewController: UIViewController {
         }
     }
     
-//    // Change sleep slider
-//    @IBAction func selectSleep(_ sender: Any) {
-//        sleepSlider.value = roundf(sleepSlider.value)
-//
-//        sleepLabel.text = Int(sleepSlider.value).description + " hrs"
-//    }
-    
-//    // Change alcohol slider
-//    @IBAction func selectAlcohol(_ sender: Any) {
-//        alcoholSlider.value = roundf(alcoholSlider.value)
-//
-//        alcoholLabel.text = Int(alcoholSlider.value).description + " units"
-//    }
-    
     // Display Alcohol information for units
     @IBAction func alcoholInfo(_ sender: Any) {
         displayAlertMessage(alertMessage: "Beer(pint): 2 units \n Spirts(25ml): 1 unit \n Wine(175ml): 2 units")
     }
-    
-//    // Change work slider
-//    @IBAction func selectWork(_ sender: Any) {
-//        workSlider.value = roundf(workSlider.value)
-//
-//        workLabel.text = Int(workSlider.value).description + " hrs"
-//    }
     
     @IBAction func logPressed(_ sender: Any) {
         
@@ -276,7 +255,7 @@ class LogEntryViewController: UIViewController {
         button12.setTitle(defaults.string(forKey: "actTwelve"), for: .normal)
     }
     
-    func setFluidSlider(slider: Slider, maxVal: CGFloat, maxLabel: String) {
+    func setFluidSlider(slider: Slider, maxVal: CGFloat, maxLabel: String, color: UIColor) {
         
         let labelTextAttributes: [NSAttributedStringKey : Any] = [.font: UIFont.systemFont(ofSize: 12, weight: .bold), .foregroundColor: UIColor.white]
         slider.attributedTextForFraction = { fraction in
@@ -299,7 +278,7 @@ class LogEntryViewController: UIViewController {
         slider.shadowOffset = CGSize(width: 0, height: 10)
         slider.shadowBlur = 5
         slider.shadowColor = UIColor(white: 0, alpha: 0.1)
-        slider.contentViewColor = UIColor(red: 78/255.0, green: 77/255.0, blue: 224/255.0, alpha: 1)
+        slider.contentViewColor = color
         slider.valueViewColor = .white
         slider.didBeginTracking = { [weak self] _ in
             self?.setLabelHidden(slider: slider, true, animated: true)
