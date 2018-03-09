@@ -31,14 +31,20 @@ class LogEntryViewController: UIViewController {
     @IBOutlet weak var button11: UIButton!
     @IBOutlet weak var button12: UIButton!
     
+    @IBOutlet weak var alcoholInfo: UIButton!
+    
     @IBOutlet weak var sleepSlider: Slider!
+    @IBOutlet weak var alcoholSlider: Slider!
+    @IBOutlet weak var workSlider: Slider!
     
     var sleepValue = 0
+    var alcoholValue = 0
+    var workValue = 0
     
     @IBOutlet weak var moodSlider: UISlider!
     //@IBOutlet weak var sleepSlider: UISlider!
-    @IBOutlet weak var alcoholSlider: UISlider!
-    @IBOutlet weak var workSlider: UISlider!
+    //@IBOutlet weak var alcoholSlider: UISlider!
+    //@IBOutlet weak var workSlider: UISlider!
     @IBOutlet weak var medicationSwitch: UISwitch!
     
     var ref: DatabaseReference!
@@ -59,7 +65,9 @@ class LogEntryViewController: UIViewController {
         // Button title
         setActivityButtonTitles()
         
-        setFluidSlider(slider: sleepSlider, maxVal: 10, maxLabel: "10")
+        setFluidSlider(slider: sleepSlider, maxVal: 10, maxLabel: "10+")
+        setFluidSlider(slider: alcoholSlider, maxVal: 20, maxLabel: "20+")
+        setFluidSlider(slider: workSlider, maxVal: 10, maxLabel: "10+")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -146,24 +154,24 @@ class LogEntryViewController: UIViewController {
 //        sleepLabel.text = Int(sleepSlider.value).description + " hrs"
 //    }
     
-    // Change alcohol slider
-    @IBAction func selectAlcohol(_ sender: Any) {
-        alcoholSlider.value = roundf(alcoholSlider.value)
-        
-        alcoholLabel.text = Int(alcoholSlider.value).description + " units"
-    }
+//    // Change alcohol slider
+//    @IBAction func selectAlcohol(_ sender: Any) {
+//        alcoholSlider.value = roundf(alcoholSlider.value)
+//
+//        alcoholLabel.text = Int(alcoholSlider.value).description + " units"
+//    }
     
     // Display Alcohol information for units
     @IBAction func alcoholInfo(_ sender: Any) {
         displayAlertMessage(alertMessage: "Beer(pint): 2 units \n Spirts(25ml): 1 unit \n Wine(175ml): 2 units")
     }
     
-    // Change work slider
-    @IBAction func selectWork(_ sender: Any) {
-        workSlider.value = roundf(workSlider.value)
-        
-        workLabel.text = Int(workSlider.value).description + " hrs"
-    }
+//    // Change work slider
+//    @IBAction func selectWork(_ sender: Any) {
+//        workSlider.value = roundf(workSlider.value)
+//
+//        workLabel.text = Int(workSlider.value).description + " hrs"
+//    }
     
     @IBAction func logPressed(_ sender: Any) {
         
@@ -184,8 +192,8 @@ class LogEntryViewController: UIViewController {
         let logBranch = ref.child("logs")
         logBranch.child(getCurrentDate()).setValue(["mood" : moodLabel.text,
                                                     "sleep" : sleepValue,
-                                                    "alcohol" : alcoholSlider.value,
-                                                    "work" : workSlider.value,
+                                                    "alcohol" : alcoholValue,
+                                                    "work" : workValue,
                                                     "medication" : medValue,
                                                     "activities" : activitiesSelected])
     }
@@ -276,8 +284,13 @@ class LogEntryViewController: UIViewController {
             formatter.maximumIntegerDigits = 2
             formatter.maximumFractionDigits = 0
             let string = formatter.string(from: (fraction * maxVal) as NSNumber) ?? ""
-            print(string)
-            self.sleepValue = Int(string)!
+            if slider.accessibilityIdentifier == "sleep" {
+                self.sleepValue = Int(string)!
+            } else if slider.accessibilityIdentifier == "alcohol" {
+                self.alcoholValue = Int(string)!
+            } else if slider.accessibilityIdentifier == "work" {
+                self.workValue = Int(string)!
+            }
             return NSAttributedString(string: string, attributes: [.font: UIFont.systemFont(ofSize: 12, weight: .bold), .foregroundColor: UIColor.black])
         }
         slider.setMinimumLabelAttributedText(NSAttributedString(string: "0", attributes: labelTextAttributes))
@@ -289,19 +302,26 @@ class LogEntryViewController: UIViewController {
         slider.contentViewColor = UIColor(red: 78/255.0, green: 77/255.0, blue: 224/255.0, alpha: 1)
         slider.valueViewColor = .white
         slider.didBeginTracking = { [weak self] _ in
-            self?.setLabelHidden(true, animated: true)
+            self?.setLabelHidden(slider: slider, true, animated: true)
         }
         slider.didEndTracking = { [weak self] _ in
-            self?.setLabelHidden(false, animated: true)
+            self?.setLabelHidden(slider: slider, false, animated: true)
         }
     }
     
-    private func setLabelHidden(_ hidden: Bool, animated: Bool) {
+    private func setLabelHidden(slider: Slider, _ hidden: Bool, animated: Bool) {
         let animations = {
-            //self.label.alpha = hidden ? 0 : 1
+            if slider.accessibilityIdentifier == "sleep" {
+                self.sleepLabel.alpha = hidden ? 0 : 1
+            } else if slider.accessibilityIdentifier == "alcohol" {
+                self.alcoholLabel.alpha = hidden ? 0 : 1
+                self.alcoholInfo.alpha = hidden ? 0 : 1
+            } else if slider.accessibilityIdentifier == "work" {
+                self.workLabel.alpha = hidden ? 0 : 1
+            }
         }
         if animated {
-            UIView.animate(withDuration: 0.11, animations: animations)
+            UIView.animate(withDuration: 0.1, animations: animations)
         } else {
             animations()
         }
