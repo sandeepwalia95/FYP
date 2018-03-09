@@ -9,6 +9,7 @@
 import UIKit
 import DynamicColor
 import FirebaseDatabase
+import fluid_slider
 
 class LogEntryViewController: UIViewController {
 
@@ -30,9 +31,12 @@ class LogEntryViewController: UIViewController {
     @IBOutlet weak var button11: UIButton!
     @IBOutlet weak var button12: UIButton!
     
+    @IBOutlet weak var sleepSlider: Slider!
+    
+    var sleepValue = 0
     
     @IBOutlet weak var moodSlider: UISlider!
-    @IBOutlet weak var sleepSlider: UISlider!
+    //@IBOutlet weak var sleepSlider: UISlider!
     @IBOutlet weak var alcoholSlider: UISlider!
     @IBOutlet weak var workSlider: UISlider!
     @IBOutlet weak var medicationSwitch: UISwitch!
@@ -54,6 +58,8 @@ class LogEntryViewController: UIViewController {
         
         // Button title
         setActivityButtonTitles()
+        
+        setFluidSlider(slider: sleepSlider, maxVal: 10, maxLabel: "10")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -133,12 +139,12 @@ class LogEntryViewController: UIViewController {
         }
     }
     
-    // Change sleep slider
-    @IBAction func selectSleep(_ sender: Any) {
-        sleepSlider.value = roundf(sleepSlider.value)
-        
-        sleepLabel.text = Int(sleepSlider.value).description + " hrs"
-    }
+//    // Change sleep slider
+//    @IBAction func selectSleep(_ sender: Any) {
+//        sleepSlider.value = roundf(sleepSlider.value)
+//
+//        sleepLabel.text = Int(sleepSlider.value).description + " hrs"
+//    }
     
     // Change alcohol slider
     @IBAction func selectAlcohol(_ sender: Any) {
@@ -177,7 +183,7 @@ class LogEntryViewController: UIViewController {
         // is being observed in the ViewLogs VC **
         let logBranch = ref.child("logs")
         logBranch.child(getCurrentDate()).setValue(["mood" : moodLabel.text,
-                                                    "sleep" : sleepSlider.value,
+                                                    "sleep" : sleepValue,
                                                     "alcohol" : alcoholSlider.value,
                                                     "work" : workSlider.value,
                                                     "medication" : medValue,
@@ -260,5 +266,44 @@ class LogEntryViewController: UIViewController {
         button10.setTitle(defaults.string(forKey: "actTen"), for: .normal)
         button11.setTitle(defaults.string(forKey: "actEleven"), for: .normal)
         button12.setTitle(defaults.string(forKey: "actTwelve"), for: .normal)
+    }
+    
+    func setFluidSlider(slider: Slider, maxVal: CGFloat, maxLabel: String) {
+        
+        let labelTextAttributes: [NSAttributedStringKey : Any] = [.font: UIFont.systemFont(ofSize: 12, weight: .bold), .foregroundColor: UIColor.white]
+        slider.attributedTextForFraction = { fraction in
+            let formatter = NumberFormatter()
+            formatter.maximumIntegerDigits = 2
+            formatter.maximumFractionDigits = 0
+            let string = formatter.string(from: (fraction * maxVal) as NSNumber) ?? ""
+            print(string)
+            self.sleepValue = Int(string)!
+            return NSAttributedString(string: string, attributes: [.font: UIFont.systemFont(ofSize: 12, weight: .bold), .foregroundColor: UIColor.black])
+        }
+        slider.setMinimumLabelAttributedText(NSAttributedString(string: "0", attributes: labelTextAttributes))
+        slider.setMaximumLabelAttributedText(NSAttributedString(string: maxLabel, attributes: labelTextAttributes))
+        slider.fraction = 0.5
+        slider.shadowOffset = CGSize(width: 0, height: 10)
+        slider.shadowBlur = 5
+        slider.shadowColor = UIColor(white: 0, alpha: 0.1)
+        slider.contentViewColor = UIColor(red: 78/255.0, green: 77/255.0, blue: 224/255.0, alpha: 1)
+        slider.valueViewColor = .white
+        slider.didBeginTracking = { [weak self] _ in
+            self?.setLabelHidden(true, animated: true)
+        }
+        slider.didEndTracking = { [weak self] _ in
+            self?.setLabelHidden(false, animated: true)
+        }
+    }
+    
+    private func setLabelHidden(_ hidden: Bool, animated: Bool) {
+        let animations = {
+            //self.label.alpha = hidden ? 0 : 1
+        }
+        if animated {
+            UIView.animate(withDuration: 0.11, animations: animations)
+        } else {
+            animations()
+        }
     }
 }
