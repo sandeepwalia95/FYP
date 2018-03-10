@@ -135,6 +135,8 @@ class LogEntryViewController: UIViewController {
                                                     "work" : workValue,
                                                     "medication" : medValue,
                                                     "activities" : activitiesSelected])
+        
+        tabBarController?.selectedIndex = 0
     }
     
     // Method to check what activities have been selected by the user
