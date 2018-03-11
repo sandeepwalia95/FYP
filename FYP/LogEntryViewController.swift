@@ -10,6 +10,7 @@ import UIKit
 import DynamicColor
 import FirebaseDatabase
 import fluid_slider
+import Whisper
 
 class LogEntryViewController: UIViewController {
 
@@ -137,6 +138,12 @@ class LogEntryViewController: UIViewController {
                                                     "activities" : activitiesSelected])
         
         tabBarController?.selectedIndex = 0
+        
+        var murmur = Murmur(title: "Logged Successfully...")
+        murmur.backgroundColor = DynamicColor(hexString: "85C1E9")
+        
+        // Show and hide a message after delay
+        Whisper.show(whistle: murmur, action: .show(3))
     }
     
     // Method to check what activities have been selected by the user
