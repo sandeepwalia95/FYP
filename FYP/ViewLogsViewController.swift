@@ -68,7 +68,7 @@ class ViewLogsViewController: UIViewController, UITableViewDelegate, UITableView
             
             // Create log object and add it to the LogDate list which will be accessed with the tableView methods.
             let log = Log(date: logDate, mood: logMood, sleep: logSleep, alcohol: logAlcohol, work: logWork, medication: logMedication, activities: logActivities)
-            self.logData.append(log)
+            self.logData.insert(log, at: 0)
             
             // Reload the tableView to make sure new log is visible in the tableView.
             self.tableView.reloadData()
