@@ -43,6 +43,9 @@ class RegisterViewController: UIViewController {
             // Show Alert message here and return
             displayAlertMessage(alertMessage: "All Fields are Required")
             return
+        } else if (!(emailAddressTextField.text?.contains("@"))!) {
+            displayAlertMessage(alertMessage: "Not a valid email address \n eg. myname@me.com")
+            return
         }
         
         // Validation of password
@@ -79,7 +82,7 @@ class RegisterViewController: UIViewController {
     
     func displayAlertMessage(alertMessage: String) -> Void {
         DispatchQueue.main.async {
-            let alertController = UIAlertController(title: "Alert", message: alertMessage, preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Something is wrong!", message: alertMessage, preferredStyle: .alert)
             
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
             
