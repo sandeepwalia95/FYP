@@ -53,6 +53,8 @@ class SignInViewController: UIViewController {
         if email != nil && password != nil {
             if (emailAddressTextField.text?.isEqual(email))! && (passwordTextField.text?.isEqual(password))! {
                 print("We did it baby!!")
+            } else {
+                print("No Hope")
             }
         }
     }
@@ -66,15 +68,15 @@ class SignInViewController: UIViewController {
     }
     
     func setupViews() {
-        passwordTextField.layer.cornerRadius = 7.0
-        passwordTextField.layer.borderWidth = 3
-        passwordTextField.layer.borderColor = UIColor.white.cgColor
-        passwordTextField.clipsToBounds = true
-        
-        emailAddressTextField.layer.cornerRadius = 7.0
-        emailAddressTextField.layer.borderWidth = 3
-        emailAddressTextField.layer.borderColor = UIColor.white.cgColor
-        emailAddressTextField.clipsToBounds = true
+//        passwordTextField.layer.cornerRadius = 7.0
+//        passwordTextField.layer.borderWidth = 3
+//        passwordTextField.layer.borderColor = UIColor.white.cgColor
+//        passwordTextField.clipsToBounds = true
+//        
+//        emailAddressTextField.layer.cornerRadius = 7.0
+//        emailAddressTextField.layer.borderWidth = 3
+//        emailAddressTextField.layer.borderColor = UIColor.white.cgColor
+//        emailAddressTextField.clipsToBounds = true
         
         signInButton.layer.cornerRadius = 7.0
         signInButton.clipsToBounds = true
