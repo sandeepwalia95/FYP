@@ -51,10 +51,24 @@ class SignInViewController: UIViewController {
         let password = defaults.string(forKey: "passwordKey")
         
         if email != nil && password != nil {
+            
+            // Email and password required to sign in
+            if (emailAddressTextField.text?.isEmpty)! ||
+                (passwordTextField.text?.isEmpty)! {
+                displayAlertMessage(alertMessage: "All fields are required")
+            }
+            
+            // Sign in if details are correct
             if (emailAddressTextField.text?.isEqual(email))! && (passwordTextField.text?.isEqual(password))! {
                 print("We did it baby!!")
+                
+                let tabViewController = self.storyboard?.instantiateViewController(withIdentifier: "Tab") as! UITabBarController
+                
+                self.present(tabViewController, animated: true)
+            } else if (!(emailAddressTextField.text?.contains("@"))!) {
+                displayAlertMessage(alertMessage: "Not a valid email address \n eg. myname@me.com")
             } else {
-                print("No Hope")
+                displayAlertMessage(alertMessage: "The email or password is incorrect")
             }
         }
     }
@@ -68,18 +82,21 @@ class SignInViewController: UIViewController {
     }
     
     func setupViews() {
-//        passwordTextField.layer.cornerRadius = 7.0
-//        passwordTextField.layer.borderWidth = 3
-//        passwordTextField.layer.borderColor = UIColor.white.cgColor
-//        passwordTextField.clipsToBounds = true
-//        
-//        emailAddressTextField.layer.cornerRadius = 7.0
-//        emailAddressTextField.layer.borderWidth = 3
-//        emailAddressTextField.layer.borderColor = UIColor.white.cgColor
-//        emailAddressTextField.clipsToBounds = true
+        
+        emailAddressTextField.text = defaults.string(forKey: "emailAddressKey")
         
         signInButton.layer.cornerRadius = 7.0
         signInButton.clipsToBounds = true
+    }
+    
+    func displayAlertMessage(alertMessage: String) -> Void {
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: "Something is wrong!", message: alertMessage, preferredStyle: .alert)
+            
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
     
     /*
