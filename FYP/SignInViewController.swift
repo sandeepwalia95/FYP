@@ -76,35 +76,45 @@ class SignInViewController: UIViewController {
     @IBAction func forgotPasswordPressed(_ sender: Any) {
         print("forgotPasswordPressed")
         
-        let smtpSession = MCOSMTPSession()
-        smtpSession.hostname = "smtp.gmail.com"
-        smtpSession.username = "sandeepfyp@gmail.com"
-        smtpSession.password = "sandeepfyp11"
-        smtpSession.port = 465
-        smtpSession.authType = MCOAuthType.saslPlain
-        smtpSession.connectionType = MCOConnectionType.TLS
-        smtpSession.connectionLogger = {(connectionID, type, data) in
-            if data != nil {
-                if let string = NSString(data: data!, encoding: String.Encoding.utf8.rawValue){
-                    NSLog("Connectionlogger: \(string)")
-                }
-            }
-        }
-        let builder = MCOMessageBuilder()
-        builder.header.to = [MCOAddress(displayName: "Sandeep", mailbox: "sandeepwalia95@hotmail.com")]
-        builder.header.from = MCOAddress(displayName: "FYP", mailbox: "sandeepfyp@gmail.com")
-        builder.header.subject = "Test Email"
-        builder.htmlBody="<p>kackibushek</p>"
+        let userEmailAddress = defaults.string(forKey: "emailAddressKey")!
+        let userFirstName = defaults.string(forKey: "firstNameKey")!
+        print(userEmailAddress)
+        print(userFirstName)
         
-        let rfc822Data = builder.data()
-        let sendOperation = smtpSession.sendOperation(with: rfc822Data)
-        sendOperation?.start { (error) -> Void in
-            if (error != nil) {
-                NSLog("Error sending email: \(String(describing: error))")
-            } else {
-                NSLog("Successfully sent email!")
-            }
-        }
+        // generate a random string of letters for temporary password
+        let passString = Array("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
+        let tempPassword = String((0..<8).map{ _ in passString[Int(arc4random_uniform(UInt32(passString.count)))]})
+        print(tempPassword)
+        
+//        let smtpSession = MCOSMTPSession()
+//        smtpSession.hostname = "smtp.gmail.com"
+//        smtpSession.username = "sandeepfyp@gmail.com"
+//        smtpSession.password = "sandeepfyp11"
+//        smtpSession.port = 465
+//        smtpSession.authType = MCOAuthType.saslPlain
+//        smtpSession.connectionType = MCOConnectionType.TLS
+//        smtpSession.connectionLogger = {(connectionID, type, data) in
+//            if data != nil {
+//                if let string = NSString(data: data!, encoding: String.Encoding.utf8.rawValue){
+//                    NSLog("Connectionlogger: \(string)")
+//                }
+//            }
+//        }
+//        let builder = MCOMessageBuilder()
+//        builder.header.to = [MCOAddress(displayName: "Sandeep", mailbox: userEmailAddress)]
+//        builder.header.from = MCOAddress(displayName: "FYP", mailbox: "sandeepfyp@gmail.com")
+//        builder.header.subject = "Test Email"
+//        builder.htmlBody="<html><body><div><p><h1>Hi \(userFirstName), Forgot your password?</h1></p><p>Temporary password: \(tempPassword)</p><p>We suggest you change your password immediatley from within the app after logging in.</p><p>Thank You.</p></div></body></html>"
+//
+//        let rfc822Data = builder.data()
+//        let sendOperation = smtpSession.sendOperation(with: rfc822Data)
+//        sendOperation?.start { (error) -> Void in
+//            if (error != nil) {
+//                NSLog("Error sending email: \(String(describing: error))")
+//            } else {
+//                NSLog("Successfully sent email!")
+//            }
+//        }
     }
     
     func setupViews() {
