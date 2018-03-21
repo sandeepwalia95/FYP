@@ -43,6 +43,9 @@ class RegisterViewController: UIViewController {
             // Show Alert message here and return
             displayAlertMessage(alertMessage: "All Fields are Required")
             return
+        } else if (!(emailAddressTextField.text?.contains("@"))!) {
+            displayAlertMessage(alertMessage: "Not a valid email address \n eg. myname@me.com")
+            return
         }
         
         // Validation of password
@@ -79,7 +82,7 @@ class RegisterViewController: UIViewController {
     
     func displayAlertMessage(alertMessage: String) -> Void {
         DispatchQueue.main.async {
-            let alertController = UIAlertController(title: "Alert", message: alertMessage, preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Something is wrong!", message: alertMessage, preferredStyle: .alert)
             
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
             
@@ -88,36 +91,6 @@ class RegisterViewController: UIViewController {
     }
     
     func setupViews() {
-        firstNameTextField.layer.cornerRadius = 7.0
-        firstNameTextField.layer.borderWidth = 3.0
-        firstNameTextField.layer.borderColor = UIColor.white.cgColor
-        firstNameTextField.clipsToBounds = true
-        
-        lastNameTextField.layer.cornerRadius = 7.0
-        lastNameTextField.layer.borderWidth = 3.0
-        lastNameTextField.layer.borderColor = UIColor.white.cgColor
-        lastNameTextField.clipsToBounds = true
-        
-        ageTextField.layer.cornerRadius = 7.0
-        ageTextField.layer.borderWidth = 3.0
-        ageTextField.layer.borderColor = UIColor.white.cgColor
-        ageTextField.clipsToBounds = true
-        
-        emailAddressTextField.layer.cornerRadius = 7.0
-        emailAddressTextField.layer.borderWidth = 3.0
-        emailAddressTextField.layer.borderColor = UIColor.white.cgColor
-        emailAddressTextField.clipsToBounds = true
-        
-        passwordTextField.layer.cornerRadius = 7.0
-        passwordTextField.layer.borderWidth = 3.0
-        passwordTextField.layer.borderColor = UIColor.white.cgColor
-        passwordTextField.clipsToBounds = true
-        
-        reEnterPasswordTextField.layer.cornerRadius = 7.0
-        reEnterPasswordTextField.layer.borderWidth = 3.0
-        reEnterPasswordTextField.layer.borderColor = UIColor.white.cgColor
-        reEnterPasswordTextField.clipsToBounds = true
-        
         createButton.layer.cornerRadius = 7.0
         createButton.clipsToBounds = true
     }
