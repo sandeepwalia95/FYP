@@ -62,6 +62,7 @@ class RegisterViewController: UIViewController {
         defaults.set(ageTextField.text, forKey: "ageTextFieldKey")
         defaults.set(emailAddressTextField.text, forKey: "emailAddressKey")
         defaults.set(passwordTextField.text, forKey: "passwordKey")
+        defaults.set(passwordTextField.text, forKey: "tempPasswordKey")
         
         defaults.set(true, forKey: "isRegistered")
         
