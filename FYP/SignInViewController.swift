@@ -113,6 +113,7 @@ class SignInViewController: UIViewController {
                 NSLog("Error sending email: \(String(describing: error))")
             } else {
                 NSLog("Successfully sent email!")
+                self.defaults.set(tempPassword, forKey: "passwordKey")
                 self.displayAlertMessage(title: "Password reset", alertMessage: "An email has been sent to you on how to reset your password.")
             }
         }
