@@ -91,7 +91,6 @@
 			children = (
 				DDCEEBD1206194780094FFDE /* FYP_bridge.h */,
 				DDAAA36120377BB0001E8C77 /* noMeds.png */,
-				DDCEEBD22062C0870094FFDE /* ResetPasswordViewController.swift */,
 				DDAAA36320377BB7001E8C77 /* yesMeds.png */,
 				DD3596D3201CB4840096A84C /* FYP */,
 				DD3596D2201CB4840096A84C /* Products */,
@@ -126,6 +125,7 @@
 				DD354C86202F4074008DD9E3 /* Log.swift */,
 				DD2411B920375CEE00515757 /* DetailLogViewController.swift */,
 				DD3A19A12047252300673DAF /* ChartViewController.swift */,
+				DDCEEBD22062C0870094FFDE /* ResetPasswordViewController.swift */,
 				DDA5C1FF204F2A7A004452D8 /* editActivitiesViewController.swift */,
 				DDA5C201204F3755004452D8 /* MaxLengthTextField.swift */,
 			);
