@@ -23,6 +23,7 @@
 		DDA5C202204F3755004452D8 /* MaxLengthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5C201204F3755004452D8 /* MaxLengthTextField.swift */; };
 		DDAAA36220377BB0001E8C77 /* noMeds.png in Resources */ = {isa = PBXBuildFile; fileRef = DDAAA36120377BB0001E8C77 /* noMeds.png */; };
 		DDAAA36420377BB7001E8C77 /* yesMeds.png in Resources */ = {isa = PBXBuildFile; fileRef = DDAAA36320377BB7001E8C77 /* yesMeds.png */; };
+		DDCEEBD32062C0870094FFDE /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCEEBD22062C0870094FFDE /* ResetPasswordViewController.swift */; };
 		DDD896AA2028FE6400A85EF6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDD896A92028FE6400A85EF6 /* GoogleService-Info.plist */; };
 		DDDACAB5202676F500CE4FFD /* ViewLogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDACAB4202676F500CE4FFD /* ViewLogsViewController.swift */; };
 		DDDACAB72026833B00CE4FFD /* ViewLogsViewControllerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDACAB62026833B00CE4FFD /* ViewLogsViewControllerTableViewCell.swift */; };
@@ -50,6 +51,7 @@
 		DDAAA36120377BB0001E8C77 /* noMeds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = noMeds.png; path = ../../Downloads/noMeds.png; sourceTree = "<group>"; };
 		DDAAA36320377BB7001E8C77 /* yesMeds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yesMeds.png; sourceTree = "<group>"; };
 		DDCEEBD1206194780094FFDE /* FYP_bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYP_bridge.h; sourceTree = "<group>"; };
+		DDCEEBD22062C0870094FFDE /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		DDD896A92028FE6400A85EF6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DDDACAB4202676F500CE4FFD /* ViewLogsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLogsViewController.swift; sourceTree = "<group>"; };
 		DDDACAB62026833B00CE4FFD /* ViewLogsViewControllerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLogsViewControllerTableViewCell.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			children = (
 				DDCEEBD1206194780094FFDE /* FYP_bridge.h */,
 				DDAAA36120377BB0001E8C77 /* noMeds.png */,
+				DDCEEBD22062C0870094FFDE /* ResetPasswordViewController.swift */,
 				DDAAA36320377BB7001E8C77 /* yesMeds.png */,
 				DD3596D3201CB4840096A84C /* FYP */,
 				DD3596D2201CB4840096A84C /* Products */,
@@ -294,6 +297,7 @@
 				DD2411BA20375CEE00515757 /* DetailLogViewController.swift in Sources */,
 				DDDACAB72026833B00CE4FFD /* ViewLogsViewControllerTableViewCell.swift in Sources */,
 				DD3596E7201CCC840096A84C /* SignInViewController.swift in Sources */,
+				DDCEEBD32062C0870094FFDE /* ResetPasswordViewController.swift in Sources */,
 				DD354C87202F4074008DD9E3 /* Log.swift in Sources */,
 				DD3596E9201CCF160096A84C /* RegisterViewController.swift in Sources */,
 				DD3A19A22047252300673DAF /* ChartViewController.swift in Sources */,

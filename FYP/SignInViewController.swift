@@ -49,6 +49,7 @@ class SignInViewController: UIViewController {
         let email = defaults.string(forKey: "emailAddressKey")
         
         let password = defaults.string(forKey: "passwordKey")
+        let tempPassword = defaults.string(forKey: "tempPasswordKey")
         
         if email != nil && password != nil {
             
@@ -59,7 +60,7 @@ class SignInViewController: UIViewController {
             }
             
             // Sign in if details are correct
-            if (emailAddressTextField.text?.isEqual(email))! && (passwordTextField.text?.isEqual(password))! {
+            if (emailAddressTextField.text?.isEqual(email))! && ((passwordTextField.text?.isEqual(password))! || (passwordTextField.text?.isEqual(tempPassword))!) {
                 print("We did it baby!!")
                 
                 let tabViewController = self.storyboard?.instantiateViewController(withIdentifier: "Tab") as! UITabBarController
@@ -104,7 +105,7 @@ class SignInViewController: UIViewController {
         builder.header.to = [MCOAddress(displayName: "Sandeep", mailbox: userEmailAddress)]
         builder.header.from = MCOAddress(displayName: "FYP", mailbox: "sandeepfyp@gmail.com")
         builder.header.subject = "Test Email"
-        builder.htmlBody="<html><body><div><p><h1>Hi \(userFirstName), Forgot your password?</h1></p><p>Temporary password: \(tempPassword)</p><p>We suggest you change your password immediatley from within the app after logging in.</p><p>Thank You.</p></div></body></html>"
+        builder.htmlBody="<html><body><div><p><h1>Hi \(userFirstName), Forgot your password?</h1></p><p>Temporary password: \(tempPassword)</p><p>We suggest you change your password immediately in reset password section, from within the app after logging in.</p><p>if you did not ask to reset your password, you can ignore this email.</p><p>Thank You.</p></div></body></html>"
 
         let rfc822Data = builder.data()
         let sendOperation = smtpSession.sendOperation(with: rfc822Data)
@@ -113,6 +114,7 @@ class SignInViewController: UIViewController {
                 NSLog("Error sending email: \(String(describing: error))")
             } else {
                 NSLog("Successfully sent email!")
+                self.defaults.set(tempPassword, forKey: "tempPasswordKey")
                 self.displayAlertMessage(title: "Password reset", alertMessage: "An email has been sent to you on how to reset your password.")
             }
         }
