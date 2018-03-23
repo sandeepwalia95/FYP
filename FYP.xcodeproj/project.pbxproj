@@ -91,7 +91,6 @@
 			children = (
 				DDCEEBD1206194780094FFDE /* FYP_bridge.h */,
 				DDAAA36120377BB0001E8C77 /* noMeds.png */,
-				DDCEEBD22062C0870094FFDE /* ResetPasswordViewController.swift */,
 				DDAAA36320377BB7001E8C77 /* yesMeds.png */,
 				DD3596D3201CB4840096A84C /* FYP */,
 				DD3596D2201CB4840096A84C /* Products */,
@@ -111,6 +110,7 @@
 		DD3596D3201CB4840096A84C /* FYP */ = {
 			isa = PBXGroup;
 			children = (
+				DDCEEBD22062C0870094FFDE /* ResetPasswordViewController.swift */,
 				DDD896A92028FE6400A85EF6 /* GoogleService-Info.plist */,
 				DD3596D4201CB4840096A84C /* AppDelegate.swift */,
 				DD3596D6201CB4840096A84C /* ViewController.swift */,
