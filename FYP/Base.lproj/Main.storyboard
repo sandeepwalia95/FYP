@@ -355,7 +355,7 @@
             </objects>
             <point key="canvasLocation" x="340.57971014492756" y="-1167.3913043478262"/>
         </scene>
-        <!--Log Entry View Controller-->
+        <!--Add Log-->
         <scene sceneID="yfV-no-bSi">
             <objects>
                 <viewController id="tbB-uC-LLS" customClass="LogEntryViewController" customModule="FYP" customModuleProvider="target" sceneMemberID="viewController">
@@ -659,7 +659,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="daV-v9-3nY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="history" id="LG7-yz-75b"/>
+                    <tabBarItem key="tabBarItem" title="Add Log" image="addLog.png" id="LG7-yz-75b"/>
                     <connections>
                         <outlet property="alcoholInfo" destination="b7j-Zr-3XB" id="UK5-4i-doZ"/>
                         <outlet property="alcoholLabel" destination="qBI-J3-jvs" id="oPb-so-2UR"/>
@@ -690,7 +690,7 @@
             </objects>
             <point key="canvasLocation" x="2977" y="-233"/>
         </scene>
-        <!--Reset Password View Controller-->
+        <!--Reset Password-->
         <scene sceneID="qzc-lg-ka9">
             <objects>
                 <viewController id="RTs-vL-vdG" customClass="ResetPasswordViewController" customModule="FYP" customModuleProvider="target" sceneMemberID="viewController">
@@ -742,7 +742,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="P6d-Rc-4rs"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="1DQ-6A-79H"/>
+                    <tabBarItem key="tabBarItem" title="Reset Password" image="resetPassword.png" id="1DQ-6A-79H"/>
                     <connections>
                         <outlet property="resetPasswordTextField" destination="pZf-5g-o86" id="GaR-ID-fWb"/>
                     </connections>
@@ -1908,8 +1908,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="addLog.png" width="25" height="25"/>
         <image name="lineGraph.png" width="25" height="25"/>
         <image name="noMeds.png" width="500" height="500"/>
+        <image name="resetPassword.png" width="25" height="25"/>
         <image name="viewLogs.png" width="25" height="25"/>
     </resources>
 </document>
