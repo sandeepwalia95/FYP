@@ -993,7 +993,7 @@
             </objects>
             <point key="canvasLocation" x="2825" y="457"/>
         </scene>
-        <!--Edit Activities View Controller-->
+        <!--Edit Activities-->
         <scene sceneID="KW8-7d-B11">
             <objects>
                 <viewController id="uhD-we-iWS" customClass="editActivitiesViewController" customModule="FYP" customModuleProvider="target" sceneMemberID="viewController">
@@ -1288,7 +1288,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="ex8-An-Yt9"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="l8F-Bg-VTx"/>
+                    <tabBarItem key="tabBarItem" title="Edit Activities" image="activities.png" id="l8F-Bg-VTx"/>
                     <connections>
                         <outlet property="edit1" destination="vYK-hO-96E" id="UQZ-rc-fVA"/>
                         <outlet property="edit10" destination="eUQ-Si-nIh" id="O7s-7X-1B9"/>
@@ -1908,6 +1908,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="activities.png" width="25" height="25"/>
         <image name="addLog.png" width="25" height="25"/>
         <image name="lineGraph.png" width="25" height="25"/>
         <image name="noMeds.png" width="500" height="500"/>

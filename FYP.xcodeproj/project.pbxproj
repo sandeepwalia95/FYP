@@ -30,6 +30,9 @@
 		DD5C4A572066CC250054E035 /* addLog.png in Resources */ = {isa = PBXBuildFile; fileRef = DD5C4A562066CC240054E035 /* addLog.png */; };
 		DD5C4A592066CC2B0054E035 /* addLog@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD5C4A582066CC2A0054E035 /* addLog@2x.png */; };
 		DD5C4A5B2066CC340054E035 /* addLog@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD5C4A5A2066CC330054E035 /* addLog@3x.png */; };
+		DD5C4A5E2066CD690054E035 /* activities.png in Resources */ = {isa = PBXBuildFile; fileRef = DD5C4A5D2066CD690054E035 /* activities.png */; };
+		DD5C4A602066CD6E0054E035 /* activities@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD5C4A5F2066CD6E0054E035 /* activities@3x.png */; };
+		DD5C4A622066CD750054E035 /* activities@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD5C4A612066CD750054E035 /* activities@2x.png */; };
 		DD887CD720222A71003BCFE3 /* LogEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD887CD620222A71003BCFE3 /* LogEntryViewController.swift */; };
 		DDA5C200204F2A7A004452D8 /* editActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5C1FF204F2A7A004452D8 /* editActivitiesViewController.swift */; };
 		DDA5C202204F3755004452D8 /* MaxLengthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5C201204F3755004452D8 /* MaxLengthTextField.swift */; };
@@ -69,6 +72,9 @@
 		DD5C4A562066CC240054E035 /* addLog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addLog.png; sourceTree = "<group>"; };
 		DD5C4A582066CC2A0054E035 /* addLog@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addLog@2x.png"; sourceTree = "<group>"; };
 		DD5C4A5A2066CC330054E035 /* addLog@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addLog@3x.png"; sourceTree = "<group>"; };
+		DD5C4A5D2066CD690054E035 /* activities.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = activities.png; sourceTree = "<group>"; };
+		DD5C4A5F2066CD6E0054E035 /* activities@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "activities@3x.png"; sourceTree = "<group>"; };
+		DD5C4A612066CD750054E035 /* activities@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "activities@2x.png"; sourceTree = "<group>"; };
 		DD887CD620222A71003BCFE3 /* LogEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEntryViewController.swift; sourceTree = "<group>"; };
 		DDA5C1FF204F2A7A004452D8 /* editActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editActivitiesViewController.swift; sourceTree = "<group>"; };
 		DDA5C201204F3755004452D8 /* MaxLengthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxLengthTextField.swift; sourceTree = "<group>"; };
@@ -134,6 +140,7 @@
 		DD3596D3201CB4840096A84C /* FYP */ = {
 			isa = PBXGroup;
 			children = (
+				DD5C4A5C2066CD520054E035 /* activities */,
 				DD5C4A552066CBEA0054E035 /* addLog */,
 				DD5C4A4E2066CA890054E035 /* resetPassword */,
 				DD5C4A472066C4D20054E035 /* ViewLogs */,
@@ -200,6 +207,16 @@
 			path = addLog;
 			sourceTree = "<group>";
 		};
+		DD5C4A5C2066CD520054E035 /* activities */ = {
+			isa = PBXGroup;
+			children = (
+				DD5C4A5D2066CD690054E035 /* activities.png */,
+				DD5C4A612066CD750054E035 /* activities@2x.png */,
+				DD5C4A5F2066CD6E0054E035 /* activities@3x.png */,
+			);
+			path = activities;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -262,7 +279,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD5C4A602066CD6E0054E035 /* activities@3x.png in Resources */,
 				DD3596DF201CB4840096A84C /* LaunchScreen.storyboard in Resources */,
+				DD5C4A5E2066CD690054E035 /* activities.png in Resources */,
 				DD5C4A542066CAA80054E035 /* resetPassword.png in Resources */,
 				DDD896AA2028FE6400A85EF6 /* GoogleService-Info.plist in Resources */,
 				DD5C4A422066C3EA0054E035 /* lineGraph@3x.png in Resources */,
@@ -273,6 +292,7 @@
 				DD5C4A4D2066C4F80054E035 /* viewLogs@3x.png in Resources */,
 				DD5C4A572066CC250054E035 /* addLog.png in Resources */,
 				DD3596DA201CB4840096A84C /* Main.storyboard in Resources */,
+				DD5C4A622066CD750054E035 /* activities@2x.png in Resources */,
 				DD5C4A592066CC2B0054E035 /* addLog@2x.png in Resources */,
 				DDAAA36420377BB7001E8C77 /* yesMeds.png in Resources */,
 				DD5C4A502066CA9B0054E035 /* resetPassword@3x.png in Resources */,
