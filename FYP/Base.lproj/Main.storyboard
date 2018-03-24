@@ -1887,11 +1887,11 @@
             </objects>
             <point key="canvasLocation" x="341" y="221"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--View Logs-->
         <scene sceneID="U6y-eB-YKB">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2vb-YE-yus" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="TbS-Rc-hIi"/>
+                    <tabBarItem key="tabBarItem" title="View Logs" image="viewLogs.png" id="TbS-Rc-hIi"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gF4-9H-jeK">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
@@ -1910,5 +1910,6 @@
     <resources>
         <image name="lineGraph.png" width="25" height="25"/>
         <image name="noMeds.png" width="500" height="500"/>
+        <image name="viewLogs.png" width="25" height="25"/>
     </resources>
 </document>

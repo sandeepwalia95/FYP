@@ -21,6 +21,9 @@
 		DD5C4A422066C3EA0054E035 /* lineGraph@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD5C4A412066C3EA0054E035 /* lineGraph@3x.png */; };
 		DD5C4A442066C3F10054E035 /* lineGraph@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD5C4A432066C3F10054E035 /* lineGraph@2x.png */; };
 		DD5C4A462066C3F70054E035 /* lineGraph.png in Resources */ = {isa = PBXBuildFile; fileRef = DD5C4A452066C3F70054E035 /* lineGraph.png */; };
+		DD5C4A492066C4E70054E035 /* viewLogs.png in Resources */ = {isa = PBXBuildFile; fileRef = DD5C4A482066C4E70054E035 /* viewLogs.png */; };
+		DD5C4A4B2066C4F10054E035 /* viewlogs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD5C4A4A2066C4F10054E035 /* viewlogs@2x.png */; };
+		DD5C4A4D2066C4F80054E035 /* viewLogs@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD5C4A4C2066C4F80054E035 /* viewLogs@3x.png */; };
 		DD887CD720222A71003BCFE3 /* LogEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD887CD620222A71003BCFE3 /* LogEntryViewController.swift */; };
 		DDA5C200204F2A7A004452D8 /* editActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5C1FF204F2A7A004452D8 /* editActivitiesViewController.swift */; };
 		DDA5C202204F3755004452D8 /* MaxLengthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5C201204F3755004452D8 /* MaxLengthTextField.swift */; };
@@ -51,6 +54,9 @@
 		DD5C4A412066C3EA0054E035 /* lineGraph@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lineGraph@3x.png"; sourceTree = "<group>"; };
 		DD5C4A432066C3F10054E035 /* lineGraph@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lineGraph@2x.png"; sourceTree = "<group>"; };
 		DD5C4A452066C3F70054E035 /* lineGraph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lineGraph.png; sourceTree = "<group>"; };
+		DD5C4A482066C4E70054E035 /* viewLogs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = viewLogs.png; sourceTree = "<group>"; };
+		DD5C4A4A2066C4F10054E035 /* viewlogs@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "viewlogs@2x.png"; sourceTree = "<group>"; };
+		DD5C4A4C2066C4F80054E035 /* viewLogs@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "viewLogs@3x.png"; sourceTree = "<group>"; };
 		DD887CD620222A71003BCFE3 /* LogEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEntryViewController.swift; sourceTree = "<group>"; };
 		DDA5C1FF204F2A7A004452D8 /* editActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editActivitiesViewController.swift; sourceTree = "<group>"; };
 		DDA5C201204F3755004452D8 /* MaxLengthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxLengthTextField.swift; sourceTree = "<group>"; };
@@ -116,6 +122,7 @@
 		DD3596D3201CB4840096A84C /* FYP */ = {
 			isa = PBXGroup;
 			children = (
+				DD5C4A472066C4D20054E035 /* ViewLogs */,
 				DD5C4A402066C3CB0054E035 /* LineGraph */,
 				DDD896A92028FE6400A85EF6 /* GoogleService-Info.plist */,
 				DD3596D4201CB4840096A84C /* AppDelegate.swift */,
@@ -147,6 +154,16 @@
 				DD5C4A452066C3F70054E035 /* lineGraph.png */,
 			);
 			path = LineGraph;
+			sourceTree = "<group>";
+		};
+		DD5C4A472066C4D20054E035 /* ViewLogs */ = {
+			isa = PBXGroup;
+			children = (
+				DD5C4A482066C4E70054E035 /* viewLogs.png */,
+				DD5C4A4A2066C4F10054E035 /* viewlogs@2x.png */,
+				DD5C4A4C2066C4F80054E035 /* viewLogs@3x.png */,
+			);
+			path = ViewLogs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,9 +231,12 @@
 				DD3596DF201CB4840096A84C /* LaunchScreen.storyboard in Resources */,
 				DDD896AA2028FE6400A85EF6 /* GoogleService-Info.plist in Resources */,
 				DD5C4A422066C3EA0054E035 /* lineGraph@3x.png in Resources */,
+				DD5C4A492066C4E70054E035 /* viewLogs.png in Resources */,
 				DD3596DC201CB4840096A84C /* Assets.xcassets in Resources */,
+				DD5C4A4D2066C4F80054E035 /* viewLogs@3x.png in Resources */,
 				DD3596DA201CB4840096A84C /* Main.storyboard in Resources */,
 				DDAAA36420377BB7001E8C77 /* yesMeds.png in Resources */,
+				DD5C4A4B2066C4F10054E035 /* viewlogs@2x.png in Resources */,
 				DDAAA36220377BB0001E8C77 /* noMeds.png in Resources */,
 				DD5C4A442066C3F10054E035 /* lineGraph@2x.png in Resources */,
 				DD5C4A462066C3F70054E035 /* lineGraph.png in Resources */,
