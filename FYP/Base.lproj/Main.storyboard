@@ -751,7 +751,7 @@
             </objects>
             <point key="canvasLocation" x="1314" y="974"/>
         </scene>
-        <!--Chart View Controller-->
+        <!--Stats-->
         <scene sceneID="h6S-Xt-9ua">
             <objects>
                 <viewController id="Mnc-f3-YBL" customClass="ChartViewController" customModule="FYP" customModuleProvider="target" sceneMemberID="viewController">
@@ -978,7 +978,7 @@
                         <color key="tintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="ZEN-bp-l8j"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="search" id="2hd-KP-h65"/>
+                    <tabBarItem key="tabBarItem" title="Stats" image="lineGraph.png" id="2hd-KP-h65"/>
                     <connections>
                         <outlet property="alcoholProgressView" destination="gOo-0Q-efu" id="tdw-2r-IQL"/>
                         <outlet property="chart" destination="yUh-05-bpQ" id="J7U-Vr-IZk"/>
@@ -1908,6 +1908,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="lineGraph.png" width="25" height="25"/>
         <image name="noMeds.png" width="500" height="500"/>
     </resources>
 </document>

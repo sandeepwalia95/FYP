@@ -18,6 +18,9 @@
 		DD3596E7201CCC840096A84C /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3596E6201CCC840096A84C /* SignInViewController.swift */; };
 		DD3596E9201CCF160096A84C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3596E8201CCF160096A84C /* RegisterViewController.swift */; };
 		DD3A19A22047252300673DAF /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A19A12047252300673DAF /* ChartViewController.swift */; };
+		DD5C4A422066C3EA0054E035 /* lineGraph@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD5C4A412066C3EA0054E035 /* lineGraph@3x.png */; };
+		DD5C4A442066C3F10054E035 /* lineGraph@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD5C4A432066C3F10054E035 /* lineGraph@2x.png */; };
+		DD5C4A462066C3F70054E035 /* lineGraph.png in Resources */ = {isa = PBXBuildFile; fileRef = DD5C4A452066C3F70054E035 /* lineGraph.png */; };
 		DD887CD720222A71003BCFE3 /* LogEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD887CD620222A71003BCFE3 /* LogEntryViewController.swift */; };
 		DDA5C200204F2A7A004452D8 /* editActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5C1FF204F2A7A004452D8 /* editActivitiesViewController.swift */; };
 		DDA5C202204F3755004452D8 /* MaxLengthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5C201204F3755004452D8 /* MaxLengthTextField.swift */; };
@@ -45,6 +48,9 @@
 		DD3596E6201CCC840096A84C /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		DD3596E8201CCF160096A84C /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		DD3A19A12047252300673DAF /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
+		DD5C4A412066C3EA0054E035 /* lineGraph@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lineGraph@3x.png"; sourceTree = "<group>"; };
+		DD5C4A432066C3F10054E035 /* lineGraph@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lineGraph@2x.png"; sourceTree = "<group>"; };
+		DD5C4A452066C3F70054E035 /* lineGraph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lineGraph.png; sourceTree = "<group>"; };
 		DD887CD620222A71003BCFE3 /* LogEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEntryViewController.swift; sourceTree = "<group>"; };
 		DDA5C1FF204F2A7A004452D8 /* editActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editActivitiesViewController.swift; sourceTree = "<group>"; };
 		DDA5C201204F3755004452D8 /* MaxLengthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxLengthTextField.swift; sourceTree = "<group>"; };
@@ -110,6 +116,7 @@
 		DD3596D3201CB4840096A84C /* FYP */ = {
 			isa = PBXGroup;
 			children = (
+				DD5C4A402066C3CB0054E035 /* LineGraph */,
 				DDD896A92028FE6400A85EF6 /* GoogleService-Info.plist */,
 				DD3596D4201CB4840096A84C /* AppDelegate.swift */,
 				DD3596D6201CB4840096A84C /* ViewController.swift */,
@@ -130,6 +137,16 @@
 				DDA5C201204F3755004452D8 /* MaxLengthTextField.swift */,
 			);
 			path = FYP;
+			sourceTree = "<group>";
+		};
+		DD5C4A402066C3CB0054E035 /* LineGraph */ = {
+			isa = PBXGroup;
+			children = (
+				DD5C4A412066C3EA0054E035 /* lineGraph@3x.png */,
+				DD5C4A432066C3F10054E035 /* lineGraph@2x.png */,
+				DD5C4A452066C3F70054E035 /* lineGraph.png */,
+			);
+			path = LineGraph;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,10 +213,13 @@
 			files = (
 				DD3596DF201CB4840096A84C /* LaunchScreen.storyboard in Resources */,
 				DDD896AA2028FE6400A85EF6 /* GoogleService-Info.plist in Resources */,
+				DD5C4A422066C3EA0054E035 /* lineGraph@3x.png in Resources */,
 				DD3596DC201CB4840096A84C /* Assets.xcassets in Resources */,
 				DD3596DA201CB4840096A84C /* Main.storyboard in Resources */,
 				DDAAA36420377BB7001E8C77 /* yesMeds.png in Resources */,
 				DDAAA36220377BB0001E8C77 /* noMeds.png in Resources */,
+				DD5C4A442066C3F10054E035 /* lineGraph@2x.png in Resources */,
+				DD5C4A462066C3F70054E035 /* lineGraph.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
