@@ -33,6 +33,8 @@
 		DD5C4A5E2066CD690054E035 /* activities.png in Resources */ = {isa = PBXBuildFile; fileRef = DD5C4A5D2066CD690054E035 /* activities.png */; };
 		DD5C4A602066CD6E0054E035 /* activities@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD5C4A5F2066CD6E0054E035 /* activities@3x.png */; };
 		DD5C4A622066CD750054E035 /* activities@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD5C4A612066CD750054E035 /* activities@2x.png */; };
+		DD5C4A652067143F0054E035 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD5C4A642067143F0054E035 /* HealthKit.framework */; };
+		DD5C4A692067A8770054E035 /* StepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5C4A682067A8770054E035 /* StepsViewController.swift */; };
 		DD887CD720222A71003BCFE3 /* LogEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD887CD620222A71003BCFE3 /* LogEntryViewController.swift */; };
 		DDA5C200204F2A7A004452D8 /* editActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5C1FF204F2A7A004452D8 /* editActivitiesViewController.swift */; };
 		DDA5C202204F3755004452D8 /* MaxLengthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5C201204F3755004452D8 /* MaxLengthTextField.swift */; };
@@ -75,6 +77,9 @@
 		DD5C4A5D2066CD690054E035 /* activities.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = activities.png; sourceTree = "<group>"; };
 		DD5C4A5F2066CD6E0054E035 /* activities@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "activities@3x.png"; sourceTree = "<group>"; };
 		DD5C4A612066CD750054E035 /* activities@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "activities@2x.png"; sourceTree = "<group>"; };
+		DD5C4A632067143F0054E035 /* FYP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FYP.entitlements; sourceTree = "<group>"; };
+		DD5C4A642067143F0054E035 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		DD5C4A682067A8770054E035 /* StepsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsViewController.swift; sourceTree = "<group>"; };
 		DD887CD620222A71003BCFE3 /* LogEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEntryViewController.swift; sourceTree = "<group>"; };
 		DDA5C1FF204F2A7A004452D8 /* editActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editActivitiesViewController.swift; sourceTree = "<group>"; };
 		DDA5C201204F3755004452D8 /* MaxLengthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxLengthTextField.swift; sourceTree = "<group>"; };
@@ -93,6 +98,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DF7484BAF4592B255EB50C1 /* Pods_FYP.framework in Frameworks */,
+				DD5C4A652067143F0054E035 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +108,7 @@
 		4EE39B89B80F21D78010DAF1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DD5C4A642067143F0054E035 /* HealthKit.framework */,
 				CD1773FB594F28E25B4FA7D3 /* Pods_FYP.framework */,
 			);
 			name = Frameworks;
@@ -140,6 +147,7 @@
 		DD3596D3201CB4840096A84C /* FYP */ = {
 			isa = PBXGroup;
 			children = (
+				DD5C4A632067143F0054E035 /* FYP.entitlements */,
 				DD5C4A5C2066CD520054E035 /* activities */,
 				DD5C4A552066CBEA0054E035 /* addLog */,
 				DD5C4A4E2066CA890054E035 /* resetPassword */,
@@ -163,6 +171,7 @@
 				DDCEEBD22062C0870094FFDE /* ResetPasswordViewController.swift */,
 				DDA5C1FF204F2A7A004452D8 /* editActivitiesViewController.swift */,
 				DDA5C201204F3755004452D8 /* MaxLengthTextField.swift */,
+				DD5C4A682067A8770054E035 /* StepsViewController.swift */,
 			);
 			path = FYP;
 			sourceTree = "<group>";
@@ -253,6 +262,11 @@
 					DD3596D0201CB4840096A84C = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -398,6 +412,7 @@
 				DDDACAB72026833B00CE4FFD /* ViewLogsViewControllerTableViewCell.swift in Sources */,
 				DD3596E7201CCC840096A84C /* SignInViewController.swift in Sources */,
 				DDCEEBD32062C0870094FFDE /* ResetPasswordViewController.swift in Sources */,
+				DD5C4A692067A8770054E035 /* StepsViewController.swift in Sources */,
 				DD354C87202F4074008DD9E3 /* Log.swift in Sources */,
 				DD3596E9201CCF160096A84C /* RegisterViewController.swift in Sources */,
 				DD3A19A22047252300673DAF /* ChartViewController.swift in Sources */,
@@ -538,6 +553,7 @@
 			baseConfigurationReference = 6CAB64F2B7C0EF8AD60380AB /* Pods-FYP.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FYP/FYP.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6N6TZ3QQD8;
 				HEADER_SEARCH_PATHS = (
@@ -569,6 +585,7 @@
 			baseConfigurationReference = 08EB26EF0073F8EC21D50595 /* Pods-FYP.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FYP/FYP.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6N6TZ3QQD8;
 				HEADER_SEARCH_PATHS = (
