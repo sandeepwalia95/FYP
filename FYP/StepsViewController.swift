@@ -22,7 +22,7 @@ class StepsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        self.checkAvailability()
+        //self.checkAvailability()
     }
 
     override func didReceiveMemoryWarning() {

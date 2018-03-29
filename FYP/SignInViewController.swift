@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import HealthKit
 
 class SignInViewController: UIViewController {
 
@@ -16,6 +17,8 @@ class SignInViewController: UIViewController {
     
     let defaults = UserDefaults.standard
     
+    let healthStore = HKHealthStore()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,6 +27,8 @@ class SignInViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
+        checkAvailability()
         
         let isRegistered = defaults.bool(forKey: "isRegistered")
         
@@ -136,5 +141,31 @@ class SignInViewController: UIViewController {
             
             self.present(alertController, animated: true, completion: nil)
         }
+    }
+    
+    func checkAvailability() -> Bool {
+        
+        var isAvailable = true
+        
+        // Is HealthKit data available on this type of device?
+        if HKHealthStore.isHealthDataAvailable() {
+            
+            print("HealthKit data available")
+            
+            let stepCounter = NSSet(object: HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount))
+            
+            healthStore.requestAuthorization(toShare: nil, read: stepCounter as? Set<HKObjectType>, completion: { (success, error) in
+                
+                isAvailable = success
+            })
+            
+            print("Authorization has been granted")
+            
+        } else {
+            isAvailable = false
+            print("HealthKit data is not available")
+        }
+        
+        return isAvailable
     }
 }
