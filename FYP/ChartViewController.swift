@@ -12,6 +12,7 @@ import FirebaseDatabase
 import MBCircularProgressBar
 import DynamicColor
 import HealthKit
+import GTProgressBar
 
 class ChartViewController: UIViewController {
 
@@ -26,6 +27,7 @@ class ChartViewController: UIViewController {
     
     @IBOutlet weak var moodLabel: UILabel!
     @IBOutlet weak var stepsLabel: UILabel!
+    @IBOutlet weak var stepsProgressMeter: GTProgressBar!
     
     var ref: DatabaseReference!
     var databasehandle: DatabaseHandle?
@@ -135,7 +137,11 @@ class ChartViewController: UIViewController {
                 scount = Int(steps)
                 print("Scount  \(scount)")
                 print("Scount  \(scount/numDays)")
-                self.stepsLabel.text = String(scount/numDays)
+                let averageSteps = scount/numDays
+                let progress = Double(averageSteps)/Double(12000)
+                print(progress)
+                self.stepsLabel.text = String(averageSteps)
+                self.stepsProgressMeter.progress = CGFloat(progress)
             }
         }
     }
@@ -148,6 +154,7 @@ class ChartViewController: UIViewController {
     @IBAction func segmentChanged(_ sender: Any) {
         
         self.stepsLabel.isHidden = true
+        self.stepsProgressMeter.isHidden = true
         
         var numDays = 7
         
@@ -165,7 +172,11 @@ class ChartViewController: UIViewController {
                 scount = Int(steps)
                 print("Scount  \(scount)")
                 print("Scount  \(scount/numDays)")
-                self.stepsLabel.text = String(scount/numDays)
+                let averageSteps = scount/numDays
+                let progress = Double(averageSteps)/Double(12000)
+                print(progress)
+                self.stepsLabel.text = String(averageSteps)
+                self.stepsProgressMeter.progress = CGFloat(progress)
             }
         }
     }
@@ -366,6 +377,7 @@ class ChartViewController: UIViewController {
                 dump(self.stepDict)
             }
             self.activityIndicator.isHidden = true
+            self.stepsProgressMeter.isHidden = false
             self.stepsLabel.isHidden = false
             self.activityIndicator.stopAnimating()
             
