@@ -25,6 +25,7 @@ class ChartViewController: UIViewController {
     @IBOutlet weak var moodProgressBar: UIProgressView!
     
     @IBOutlet weak var moodLabel: UILabel!
+    @IBOutlet weak var stepsLabel: UILabel!
     
     var ref: DatabaseReference!
     var databasehandle: DatabaseHandle?
@@ -129,11 +130,12 @@ class ChartViewController: UIViewController {
         }
         
         if checkAvailability() {
-            var scount: Double = 0
+            var scount: Int = 0
             getSteps(days: numDays) { (steps, error) in
-                scount = steps
+                scount = Int(steps)
                 print("Scount  \(scount)")
-                print("Scount  \(scount/Double(numDays))")
+                print("Scount  \(scount/numDays)")
+                self.stepsLabel.text = String(scount/numDays)
             }
         }
     }
@@ -144,10 +146,27 @@ class ChartViewController: UIViewController {
     }
     
     @IBAction func segmentChanged(_ sender: Any) {
+        
+        self.stepsLabel.isHidden = true
+        
+        var numDays = 7
+        
         if (daysSegmentController.selectedSegmentIndex == 0) {
             setChartData(suffixValue: 30, fontValue: 8)
+            numDays = 30
         } else if (daysSegmentController.selectedSegmentIndex == 1) {
             setChartData(suffixValue: 7, fontValue: 10)
+            numDays = 7
+        }
+        
+        if checkAvailability() {
+            var scount: Int = 0
+            getSteps(days: numDays) { (steps, error) in
+                scount = Int(steps)
+                print("Scount  \(scount)")
+                print("Scount  \(scount/numDays)")
+                self.stepsLabel.text = String(scount/numDays)
+            }
         }
     }
     func setChartData(suffixValue: Int, fontValue: Double) {
@@ -309,9 +328,10 @@ class ChartViewController: UIViewController {
     
     func getSteps(days: Int, completion: @escaping (Double, NSError?) -> () ) {
         
-        let type = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)
+        self.activityIndicator.isHidden = false
+        self.activityIndicator.startAnimating()
         
-        //let lastMonth = NSCalendar.current.date(byAdding: .calendar, value: -30, to: NSDate() as Date)
+        let type = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)
         
         let calendar = Calendar.current
         let twoDaysAgo = calendar.date(byAdding: .day, value: -(days), to: Date())
@@ -345,11 +365,17 @@ class ChartViewController: UIViewController {
                 }
                 dump(self.stepDict)
             }
+            self.activityIndicator.isHidden = true
+            self.stepsLabel.isHidden = false
+            self.activityIndicator.stopAnimating()
+            
             
             completion(steps, error as? NSError)
         }
         healthStore.execute(query)
     }
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // Return the the current date in the format below
     // *** TODO: Change the format of how the date is presented
