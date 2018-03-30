@@ -13,6 +13,7 @@ import DynamicColor
 class BreatheViewController: UIViewController {
 
     @IBOutlet weak var timerSlider: Slider!
+    @IBOutlet weak var secondsLabel: UILabel!
     
     var timerValue = 0
     
@@ -27,7 +28,8 @@ class BreatheViewController: UIViewController {
             
             self.timerValue = Int(string)!
             
-            print(self.timerValue)
+            self.secondsLabel.text = String(self.minutesToSeconds(minute: self.timerValue))
+            
             return NSAttributedString(string: string)
         }
         
@@ -46,6 +48,10 @@ class BreatheViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func minutesToSeconds(minute: Int) -> Int {
+        return minute * 60
     }
     
 
