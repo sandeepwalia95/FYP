@@ -151,7 +151,6 @@ class ChartViewController: UIViewController {
     @IBAction func segmentChanged(_ sender: Any) {
         
         self.stepsLabel.isHidden = true
-        self.stepsProgressMeter.isHidden = true
         
         var numDays = 7
         
@@ -375,7 +374,6 @@ class ChartViewController: UIViewController {
                 dump(self.stepDict)
             }
             self.activityIndicator.isHidden = true
-            self.stepsProgressMeter.isHidden = false
             self.stepsLabel.isHidden = false
             self.activityIndicator.stopAnimating()
             
