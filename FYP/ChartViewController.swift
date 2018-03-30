@@ -50,8 +50,6 @@ class ChartViewController: UIViewController {
     
     var allSteps = [HKQuantitySample]()
     
-    var stepDict: [String : Double] = [:]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -317,7 +315,7 @@ class ChartViewController: UIViewController {
             
             print("HealthKit data available")
             
-            let stepCounter = NSSet(object: HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount))
+            let stepCounter = NSSet(object: HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount) as Any)
             
             healthStore.requestAuthorization(toShare: nil, read: stepCounter as? Set<HKObjectType>, completion: { (success, error) in
                 
@@ -351,34 +349,16 @@ class ChartViewController: UIViewController {
             var steps: Double = 0
             
             if results!.count > 0 {
-                //                for result in results as! [HKQuantitySample] {
-                //                    steps += result.quantity.doubleValue(for: HKUnit.count())
-                //                    self.allSteps.append(result.quantity.doubleValue(for: HKUnit.count()))
-                //                }
                 self.allSteps = results as! [HKQuantitySample]
                 for step in self.allSteps {
-                    print(step.startDate)
-                    print(step.quantity.doubleValue(for: HKUnit.count()))
-                    print("-----------")
                     steps += step.quantity.doubleValue(for: HKUnit.count())
-                    
-                    let date = self.justDate(date: step.startDate)
-                    if self.stepDict[date] == nil {
-                        self.stepDict[date] = step.quantity.doubleValue(for: HKUnit.count())
-                    } else {
-                        let amount = step.quantity.doubleValue(for: HKUnit.count())
-                        let already = self.stepDict[date]
-                        self.stepDict[date] = amount + already!
-                    }
                 }
-                dump(self.stepDict)
             }
             self.activityIndicator.isHidden = true
             self.stepsLabel.isHidden = false
             self.activityIndicator.stopAnimating()
             
-            
-            completion(steps, error as? NSError)
+            completion(steps, error as NSError?)
         }
         healthStore.execute(query)
     }
