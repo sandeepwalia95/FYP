@@ -1977,17 +1977,27 @@
             </objects>
             <point key="canvasLocation" x="2976.811594202899" y="-1339.4021739130435"/>
         </scene>
-        <!--View Controller-->
+        <!--Breathe View Controller-->
         <scene sceneID="mL4-Fe-3eO">
             <objects>
-                <viewController id="zGN-Wh-EUW" sceneMemberID="viewController">
+                <viewController id="zGN-Wh-EUW" customClass="BreatheViewController" customModule="FYP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ztn-mZ-jYm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z5L-wz-UYr" customClass="Slider" customModule="fluid_slider">
+                                <rect key="frame" x="20" y="105" width="374" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="B6I-2w-ukb"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="topRated" id="tld-MA-A86"/>
+                    <connections>
+                        <outlet property="timerSlider" destination="z5L-wz-UYr" id="Cg4-Wx-jd2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GGl-FB-kpQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
