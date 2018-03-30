@@ -23,7 +23,7 @@ class ChartViewController: UIViewController {
     @IBOutlet weak var sleepProgressView: MBCircularProgressBarView!
     @IBOutlet weak var alcoholProgressView: MBCircularProgressBarView!
     @IBOutlet weak var workProgressView: MBCircularProgressBarView!
-    @IBOutlet weak var moodProgressBar: UIProgressView!
+    @IBOutlet weak var moodProgressMeter: GTProgressBar!
     
     @IBOutlet weak var moodLabel: UILabel!
     @IBOutlet weak var stepsLabel: UILabel!
@@ -69,8 +69,8 @@ class ChartViewController: UIViewController {
         self.workProgressView.progressColor = UIColor.green
         self.workProgressView.progressStrokeColor = UIColor.green
         
-        self.moodProgressBar.progress = 20
-        self.moodProgressBar.progressTintColor = DynamicColor(hexString: "#976DD0")
+        self.moodProgressMeter.barFillColor = DynamicColor(hexString: "#976DD0")
+        self.moodProgressMeter.animateTo(progress: 20)
         
         // Set Firebase reference
         ref = Database.database().reference()
@@ -117,7 +117,7 @@ class ChartViewController: UIViewController {
             self.dateData.append(self.dateSubString(date: log.date))
         })
         
-        var numDays = 7
+        let numDays = 7
         if checkAvailability() {
             var scount: Int = 0
             getSteps(days: numDays) { (steps, error) in
@@ -216,7 +216,7 @@ class ChartViewController: UIViewController {
             
             var arraySumMood = self.moodSeven.reduce(0) { $0 + $1 }
             arraySumMood = arraySumMood/Double(self.moodSeven.count)
-            self.moodProgressBar.progress = Float(arraySumMood/20)
+            self.moodProgressMeter.animateTo(progress: CGFloat(arraySumMood/20))
             self.changeMoodProgressColorLabel(moodValue: Float(arraySumMood))
         }
         
@@ -305,7 +305,7 @@ class ChartViewController: UIViewController {
             mood = "Excellent"
         }
         
-        self.moodProgressBar.progressTintColor = progressColor
+        self.moodProgressMeter.barFillColor = progressColor
         self.moodLabel.text = mood
     }
     
