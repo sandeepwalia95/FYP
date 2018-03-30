@@ -1977,42 +1977,17 @@
             </objects>
             <point key="canvasLocation" x="2976.811594202899" y="-1339.4021739130435"/>
         </scene>
-        <!--Steps View Controller-->
+        <!--View Controller-->
         <scene sceneID="mL4-Fe-3eO">
             <objects>
-                <viewController id="zGN-Wh-EUW" customClass="StepsViewController" customModule="FYP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zGN-Wh-EUW" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ztn-mZ-jYm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7z-Uk-zmO">
-                                <rect key="frame" x="184" y="444" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="getStepCount:" destination="zGN-Wh-EUW" eventType="touchUpInside" id="nry-ED-qog"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="StepCoutn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlG-YC-0Fl">
-                                <rect key="frame" x="62" y="112" width="246" height="89"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="vBg-r9-pAi">
-                                <rect key="frame" x="175" y="223" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </activityIndicatorView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="B6I-2w-ukb"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="topRated" id="tld-MA-A86"/>
-                    <connections>
-                        <outlet property="activityIndicator" destination="vBg-r9-pAi" id="RVd-IW-SWd"/>
-                        <outlet property="stepCountLabel" destination="dlG-YC-0Fl" id="JTY-gS-1Fx"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GGl-FB-kpQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
