@@ -16,6 +16,11 @@ class BreatheViewController: UIViewController {
     @IBOutlet weak var secondsLabel: UILabel!
     
     var timerValue = 0
+    var sliderString = ""
+    
+    var timer = Timer()
+    
+    var isRunning: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +31,11 @@ class BreatheViewController: UIViewController {
             formatter.maximumFractionDigits = 0
             let string = formatter.string(from: (fraction * 5) as NSNumber) ?? ""
             
-            self.timerValue = Int(string)!
+            self.sliderString = string
             
-            self.secondsLabel.text = String(self.minutesToSeconds(minute: self.timerValue))
+            self.timerValue = self.minutesToSeconds(minute: Int(self.sliderString)!)
+            
+            self.secondsLabel.text = String(self.timerValue)
             
             return NSAttributedString(string: string)
         }
@@ -48,6 +55,32 @@ class BreatheViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func start(_ sender: Any) {
+        
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(action), userInfo: nil, repeats: true)
+    }
+    
+    @IBAction func stop(_ sender: Any) {
+        timer.invalidate()
+        
+        self.timerValue = self.minutesToSeconds(minute: Int(self.sliderString)!)
+        
+        self.secondsLabel.text = String(self.timerValue)
+    }
+    
+    @IBAction func pause(_ sender: Any) {
+        timer.invalidate()
+    }
+    
+    @objc func action() {
+        timerValue -= 1
+        self.secondsLabel.text = String(self.timerValue)
+        
+        if timerValue == 0 {
+            timer.invalidate()
+        }
     }
     
     func minutesToSeconds(minute: Int) -> Int {
