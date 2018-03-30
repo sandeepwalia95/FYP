@@ -34,7 +34,6 @@
 		DD5C4A602066CD6E0054E035 /* activities@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD5C4A5F2066CD6E0054E035 /* activities@3x.png */; };
 		DD5C4A622066CD750054E035 /* activities@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD5C4A612066CD750054E035 /* activities@2x.png */; };
 		DD5C4A652067143F0054E035 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD5C4A642067143F0054E035 /* HealthKit.framework */; };
-		DD5C4A692067A8770054E035 /* StepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5C4A682067A8770054E035 /* StepsViewController.swift */; };
 		DD887CD720222A71003BCFE3 /* LogEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD887CD620222A71003BCFE3 /* LogEntryViewController.swift */; };
 		DDA5C200204F2A7A004452D8 /* editActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5C1FF204F2A7A004452D8 /* editActivitiesViewController.swift */; };
 		DDA5C202204F3755004452D8 /* MaxLengthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5C201204F3755004452D8 /* MaxLengthTextField.swift */; };
@@ -79,7 +78,6 @@
 		DD5C4A612066CD750054E035 /* activities@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "activities@2x.png"; sourceTree = "<group>"; };
 		DD5C4A632067143F0054E035 /* FYP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FYP.entitlements; sourceTree = "<group>"; };
 		DD5C4A642067143F0054E035 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
-		DD5C4A682067A8770054E035 /* StepsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsViewController.swift; sourceTree = "<group>"; };
 		DD887CD620222A71003BCFE3 /* LogEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEntryViewController.swift; sourceTree = "<group>"; };
 		DDA5C1FF204F2A7A004452D8 /* editActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editActivitiesViewController.swift; sourceTree = "<group>"; };
 		DDA5C201204F3755004452D8 /* MaxLengthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxLengthTextField.swift; sourceTree = "<group>"; };
@@ -171,7 +169,6 @@
 				DDCEEBD22062C0870094FFDE /* ResetPasswordViewController.swift */,
 				DDA5C1FF204F2A7A004452D8 /* editActivitiesViewController.swift */,
 				DDA5C201204F3755004452D8 /* MaxLengthTextField.swift */,
-				DD5C4A682067A8770054E035 /* StepsViewController.swift */,
 			);
 			path = FYP;
 			sourceTree = "<group>";
@@ -416,7 +413,6 @@
 				DDDACAB72026833B00CE4FFD /* ViewLogsViewControllerTableViewCell.swift in Sources */,
 				DD3596E7201CCC840096A84C /* SignInViewController.swift in Sources */,
 				DDCEEBD32062C0870094FFDE /* ResetPasswordViewController.swift in Sources */,
-				DD5C4A692067A8770054E035 /* StepsViewController.swift in Sources */,
 				DD354C87202F4074008DD9E3 /* Log.swift in Sources */,
 				DD3596E9201CCF160096A84C /* RegisterViewController.swift in Sources */,
 				DD3A19A22047252300673DAF /* ChartViewController.swift in Sources */,
