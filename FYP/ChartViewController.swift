@@ -116,21 +116,8 @@ class ChartViewController: UIViewController {
             
             self.dateData.append(self.dateSubString(date: log.date))
         })
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         
         var numDays = 7
-        
-        if (daysSegmentController.selectedSegmentIndex == 0) {
-            setChartData(suffixValue: 30, fontValue: 8)
-            numDays = 30
-        } else if (daysSegmentController.selectedSegmentIndex == 1) {
-            setChartData(suffixValue: 7, fontValue: 10)
-            numDays = 7
-        }
-        
         if checkAvailability() {
             var scount: Int = 0
             getSteps(days: numDays) { (steps, error) in
@@ -140,9 +127,19 @@ class ChartViewController: UIViewController {
                 let averageSteps = scount/numDays
                 let progress = Double(averageSteps)/Double(12000)
                 print(progress)
-                self.stepsLabel.text = String(averageSteps)
-                self.stepsProgressMeter.progress = CGFloat(progress)
+                self.stepsLabel.text = String("\(averageSteps) steps")
+                self.stepsProgressMeter.animateTo(progress: CGFloat(progress))
             }
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if (daysSegmentController.selectedSegmentIndex == 0) {
+            setChartData(suffixValue: 30, fontValue: 8)
+        } else if (daysSegmentController.selectedSegmentIndex == 1) {
+            setChartData(suffixValue: 7, fontValue: 10)
         }
     }
 
@@ -175,11 +172,12 @@ class ChartViewController: UIViewController {
                 let averageSteps = scount/numDays
                 let progress = Double(averageSteps)/Double(12000)
                 print(progress)
-                self.stepsLabel.text = String(averageSteps)
-                self.stepsProgressMeter.progress = CGFloat(progress)
+                self.stepsLabel.text = String("\(averageSteps) steps")
+                self.stepsProgressMeter.animateTo(progress: CGFloat(progress))
             }
         }
     }
+    
     func setChartData(suffixValue: Int, fontValue: Double) {
         
         // Clear all series to ensure blank graph
