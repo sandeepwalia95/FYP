@@ -37,7 +37,7 @@ class BreatheViewController: UIViewController {
             let formatter = NumberFormatter()
             formatter.maximumIntegerDigits = 3
             formatter.maximumFractionDigits = 0
-            let string = formatter.string(from: (fraction * 5) as NSNumber) ?? ""
+            let string = formatter.string(from: (fraction * 4) + 1 as NSNumber) ?? ""
             
             self.sliderString = string
             
@@ -48,7 +48,7 @@ class BreatheViewController: UIViewController {
             return NSAttributedString(string: string)
         }
         
-        timerSlider.setMinimumLabelAttributedText(NSAttributedString(string: "0"))
+        timerSlider.setMinimumLabelAttributedText(NSAttributedString(string: "1"))
         timerSlider.setMaximumLabelAttributedText(NSAttributedString(string: "5"))
         timerSlider.fraction = 0.5
         timerSlider.shadowOffset = CGSize(width: 0, height: 10)
