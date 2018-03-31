@@ -11,6 +11,8 @@ import SwiftChart
 import FirebaseDatabase
 import MBCircularProgressBar
 import DynamicColor
+import HealthKit
+import GTProgressBar
 
 class ChartViewController: UIViewController {
 
@@ -21,9 +23,11 @@ class ChartViewController: UIViewController {
     @IBOutlet weak var sleepProgressView: MBCircularProgressBarView!
     @IBOutlet weak var alcoholProgressView: MBCircularProgressBarView!
     @IBOutlet weak var workProgressView: MBCircularProgressBarView!
-    @IBOutlet weak var moodProgressBar: UIProgressView!
+    @IBOutlet weak var moodProgressMeter: GTProgressBar!
     
     @IBOutlet weak var moodLabel: UILabel!
+    @IBOutlet weak var stepsLabel: UILabel!
+    @IBOutlet weak var stepsProgressMeter: GTProgressBar!
     
     var ref: DatabaseReference!
     var databasehandle: DatabaseHandle?
@@ -42,6 +46,10 @@ class ChartViewController: UIViewController {
     var workSeven = [Double]()
     var dateSeven = [String]()
     
+    let healthStore = HKHealthStore()
+    
+    var allSteps = [HKQuantitySample]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -59,8 +67,8 @@ class ChartViewController: UIViewController {
         self.workProgressView.progressColor = UIColor.green
         self.workProgressView.progressStrokeColor = UIColor.green
         
-        self.moodProgressBar.progress = 20
-        self.moodProgressBar.progressTintColor = DynamicColor(hexString: "#976DD0")
+        self.moodProgressMeter.barFillColor = DynamicColor(hexString: "#976DD0")
+        self.moodProgressMeter.animateTo(progress: 20)
         
         // Set Firebase reference
         ref = Database.database().reference()
@@ -106,6 +114,21 @@ class ChartViewController: UIViewController {
             
             self.dateData.append(self.dateSubString(date: log.date))
         })
+        
+        let numDays = 7
+        if checkAvailability() {
+            var scount: Int = 0
+            getSteps(days: numDays) { (steps, error) in
+                scount = Int(steps)
+                print("Scount  \(scount)")
+                print("Scount  \(scount/numDays)")
+                let averageSteps = scount/numDays
+                let progress = Double(averageSteps)/Double(12000)
+                print(progress)
+                self.stepsLabel.text = String("\(averageSteps) steps")
+                self.stepsProgressMeter.animateTo(progress: CGFloat(progress))
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -124,12 +147,34 @@ class ChartViewController: UIViewController {
     }
     
     @IBAction func segmentChanged(_ sender: Any) {
+        
+        self.stepsLabel.isHidden = true
+        
+        var numDays = 7
+        
         if (daysSegmentController.selectedSegmentIndex == 0) {
             setChartData(suffixValue: 30, fontValue: 8)
+            numDays = 30
         } else if (daysSegmentController.selectedSegmentIndex == 1) {
             setChartData(suffixValue: 7, fontValue: 10)
+            numDays = 7
+        }
+        
+        if checkAvailability() {
+            var scount: Int = 0
+            getSteps(days: numDays) { (steps, error) in
+                scount = Int(steps)
+                print("Scount  \(scount)")
+                print("Scount  \(scount/numDays)")
+                let averageSteps = scount/numDays
+                let progress = Double(averageSteps)/Double(12000)
+                print(progress)
+                self.stepsLabel.text = String("\(averageSteps) steps")
+                self.stepsProgressMeter.animateTo(progress: CGFloat(progress))
+            }
         }
     }
+    
     func setChartData(suffixValue: Int, fontValue: Double) {
         
         // Clear all series to ensure blank graph
@@ -168,7 +213,7 @@ class ChartViewController: UIViewController {
             
             var arraySumMood = self.moodSeven.reduce(0) { $0 + $1 }
             arraySumMood = arraySumMood/Double(self.moodSeven.count)
-            self.moodProgressBar.progress = Float(arraySumMood/20)
+            self.moodProgressMeter.animateTo(progress: CGFloat(arraySumMood/20))
             self.changeMoodProgressColorLabel(moodValue: Float(arraySumMood))
         }
         
@@ -257,18 +302,73 @@ class ChartViewController: UIViewController {
             mood = "Excellent"
         }
         
-        self.moodProgressBar.progressTintColor = progressColor
+        self.moodProgressMeter.barFillColor = progressColor
         self.moodLabel.text = mood
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func checkAvailability() -> Bool {
+        
+        var isAvailable = true
+        
+        // Is HealthKit data available on this type of device?
+        if HKHealthStore.isHealthDataAvailable() {
+            
+            print("HealthKit data available")
+            
+            let stepCounter = NSSet(object: HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount) as Any)
+            
+            healthStore.requestAuthorization(toShare: nil, read: stepCounter as? Set<HKObjectType>, completion: { (success, error) in
+                
+                isAvailable = success
+            })
+            
+            print("Authorization has been granted")
+            
+        } else {
+            isAvailable = false
+            print("HealthKit data is not available")
+        }
+        
+        return isAvailable
     }
-    */
-
+    
+    func getSteps(days: Int, completion: @escaping (Double, NSError?) -> () ) {
+        
+        self.activityIndicator.isHidden = false
+        self.activityIndicator.startAnimating()
+        
+        let type = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)
+        
+        let calendar = Calendar.current
+        let twoDaysAgo = calendar.date(byAdding: .day, value: -(days), to: Date())
+        
+        let predicate = HKQuery.predicateForSamples(withStart: twoDaysAgo, end: Date(), options: [])
+        
+        let query = HKSampleQuery(sampleType: type!, predicate: predicate, limit: 0, sortDescriptors: nil) { (query, results, error) in
+            
+            var steps: Double = 0
+            
+            if results!.count > 0 {
+                self.allSteps = results as! [HKQuantitySample]
+                for step in self.allSteps {
+                    steps += step.quantity.doubleValue(for: HKUnit.count())
+                }
+            }
+            self.activityIndicator.isHidden = true
+            self.stepsLabel.isHidden = false
+            self.activityIndicator.stopAnimating()
+            
+            completion(steps, error as NSError?)
+        }
+        healthStore.execute(query)
+    }
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    // Return the the current date in the format below
+    // *** TODO: Change the format of how the date is presented
+    func justDate(date: Date) -> String {
+        let newDate = String(describing: date)
+        return String(newDate.prefix(10))
+    }
 }
