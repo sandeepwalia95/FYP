@@ -36,6 +36,7 @@ class BreatheViewController: UIViewController {
         stopButton.layer.cornerRadius = stopButton.bounds.size.width/2;
         pauseButton.layer.cornerRadius = pauseButton.bounds.size.width/2;
         
+          let labelTextAttributes: [NSAttributedStringKey : Any] = [.font: UIFont.systemFont(ofSize: 16, weight: .bold), .foregroundColor: UIColor.white]
         timerSlider.attributedTextForFraction = { fraction in
             let formatter = NumberFormatter()
             formatter.maximumIntegerDigits = 3
@@ -51,8 +52,8 @@ class BreatheViewController: UIViewController {
             return NSAttributedString(string: string)
         }
         
-        timerSlider.setMinimumLabelAttributedText(NSAttributedString(string: "1"))
-        timerSlider.setMaximumLabelAttributedText(NSAttributedString(string: "5"))
+        timerSlider.setMinimumLabelAttributedText(NSAttributedString(string: "1", attributes: labelTextAttributes))
+        timerSlider.setMaximumLabelAttributedText(NSAttributedString(string: "5", attributes: labelTextAttributes))
         timerSlider.fraction = 0.5
         timerSlider.shadowOffset = CGSize(width: 0, height: 10)
         timerSlider.shadowBlur = 5
