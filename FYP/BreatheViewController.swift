@@ -18,6 +18,7 @@ class BreatheViewController: UIViewController {
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var pauseButton: UIButton!
     
+    @IBOutlet weak var selectMinutesLabel: UILabel!
     var timerValue = 0
     var sliderString = ""
     
@@ -55,6 +56,12 @@ class BreatheViewController: UIViewController {
         timerSlider.shadowColor = UIColor(white: 0, alpha: 0.1)
         timerSlider.contentViewColor = DynamicColor(hexString: "#85C1E9")
         timerSlider.valueViewColor = .white
+        timerSlider.didBeginTracking = { [weak self] _ in
+            self?.setLabelHidden(true, animated: true)
+        }
+        timerSlider.didEndTracking = { [weak self] _ in
+            self?.setLabelHidden(false, animated: true)
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -100,6 +107,17 @@ class BreatheViewController: UIViewController {
     
     func minutesToSeconds(minute: Int) -> Int {
         return minute * 60
+    }
+    
+    private func setLabelHidden(_ hidden: Bool, animated: Bool) {
+        let animations = {
+            self.selectMinutesLabel.alpha = hidden ? 0 : 1
+        }
+        if animated {
+            UIView.animate(withDuration: 0.11, animations: animations)
+        } else {
+            animations()
+        }
     }
 
 }
