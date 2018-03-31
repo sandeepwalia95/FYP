@@ -9,6 +9,7 @@
 import UIKit
 import fluid_slider
 import DynamicColor
+import AVFoundation
 
 class BreatheViewController: UIViewController {
 
@@ -25,6 +26,8 @@ class BreatheViewController: UIViewController {
     var timer = Timer()
     
     var isRunning: Bool = false
+    
+    var player: AVAudioPlayer = AVAudioPlayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +65,15 @@ class BreatheViewController: UIViewController {
         timerSlider.didEndTracking = { [weak self] _ in
             self?.setLabelHidden(false, animated: true)
         }
+        
+        do {
+            let audioPath = Bundle.main.path(forResource: "5 - Minute", ofType: ".mp3")
+            
+            try player = AVAudioPlayer(contentsOf: NSURL(fileURLWithPath: audioPath!) as URL)
+            
+        } catch {
+            // Error
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -74,24 +86,29 @@ class BreatheViewController: UIViewController {
     @IBAction func start(_ sender: Any) {
         
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(action), userInfo: nil, repeats: true)
+        player.play()
         
         startButton.isEnabled = false
+        selectMinutesLabel.isHidden = true
         timerSlider.isHidden = true
     }
     
     @IBAction func stop(_ sender: Any) {
         timer.invalidate()
+        player.stop()
         
         self.timerValue = self.minutesToSeconds(minute: Int(self.sliderString)!)
         
         self.secondsLabel.text = String(self.timerValue) + " seconds"
         
         startButton.isEnabled = true
+        selectMinutesLabel.isHidden = false
         timerSlider.isHidden = false
     }
     
     @IBAction func pause(_ sender: Any) {
         timer.invalidate()
+        player.pause()
         
         startButton.isEnabled = true
     }
@@ -102,6 +119,11 @@ class BreatheViewController: UIViewController {
         
         if timerValue == 0 {
             timer.invalidate()
+            player.stop()
+            
+            startButton.isEnabled = true
+            selectMinutesLabel.isHidden = false
+            timerSlider.isHidden = false
         }
     }
     

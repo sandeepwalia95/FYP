@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1DF7484BAF4592B255EB50C1 /* Pods_FYP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD1773FB594F28E25B4FA7D3 /* Pods_FYP.framework */; };
+		DD09AE71206FC55E002A181B /* 5 - Minute.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD09AE70206FC55E002A181B /* 5 - Minute.mp3 */; };
 		DD20E530206EEAA300E7B10C /* BreatheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD20E52F206EEAA300E7B10C /* BreatheViewController.swift */; };
 		DD20E532206FA65F00E7B10C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD20E531206FA65F00E7B10C /* CardView.swift */; };
 		DD2411BA20375CEE00515757 /* DetailLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2411B920375CEE00515757 /* DetailLogViewController.swift */; };
@@ -51,6 +52,7 @@
 		08EB26EF0073F8EC21D50595 /* Pods-FYP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FYP.release.xcconfig"; path = "Pods/Target Support Files/Pods-FYP/Pods-FYP.release.xcconfig"; sourceTree = "<group>"; };
 		6CAB64F2B7C0EF8AD60380AB /* Pods-FYP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FYP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FYP/Pods-FYP.debug.xcconfig"; sourceTree = "<group>"; };
 		CD1773FB594F28E25B4FA7D3 /* Pods_FYP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FYP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD09AE70206FC55E002A181B /* 5 - Minute.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "5 - Minute.mp3"; sourceTree = "<group>"; };
 		DD20E52F206EEAA300E7B10C /* BreatheViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreatheViewController.swift; sourceTree = "<group>"; };
 		DD20E531206FA65F00E7B10C /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		DD2411B920375CEE00515757 /* DetailLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLogViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				DDA5C201204F3755004452D8 /* MaxLengthTextField.swift */,
 				DD20E52F206EEAA300E7B10C /* BreatheViewController.swift */,
 				DD20E531206FA65F00E7B10C /* CardView.swift */,
+				DD09AE70206FC55E002A181B /* 5 - Minute.mp3 */,
 			);
 			path = FYP;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				DD5C4A622066CD750054E035 /* activities@2x.png in Resources */,
 				DD5C4A592066CC2B0054E035 /* addLog@2x.png in Resources */,
 				DDAAA36420377BB7001E8C77 /* yesMeds.png in Resources */,
+				DD09AE71206FC55E002A181B /* 5 - Minute.mp3 in Resources */,
 				DD5C4A502066CA9B0054E035 /* resetPassword@3x.png in Resources */,
 				DD5C4A4B2066C4F10054E035 /* viewlogs@2x.png in Resources */,
 				DDAAA36220377BB0001E8C77 /* noMeds.png in Resources */,
