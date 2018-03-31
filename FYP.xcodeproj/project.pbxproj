@@ -10,6 +10,12 @@
 		1DF7484BAF4592B255EB50C1 /* Pods_FYP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD1773FB594F28E25B4FA7D3 /* Pods_FYP.framework */; };
 		DD09AE71206FC55E002A181B /* 5 - Minute.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD09AE70206FC55E002A181B /* 5 - Minute.mp3 */; };
 		DD09AE73206FCF0D002A181B /* CSVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD09AE72206FCF0D002A181B /* CSVViewController.swift */; };
+		DD09AE7620703E89002A181B /* csv.png in Resources */ = {isa = PBXBuildFile; fileRef = DD09AE7520703E88002A181B /* csv.png */; };
+		DD09AE7820703E90002A181B /* csv@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD09AE7720703E8F002A181B /* csv@2x.png */; };
+		DD09AE7A20703E95002A181B /* csv@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD09AE7920703E94002A181B /* csv@3x.png */; };
+		DD09AE7D20703EEB002A181B /* breathe.png in Resources */ = {isa = PBXBuildFile; fileRef = DD09AE7C20703EEA002A181B /* breathe.png */; };
+		DD09AE7F20703EF1002A181B /* breathe@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD09AE7E20703EF0002A181B /* breathe@2x.png */; };
+		DD09AE8120703EF7002A181B /* breathe@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD09AE8020703EF6002A181B /* breathe@3x.png */; };
 		DD20E530206EEAA300E7B10C /* BreatheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD20E52F206EEAA300E7B10C /* BreatheViewController.swift */; };
 		DD20E532206FA65F00E7B10C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD20E531206FA65F00E7B10C /* CardView.swift */; };
 		DD2411BA20375CEE00515757 /* DetailLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2411B920375CEE00515757 /* DetailLogViewController.swift */; };
@@ -55,6 +61,12 @@
 		CD1773FB594F28E25B4FA7D3 /* Pods_FYP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FYP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD09AE70206FC55E002A181B /* 5 - Minute.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "5 - Minute.mp3"; sourceTree = "<group>"; };
 		DD09AE72206FCF0D002A181B /* CSVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVViewController.swift; sourceTree = "<group>"; };
+		DD09AE7520703E88002A181B /* csv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = csv.png; sourceTree = "<group>"; };
+		DD09AE7720703E8F002A181B /* csv@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "csv@2x.png"; sourceTree = "<group>"; };
+		DD09AE7920703E94002A181B /* csv@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "csv@3x.png"; sourceTree = "<group>"; };
+		DD09AE7C20703EEA002A181B /* breathe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = breathe.png; sourceTree = "<group>"; };
+		DD09AE7E20703EF0002A181B /* breathe@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "breathe@2x.png"; sourceTree = "<group>"; };
+		DD09AE8020703EF6002A181B /* breathe@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "breathe@3x.png"; sourceTree = "<group>"; };
 		DD20E52F206EEAA300E7B10C /* BreatheViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreatheViewController.swift; sourceTree = "<group>"; };
 		DD20E531206FA65F00E7B10C /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		DD2411B920375CEE00515757 /* DetailLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLogViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +141,26 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		DD09AE7420703E7B002A181B /* csv */ = {
+			isa = PBXGroup;
+			children = (
+				DD09AE7520703E88002A181B /* csv.png */,
+				DD09AE7720703E8F002A181B /* csv@2x.png */,
+				DD09AE7920703E94002A181B /* csv@3x.png */,
+			);
+			path = csv;
+			sourceTree = "<group>";
+		};
+		DD09AE7B20703ED7002A181B /* Breathing */ = {
+			isa = PBXGroup;
+			children = (
+				DD09AE7C20703EEA002A181B /* breathe.png */,
+				DD09AE7E20703EF0002A181B /* breathe@2x.png */,
+				DD09AE8020703EF6002A181B /* breathe@3x.png */,
+			);
+			path = Breathing;
+			sourceTree = "<group>";
+		};
 		DD3596C8201CB4840096A84C = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +186,8 @@
 			isa = PBXGroup;
 			children = (
 				DD5C4A632067143F0054E035 /* FYP.entitlements */,
+				DD09AE7B20703ED7002A181B /* Breathing */,
+				DD09AE7420703E7B002A181B /* csv */,
 				DD5C4A5C2066CD520054E035 /* activities */,
 				DD5C4A552066CBEA0054E035 /* addLog */,
 				DD5C4A4E2066CA890054E035 /* resetPassword */,
@@ -303,7 +337,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD5C4A602066CD6E0054E035 /* activities@3x.png in Resources */,
+				DD09AE7D20703EEB002A181B /* breathe.png in Resources */,
+				DD09AE7620703E89002A181B /* csv.png in Resources */,
 				DD3596DF201CB4840096A84C /* LaunchScreen.storyboard in Resources */,
+				DD09AE7F20703EF1002A181B /* breathe@2x.png in Resources */,
+				DD09AE7A20703E95002A181B /* csv@3x.png in Resources */,
 				DD5C4A5E2066CD690054E035 /* activities.png in Resources */,
 				DD5C4A542066CAA80054E035 /* resetPassword.png in Resources */,
 				DDD896AA2028FE6400A85EF6 /* GoogleService-Info.plist in Resources */,
@@ -312,6 +350,7 @@
 				DD5C4A492066C4E70054E035 /* viewLogs.png in Resources */,
 				DD5C4A5B2066CC340054E035 /* addLog@3x.png in Resources */,
 				DD3596DC201CB4840096A84C /* Assets.xcassets in Resources */,
+				DD09AE7820703E90002A181B /* csv@2x.png in Resources */,
 				DD5C4A4D2066C4F80054E035 /* viewLogs@3x.png in Resources */,
 				DD5C4A572066CC250054E035 /* addLog.png in Resources */,
 				DD3596DA201CB4840096A84C /* Main.storyboard in Resources */,
@@ -320,6 +359,7 @@
 				DDAAA36420377BB7001E8C77 /* yesMeds.png in Resources */,
 				DD09AE71206FC55E002A181B /* 5 - Minute.mp3 in Resources */,
 				DD5C4A502066CA9B0054E035 /* resetPassword@3x.png in Resources */,
+				DD09AE8120703EF7002A181B /* breathe@3x.png in Resources */,
 				DD5C4A4B2066C4F10054E035 /* viewlogs@2x.png in Resources */,
 				DDAAA36220377BB0001E8C77 /* noMeds.png in Resources */,
 				DD5C4A442066C3F10054E035 /* lineGraph@2x.png in Resources */,

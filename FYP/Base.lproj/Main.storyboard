@@ -690,7 +690,7 @@
             </objects>
             <point key="canvasLocation" x="2977" y="-233"/>
         </scene>
-        <!--Item-->
+        <!--Export-->
         <scene sceneID="HCc-ci-eS9">
             <objects>
                 <viewController id="k4K-73-izt" customClass="CSVViewController" customModule="FYP" customModuleProvider="target" sceneMemberID="viewController">
@@ -742,7 +742,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="IeB-Sd-a3l"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Pl6-21-sK3"/>
+                    <tabBarItem key="tabBarItem" title="Export" image="csv.png" id="Pl6-21-sK3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L1v-d9-SrN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2035,7 +2035,7 @@
             </objects>
             <point key="canvasLocation" x="2976.811594202899" y="-1339.4021739130435"/>
         </scene>
-        <!--Breathe View Controller-->
+        <!--Breathing-->
         <scene sceneID="mL4-Fe-3eO">
             <objects>
                 <viewController id="zGN-Wh-EUW" customClass="BreatheViewController" customModule="FYP" customModuleProvider="target" sceneMemberID="viewController">
@@ -2151,7 +2151,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="B6I-2w-ukb"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="topRated" id="tld-MA-A86"/>
+                    <tabBarItem key="tabBarItem" title="Breathing" image="breathe.png" id="tld-MA-A86"/>
                     <connections>
                         <outlet property="pauseButton" destination="ap5-qu-j40" id="HGz-uj-Fhq"/>
                         <outlet property="secondsLabel" destination="ho2-lS-lPn" id="dh9-UI-md9"/>
@@ -2212,6 +2212,8 @@
     <resources>
         <image name="activities.png" width="25" height="25"/>
         <image name="addLog.png" width="25" height="25"/>
+        <image name="breathe.png" width="25" height="25"/>
+        <image name="csv.png" width="25" height="25"/>
         <image name="lineGraph.png" width="25" height="25"/>
         <image name="noMeds.png" width="500" height="500"/>
         <image name="resetPassword.png" width="25" height="25"/>
