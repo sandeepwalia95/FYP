@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1DF7484BAF4592B255EB50C1 /* Pods_FYP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD1773FB594F28E25B4FA7D3 /* Pods_FYP.framework */; };
 		DD20E530206EEAA300E7B10C /* BreatheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD20E52F206EEAA300E7B10C /* BreatheViewController.swift */; };
+		DD20E532206FA65F00E7B10C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD20E531206FA65F00E7B10C /* CardView.swift */; };
 		DD2411BA20375CEE00515757 /* DetailLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2411B920375CEE00515757 /* DetailLogViewController.swift */; };
 		DD354C87202F4074008DD9E3 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD354C86202F4074008DD9E3 /* Log.swift */; };
 		DD3596D5201CB4840096A84C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3596D4201CB4840096A84C /* AppDelegate.swift */; };
@@ -51,6 +52,7 @@
 		6CAB64F2B7C0EF8AD60380AB /* Pods-FYP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FYP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FYP/Pods-FYP.debug.xcconfig"; sourceTree = "<group>"; };
 		CD1773FB594F28E25B4FA7D3 /* Pods_FYP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FYP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD20E52F206EEAA300E7B10C /* BreatheViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreatheViewController.swift; sourceTree = "<group>"; };
+		DD20E531206FA65F00E7B10C /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		DD2411B920375CEE00515757 /* DetailLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLogViewController.swift; sourceTree = "<group>"; };
 		DD354C86202F4074008DD9E3 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		DD3596D1201CB4840096A84C /* FYP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FYP.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,6 +174,7 @@
 				DDA5C1FF204F2A7A004452D8 /* editActivitiesViewController.swift */,
 				DDA5C201204F3755004452D8 /* MaxLengthTextField.swift */,
 				DD20E52F206EEAA300E7B10C /* BreatheViewController.swift */,
+				DD20E531206FA65F00E7B10C /* CardView.swift */,
 			);
 			path = FYP;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				DD887CD720222A71003BCFE3 /* LogEntryViewController.swift in Sources */,
 				DDDACAB5202676F500CE4FFD /* ViewLogsViewController.swift in Sources */,
 				DDA5C200204F2A7A004452D8 /* editActivitiesViewController.swift in Sources */,
+				DD20E532206FA65F00E7B10C /* CardView.swift in Sources */,
 				DDA5C202204F3755004452D8 /* MaxLengthTextField.swift in Sources */,
 				DD3596D5201CB4840096A84C /* AppDelegate.swift in Sources */,
 				DD2411BA20375CEE00515757 /* DetailLogViewController.swift in Sources */,
