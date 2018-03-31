@@ -14,6 +14,9 @@ class BreatheViewController: UIViewController {
 
     @IBOutlet weak var timerSlider: Slider!
     @IBOutlet weak var secondsLabel: UILabel!
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var pauseButton: UIButton!
     
     var timerValue = 0
     var sliderString = ""
@@ -25,6 +28,10 @@ class BreatheViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        startButton.layer.cornerRadius = startButton.bounds.size.width/2;
+        stopButton.layer.cornerRadius = stopButton.bounds.size.width/2;
+        pauseButton.layer.cornerRadius = pauseButton.bounds.size.width/2;
+        
         timerSlider.attributedTextForFraction = { fraction in
             let formatter = NumberFormatter()
             formatter.maximumIntegerDigits = 3
@@ -35,7 +42,7 @@ class BreatheViewController: UIViewController {
             
             self.timerValue = self.minutesToSeconds(minute: Int(self.sliderString)!)
             
-            self.secondsLabel.text = String(self.timerValue)
+            self.secondsLabel.text = String(self.timerValue) + " seconds"
             
             return NSAttributedString(string: string)
         }
@@ -60,6 +67,9 @@ class BreatheViewController: UIViewController {
     @IBAction func start(_ sender: Any) {
         
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(action), userInfo: nil, repeats: true)
+        
+        startButton.isEnabled = false
+        timerSlider.isHidden = true
     }
     
     @IBAction func stop(_ sender: Any) {
@@ -67,16 +77,21 @@ class BreatheViewController: UIViewController {
         
         self.timerValue = self.minutesToSeconds(minute: Int(self.sliderString)!)
         
-        self.secondsLabel.text = String(self.timerValue)
+        self.secondsLabel.text = String(self.timerValue) + " seconds"
+        
+        startButton.isEnabled = true
+        timerSlider.isHidden = false
     }
     
     @IBAction func pause(_ sender: Any) {
         timer.invalidate()
+        
+        startButton.isEnabled = true
     }
     
     @objc func action() {
         timerValue -= 1
-        self.secondsLabel.text = String(self.timerValue)
+        self.secondsLabel.text = String(self.timerValue) + " seconds"
         
         if timerValue == 0 {
             timer.invalidate()
@@ -86,16 +101,5 @@ class BreatheViewController: UIViewController {
     func minutesToSeconds(minute: Int) -> Int {
         return minute * 60
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
