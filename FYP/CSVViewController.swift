@@ -15,6 +15,8 @@ class CSVViewController: UIViewController, MFMailComposeViewControllerDelegate {
     var ref: DatabaseReference!
     var databasehandle: DatabaseHandle?
     
+    let defaults = UserDefaults.standard
+    
     var logData = [Log]()
 
     override func viewDidLoad() {
@@ -60,7 +62,7 @@ class CSVViewController: UIViewController, MFMailComposeViewControllerDelegate {
             
             // Create log object and add it to the LogDate list which will be accessed with the tableView methods.
             let log = Log(date: logDate, mood: logMood, sleep: logSleep, alcohol: logAlcohol, work: logWork, medication: logMedication, activities: logActivities)
-            self.logData.insert(log, at: 0)
+            self.logData.append(log)
         })
     }
     
@@ -82,7 +84,10 @@ class CSVViewController: UIViewController, MFMailComposeViewControllerDelegate {
         let fileName = "Logs.csv"
         let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
         
-        var csvText = "Date,Mood,Sleep,Alcohol,Work,Medication\n"
+        let userFirstName = defaults.string(forKey: "firstNameKey")!
+        let userlastName = defaults.string(forKey: "lastNameKey")!
+        
+        var csvText = "Name:\n\(userFirstName),\(userlastName)\n\nDate,Mood,Sleep,Alcohol,Work,Medication\n"
         
         for log in logData {
             let newLine = "\(log.date),\(log.mood),\(log.sleep),\(log.alcohol),\(log.work),\(log.medication)\n"
@@ -97,7 +102,7 @@ class CSVViewController: UIViewController, MFMailComposeViewControllerDelegate {
                 emailController.mailComposeDelegate = self
                 emailController.setToRecipients([]) //I usually leave this blank unless it's a "message the developer" type thing
                 emailController.setSubject("CSV Request")
-                emailController.setMessageBody("Attached is a your .csv file.", isHTML: false)
+                emailController.setMessageBody("Hello,\n\nAttached is a file containing \(userFirstName) \(userlastName)'s information.\n\nThis data is sent from the Mental Health Tracker app.", isHTML: false)
                 
                 emailController.addAttachmentData(NSData(contentsOf: path!)! as Data, mimeType: "text/csv", fileName: "Logs.csv")
                 
