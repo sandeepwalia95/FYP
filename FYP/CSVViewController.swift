@@ -70,7 +70,7 @@ class CSVViewController: UIViewController, MFMailComposeViewControllerDelegate {
         super.viewDidAppear(animated)
         
         for log in logData {
-            print(log.date)
+            print(log.activities)
         }
         
     }
@@ -87,11 +87,20 @@ class CSVViewController: UIViewController, MFMailComposeViewControllerDelegate {
         let userFirstName = defaults.string(forKey: "firstNameKey")!
         let userlastName = defaults.string(forKey: "lastNameKey")!
         
-        var csvText = "Name:\n\(userFirstName),\(userlastName)\n\nDate,Mood,Sleep,Alcohol,Work,Medication\n"
+        var csvText = "Name:\n\(userFirstName),\(userlastName)\n\nDate,Mood,Sleep,Alcohol,Work,Medication,Activities\n"
         
         for log in logData {
-            let newLine = "\(log.date),\(log.mood),\(log.sleep),\(log.alcohol),\(log.work),\(log.medication)\n"
+            let newLine = "\(log.date),\(log.mood),\(log.sleep),\(log.alcohol),\(log.work),\(log.medication)"
             csvText.append(newLine)
+            
+            if log.activities.count > 0 {
+                csvText.append(",")
+                for activity in log.activities {
+                    csvText.append(activity)
+                    csvText.append(",")
+                }
+            }
+            csvText.append("\n")
         }
         
         do {
