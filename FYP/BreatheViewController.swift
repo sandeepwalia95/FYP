@@ -96,6 +96,7 @@ class BreatheViewController: UIViewController {
     @IBAction func stop(_ sender: Any) {
         timer.invalidate()
         player.stop()
+        player.currentTime = 0
         
         self.timerValue = self.minutesToSeconds(minute: Int(self.sliderString)!)
         
