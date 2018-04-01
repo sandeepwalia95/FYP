@@ -23,11 +23,11 @@ class ChartViewController: UIViewController {
     @IBOutlet weak var sleepProgressView: MBCircularProgressBarView!
     @IBOutlet weak var alcoholProgressView: MBCircularProgressBarView!
     @IBOutlet weak var workProgressView: MBCircularProgressBarView!
-    @IBOutlet weak var moodProgressMeter: GTProgressBar!
     
     @IBOutlet weak var moodLabel: UILabel!
     @IBOutlet weak var stepsLabel: UILabel!
     @IBOutlet weak var stepsProgressMeter: GTProgressBar!
+    @IBOutlet weak var moodProgressMeter: UIProgressView!
     
     var ref: DatabaseReference!
     var databasehandle: DatabaseHandle?
@@ -67,8 +67,8 @@ class ChartViewController: UIViewController {
         self.workProgressView.progressColor = UIColor.green
         self.workProgressView.progressStrokeColor = UIColor.green
         
-        self.moodProgressMeter.barFillColor = DynamicColor(hexString: "#976DD0")
-        self.moodProgressMeter.animateTo(progress: 20)
+        //self.moodProgressMeter.barFillColor = DynamicColor(hexString: "#976DD0")
+        //self.moodProgressMeter.
         
         // Set Firebase reference
         ref = Database.database().reference()
@@ -213,7 +213,7 @@ class ChartViewController: UIViewController {
             
             var arraySumMood = self.moodSeven.reduce(0) { $0 + $1 }
             arraySumMood = arraySumMood/Double(self.moodSeven.count)
-            self.moodProgressMeter.animateTo(progress: CGFloat(arraySumMood/20))
+            self.moodProgressMeter.setProgress(Float(arraySumMood/20), animated: true)
             self.changeMoodProgressColorLabel(moodValue: Float(arraySumMood))
         }
         
@@ -302,7 +302,7 @@ class ChartViewController: UIViewController {
             mood = "Excellent"
         }
         
-        self.moodProgressMeter.barFillColor = progressColor
+        self.moodProgressMeter.progressTintColor = progressColor
         self.moodLabel.text = mood
     }
     
