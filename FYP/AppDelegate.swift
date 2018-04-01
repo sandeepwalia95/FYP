@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
+        Database.database().isPersistenceEnabled = true
+        
         IQKeyboardManager.sharedManager().enable = true
         
         let hasLaunchedKey = "HasLaunched"
