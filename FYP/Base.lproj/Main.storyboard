@@ -1026,29 +1026,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u4U-PK-sE2" customClass="GTProgressBar" customModule="GTProgressBar">
-                                <rect key="frame" x="235" y="656" width="160" height="12"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="displayLabel" value="NO"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="progressLabelInsetLeft">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="barBackgroundColor">
-                                        <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="barFillColor">
-                                        <color key="value" red="0.52156862749999999" green="0.75686274509999996" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="barBorderColor">
-                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="progress">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="s9v-jK-eBx">
                                 <rect key="frame" x="305" y="634" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1145,9 +1122,13 @@
                                 <rect key="frame" x="25" y="662" width="150" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </progressView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.83330000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="3ux-Fi-2Fb">
+                                <rect key="frame" x="240" y="660" width="150" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="tintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.52156862749999999" green="0.75686274509999996" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="ZEN-bp-l8j"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Stats" image="lineGraph.png" id="2hd-KP-h65"/>
@@ -1160,7 +1141,7 @@
                         <outlet property="moodProgressMeter" destination="NJ3-Kl-IC1" id="Yxl-HZ-HO8"/>
                         <outlet property="sleepProgressView" destination="Hhz-kK-rUY" id="xiB-8A-B8z"/>
                         <outlet property="stepsLabel" destination="tZJ-bp-VOV" id="CAG-Z4-Kg3"/>
-                        <outlet property="stepsProgressMeter" destination="u4U-PK-sE2" id="wQ9-my-nty"/>
+                        <outlet property="stepsProgressMeter" destination="3ux-Fi-2Fb" id="Vt3-0k-1dw"/>
                         <outlet property="workProgressView" destination="UHQ-ff-Avx" id="r3J-S6-9uT"/>
                     </connections>
                 </viewController>

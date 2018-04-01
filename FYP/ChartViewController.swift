@@ -26,7 +26,8 @@ class ChartViewController: UIViewController {
     
     @IBOutlet weak var moodLabel: UILabel!
     @IBOutlet weak var stepsLabel: UILabel!
-    @IBOutlet weak var stepsProgressMeter: GTProgressBar!
+    
+    @IBOutlet weak var stepsProgressMeter: UIProgressView!
     @IBOutlet weak var moodProgressMeter: UIProgressView!
     
     var ref: DatabaseReference!
@@ -126,7 +127,7 @@ class ChartViewController: UIViewController {
                 let progress = Double(averageSteps)/Double(12000)
                 print(progress)
                 self.stepsLabel.text = String("\(averageSteps) steps")
-                self.stepsProgressMeter.animateTo(progress: CGFloat(progress))
+                self.stepsProgressMeter.setProgress(Float(progress), animated: true)
             }
         }
     }
@@ -170,7 +171,7 @@ class ChartViewController: UIViewController {
                 let progress = Double(averageSteps)/Double(12000)
                 print(progress)
                 self.stepsLabel.text = String("\(averageSteps) steps")
-                self.stepsProgressMeter.animateTo(progress: CGFloat(progress))
+                self.stepsProgressMeter.setProgress(Float(progress), animated: true)
             }
         }
     }
