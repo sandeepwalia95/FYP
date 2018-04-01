@@ -109,7 +109,7 @@ class CSVViewController: UIViewController, MFMailComposeViewControllerDelegate {
             if MFMailComposeViewController.canSendMail() {
                 let emailController = MFMailComposeViewController()
                 emailController.mailComposeDelegate = self
-                emailController.setToRecipients([]) //I usually leave this blank unless it's a "message the developer" type thing
+                emailController.setToRecipients([])
                 emailController.setSubject("CSV Request")
                 emailController.setMessageBody("Hello,\n\nAttached is a file containing \(userFirstName) \(userlastName)'s information.\n\nThis data is sent from the Mental Health Tracker app.", isHTML: false)
                 
@@ -119,7 +119,7 @@ class CSVViewController: UIViewController, MFMailComposeViewControllerDelegate {
             }
             
         } catch {
-            print("Failed to create file")
+            print("No file was created")
             print("\(error)")
         }
     }
@@ -127,15 +127,4 @@ class CSVViewController: UIViewController, MFMailComposeViewControllerDelegate {
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
