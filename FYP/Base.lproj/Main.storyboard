@@ -1121,10 +1121,12 @@
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.30000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="NJ3-Kl-IC1">
                                 <rect key="frame" x="25" y="662" width="150" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="trackTintColor" red="0.92157649990000001" green="0.92156207560000003" blue="0.92158007620000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </progressView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.83330000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="3ux-Fi-2Fb">
                                 <rect key="frame" x="240" y="660" width="150" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="trackTintColor" red="0.92157649990000001" green="0.92156207560000003" blue="0.92158007620000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
