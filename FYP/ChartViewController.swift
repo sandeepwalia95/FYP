@@ -264,7 +264,7 @@ class ChartViewController: UIViewController {
             return ((20.0/6) * 4)
         case "Fair":
             return ((20.0/6) * 3)
-        case "Uh-Oh":
+        case "Down":
             return ((20.0/6) * 2)
         case "Bad":
             return ((20.0/6) * 1)
@@ -288,7 +288,7 @@ class ChartViewController: UIViewController {
             mood = "Bad"
         } else if (moodValue <= (20.0/6) * 2) {
             progressColor = DynamicColor(hexString: "#FFBA5C")
-            mood = "Uh-Oh"
+            mood = "Down"
         } else if (moodValue <= (20.0/6) * 3) {
             progressColor = DynamicColor(hexString: "#E9F50C")
             mood = "Fair"

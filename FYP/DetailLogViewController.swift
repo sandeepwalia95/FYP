@@ -265,7 +265,7 @@ class DetailLogViewController: UIViewController {
             color = "#13CE66"
         case "Fair":
             color = "#E9F50C"
-        case "Uh-Oh":
+        case "Down":
             color = "#FFBA5C"
         case "Bad":
             color = "#F95F62"

@@ -306,7 +306,7 @@ class LogEntryViewController: UIViewController {
             moodValue = "Fair"
         case "4":
             slider.contentViewColor = DynamicColor(hexString: "#FFBA5C")
-            moodValue = "Uh-Oh"
+            moodValue = "Down"
         case "5":
             slider.contentViewColor = DynamicColor(hexString: "#F95F62")
             moodValue = "Bad"
