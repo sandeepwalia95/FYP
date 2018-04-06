@@ -690,7 +690,7 @@
             </objects>
             <point key="canvasLocation" x="2977" y="-233"/>
         </scene>
-        <!--Item-->
+        <!--Need Support?-->
         <scene sceneID="RCr-Jw-z72">
             <objects>
                 <viewController id="pcn-OT-hEl" customClass="NeedSupportViewController" customModule="FYP" customModuleProvider="target" sceneMemberID="viewController">
@@ -758,7 +758,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="1PO-1j-Gfp"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="ks9-Qu-e8d"/>
+                    <tabBarItem key="tabBarItem" title="Need Support?" image="support.png" id="ks9-Qu-e8d"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hQE-Aw-xkR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2264,6 +2264,7 @@
         <image name="noMeds.png" width="500" height="500"/>
         <image name="resetPassword.png" width="25" height="25"/>
         <image name="samaritans_logo_ireland.png" width="280" height="180"/>
+        <image name="support.png" width="25" height="25"/>
         <image name="viewLogs.png" width="25" height="25"/>
     </resources>
 </document>

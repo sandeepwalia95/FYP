@@ -18,6 +18,9 @@
 		DD09AE8120703EF7002A181B /* breathe@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD09AE8020703EF6002A181B /* breathe@3x.png */; };
 		DD1EFA702077AFBF0014F6A2 /* NeedSupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1EFA6F2077AFBF0014F6A2 /* NeedSupportViewController.swift */; };
 		DD1EFA722077B09B0014F6A2 /* samaritans_logo_ireland.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1EFA712077B09A0014F6A2 /* samaritans_logo_ireland.png */; };
+		DD1EFA7520782E5D0014F6A2 /* support.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1EFA7420782E5C0014F6A2 /* support.png */; };
+		DD1EFA7720782E630014F6A2 /* support@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1EFA7620782E620014F6A2 /* support@2x.png */; };
+		DD1EFA7920782E680014F6A2 /* support@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1EFA7820782E680014F6A2 /* support@3x.png */; };
 		DD20E530206EEAA300E7B10C /* BreatheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD20E52F206EEAA300E7B10C /* BreatheViewController.swift */; };
 		DD20E532206FA65F00E7B10C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD20E531206FA65F00E7B10C /* CardView.swift */; };
 		DD2411BA20375CEE00515757 /* DetailLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2411B920375CEE00515757 /* DetailLogViewController.swift */; };
@@ -71,6 +74,9 @@
 		DD09AE8020703EF6002A181B /* breathe@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "breathe@3x.png"; sourceTree = "<group>"; };
 		DD1EFA6F2077AFBF0014F6A2 /* NeedSupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedSupportViewController.swift; sourceTree = "<group>"; };
 		DD1EFA712077B09A0014F6A2 /* samaritans_logo_ireland.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = samaritans_logo_ireland.png; sourceTree = "<group>"; };
+		DD1EFA7420782E5C0014F6A2 /* support.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = support.png; sourceTree = "<group>"; };
+		DD1EFA7620782E620014F6A2 /* support@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "support@2x.png"; sourceTree = "<group>"; };
+		DD1EFA7820782E680014F6A2 /* support@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "support@3x.png"; sourceTree = "<group>"; };
 		DD20E52F206EEAA300E7B10C /* BreatheViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreatheViewController.swift; sourceTree = "<group>"; };
 		DD20E531206FA65F00E7B10C /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		DD2411B920375CEE00515757 /* DetailLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLogViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +171,16 @@
 			path = Breathing;
 			sourceTree = "<group>";
 		};
+		DD1EFA7320782E4E0014F6A2 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				DD1EFA7420782E5C0014F6A2 /* support.png */,
+				DD1EFA7620782E620014F6A2 /* support@2x.png */,
+				DD1EFA7820782E680014F6A2 /* support@3x.png */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		DD3596C8201CB4840096A84C = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +205,7 @@
 		DD3596D3201CB4840096A84C /* FYP */ = {
 			isa = PBXGroup;
 			children = (
+				DD1EFA7320782E4E0014F6A2 /* Support */,
 				DD5C4A632067143F0054E035 /* FYP.entitlements */,
 				DD09AE7B20703ED7002A181B /* Breathing */,
 				DD09AE7420703E7B002A181B /* csv */,
@@ -351,6 +368,7 @@
 				DD5C4A5E2066CD690054E035 /* activities.png in Resources */,
 				DD5C4A542066CAA80054E035 /* resetPassword.png in Resources */,
 				DDD896AA2028FE6400A85EF6 /* GoogleService-Info.plist in Resources */,
+				DD1EFA7920782E680014F6A2 /* support@3x.png in Resources */,
 				DD5C4A422066C3EA0054E035 /* lineGraph@3x.png in Resources */,
 				DD5C4A522066CAA20054E035 /* resetPassword@2x.png in Resources */,
 				DD5C4A492066C4E70054E035 /* viewLogs.png in Resources */,
@@ -358,11 +376,13 @@
 				DD3596DC201CB4840096A84C /* Assets.xcassets in Resources */,
 				DD09AE7820703E90002A181B /* csv@2x.png in Resources */,
 				DD5C4A4D2066C4F80054E035 /* viewLogs@3x.png in Resources */,
+				DD1EFA7720782E630014F6A2 /* support@2x.png in Resources */,
 				DD5C4A572066CC250054E035 /* addLog.png in Resources */,
 				DD3596DA201CB4840096A84C /* Main.storyboard in Resources */,
 				DD1EFA722077B09B0014F6A2 /* samaritans_logo_ireland.png in Resources */,
 				DD5C4A622066CD750054E035 /* activities@2x.png in Resources */,
 				DD5C4A592066CC2B0054E035 /* addLog@2x.png in Resources */,
+				DD1EFA7520782E5D0014F6A2 /* support.png in Resources */,
 				DDAAA36420377BB7001E8C77 /* yesMeds.png in Resources */,
 				DD09AE71206FC55E002A181B /* 5 - Minute.mp3 in Resources */,
 				DD5C4A502066CA9B0054E035 /* resetPassword@3x.png in Resources */,
