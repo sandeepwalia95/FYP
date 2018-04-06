@@ -690,6 +690,68 @@
             </objects>
             <point key="canvasLocation" x="2977" y="-233"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="RCr-Jw-z72">
+            <objects>
+                <viewController id="pcn-OT-hEl" customClass="NeedSupportViewController" customModule="FYP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uxv-ar-CTq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="samaritans_logo_ireland.png" translatesAutoresizingMaskIntoConstraints="NO" id="0Jj-4E-AjA">
+                                <rect key="frame" x="20" y="63" width="374" height="197"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="If something’s troubling you, then get in touch. We’re here 24 hours a day, 365 days a year." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpG-jz-AGe">
+                                <rect key="frame" x="20" y="253" width="382" height="124"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.55424654483795166" green="0.72634375095367432" blue="0.26663631200790405" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="We help you talk things through." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0LO-2b-zOe">
+                                <rect key="frame" x="20" y="367" width="374" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.55424654480000002" green="0.72634375100000004" blue="0.26663631199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="We keep everything confidential." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xaw-jr-4F9">
+                                <rect key="frame" x="20" y="396" width="374" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.55424654480000002" green="0.72634375100000004" blue="0.26663631199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="We’re not a religious organisation." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RK4-kE-OUU">
+                                <rect key="frame" x="20" y="425" width="382" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.55424654480000002" green="0.72634375100000004" blue="0.26663631199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Mh-LR-8l6">
+                                <rect key="frame" x="139" y="491" width="136" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.55424654480000002" green="0.72634375100000004" blue="0.26663631199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Call">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="makeCall:" destination="pcn-OT-hEl" eventType="touchUpInside" id="fet-bg-t6h"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="1PO-1j-Gfp"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="ks9-Qu-e8d"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hQE-Aw-xkR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-240.57971014492756" y="1127.4456521739132"/>
+        </scene>
         <!--Export-->
         <scene sceneID="HCc-ci-eS9">
             <objects>
@@ -746,7 +808,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L1v-d9-SrN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="408.69565217391306" y="1138.858695652174"/>
+            <point key="canvasLocation" x="814" y="1026"/>
         </scene>
         <!--Reset Password-->
         <scene sceneID="qzc-lg-ka9">
@@ -807,7 +869,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uRY-mU-hgm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1314" y="974"/>
+            <point key="canvasLocation" x="1532" y="975"/>
         </scene>
         <!--Stats-->
         <scene sceneID="h6S-Xt-9ua">
@@ -1476,7 +1538,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vgD-VN-WkR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2083" y="893"/>
+            <point key="canvasLocation" x="2178" y="893"/>
         </scene>
         <!--View Logs-->
         <scene sceneID="l1I-A0-dal">
@@ -2154,6 +2216,7 @@
                         <segue destination="uhD-we-iWS" kind="relationship" relationship="viewControllers" id="qDi-wk-aGD"/>
                         <segue destination="RTs-vL-vdG" kind="relationship" relationship="viewControllers" id="eAw-ad-4rl"/>
                         <segue destination="k4K-73-izt" kind="relationship" relationship="viewControllers" id="Amy-sn-ASi"/>
+                        <segue destination="pcn-OT-hEl" kind="relationship" relationship="viewControllers" id="dmu-bA-m4T"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n8i-DM-KgT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2188,6 +2251,7 @@
         <image name="lineGraph.png" width="25" height="25"/>
         <image name="noMeds.png" width="500" height="500"/>
         <image name="resetPassword.png" width="25" height="25"/>
+        <image name="samaritans_logo_ireland.png" width="280" height="180"/>
         <image name="viewLogs.png" width="25" height="25"/>
     </resources>
 </document>
