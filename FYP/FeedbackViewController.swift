@@ -11,10 +11,15 @@ import MessageUI
 
 class FeedbackViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
+    @IBOutlet weak var feedbackButtton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        feedbackButtton.layer.cornerRadius = 7.0
+        feedbackButtton.clipsToBounds = true
     }
 
     override func didReceiveMemoryWarning() {

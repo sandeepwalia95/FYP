@@ -11,11 +11,15 @@ import UIKit
 class ResetPasswordViewController: UIViewController {
 
     @IBOutlet weak var resetPasswordTextField: UITextField!
+    @IBOutlet weak var resetButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        resetButton.layer.cornerRadius = 7.0
+        resetButton.clipsToBounds = true
     }
 
     override func didReceiveMemoryWarning() {

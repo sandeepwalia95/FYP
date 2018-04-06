@@ -11,10 +11,19 @@ import MessageUI
 
 class NeedSupportViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
+    @IBOutlet weak var callButton: UIButton!
+    @IBOutlet weak var emailButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        callButton.layer.cornerRadius = 7.0
+        callButton.clipsToBounds = true
+        
+        emailButton.layer.cornerRadius = 7.0
+        emailButton.clipsToBounds = true
     }
 
     override func didReceiveMemoryWarning() {

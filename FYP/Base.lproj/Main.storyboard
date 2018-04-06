@@ -743,6 +743,9 @@
                         <viewLayoutGuide key="safeArea" id="UQu-Mk-Da8"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Feedback" image="feedback.png" id="Ic0-2o-Nhe"/>
+                    <connections>
+                        <outlet property="feedbackButtton" destination="EMn-HF-4HD" id="ysB-OJ-ZNc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ovo-Ze-nw2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -824,6 +827,10 @@
                         <viewLayoutGuide key="safeArea" id="1PO-1j-Gfp"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Need Support?" image="support.png" id="ks9-Qu-e8d"/>
+                    <connections>
+                        <outlet property="callButton" destination="3Mh-LR-8l6" id="R5u-mP-neg"/>
+                        <outlet property="emailButton" destination="ITt-NW-cxl" id="8nY-sf-VrF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hQE-Aw-xkR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -882,6 +889,9 @@
                         <viewLayoutGuide key="safeArea" id="IeB-Sd-a3l"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Export" image="csv.png" id="Pl6-21-sK3"/>
+                    <connections>
+                        <outlet property="exportButton" destination="iMZ-u4-tqH" id="eCM-fw-fEK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L1v-d9-SrN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -920,6 +930,7 @@
                                 <rect key="frame" x="137" y="339" width="140" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.52156862749999999" green="0.75686274509999996" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Reset">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -941,6 +952,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Reset Password" image="resetPassword.png" id="1DQ-6A-79H"/>
                     <connections>
+                        <outlet property="resetButton" destination="OVT-Z6-x7n" id="Pit-0h-nJL"/>
                         <outlet property="resetPasswordTextField" destination="pZf-5g-o86" id="GaR-ID-fWb"/>
                     </connections>
                 </viewController>

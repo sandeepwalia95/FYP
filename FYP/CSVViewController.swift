@@ -12,6 +12,8 @@ import MessageUI
 
 class CSVViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
+    @IBOutlet weak var exportButton: UIButton!
+    
     var ref: DatabaseReference!
     var databasehandle: DatabaseHandle?
     
@@ -23,6 +25,9 @@ class CSVViewController: UIViewController, MFMailComposeViewControllerDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        exportButton.layer.cornerRadius = 7.0
+        exportButton.clipsToBounds = true
         
         // Ensure that there is no duplicates in the logs
         self.logData.removeAll()
