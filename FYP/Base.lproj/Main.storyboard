@@ -688,7 +688,65 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u5Y-KT-Y6u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2977" y="-233"/>
+            <point key="canvasLocation" x="2355" y="-805"/>
+        </scene>
+        <!--Feedback-->
+        <scene sceneID="slc-cx-0Aw">
+            <objects>
+                <viewController id="DEb-CF-Wjt" customClass="FeedbackViewController" customModule="FYP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kc1-hA-cx7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hqB-zp-3KM" customClass="CardView" customModule="FYP" customModuleProvider="target">
+                                <rect key="frame" x="20" y="106" width="374" height="169"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This project belongs to Sandeep Walia." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Led-Ar-560">
+                                        <rect key="frame" x="8" y="45" width="358" height="61"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Feedback" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79k-Pa-woo">
+                                        <rect key="frame" x="75" y="0.0" width="225" height="39"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="24"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="If you would like to leave any feedback, you can email by clicking below." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtY-sl-Hwi">
+                                        <rect key="frame" x="8" y="103" width="358" height="47"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.52156862749999999" green="0.75686274509999996" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EMn-HF-4HD">
+                                <rect key="frame" x="107" y="338" width="200" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.52156862749999999" green="0.75686274509999996" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Send Feedback">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendFeedback:" destination="DEb-CF-Wjt" eventType="touchUpInside" id="KRL-5v-r60"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="UQu-Mk-Da8"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Feedback" image="feedback.png" id="Ic0-2o-Nhe"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ovo-Ze-nw2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="873.91304347826099" y="1150.271739130435"/>
         </scene>
         <!--Need Support?-->
         <scene sceneID="RCr-Jw-z72">
@@ -762,7 +820,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hQE-Aw-xkR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-240.57971014492756" y="1127.4456521739132"/>
+            <point key="canvasLocation" x="1757" y="1131"/>
         </scene>
         <!--Export-->
         <scene sceneID="HCc-ci-eS9">
@@ -820,7 +878,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L1v-d9-SrN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="814" y="1026"/>
+            <point key="canvasLocation" x="2612" y="1012"/>
         </scene>
         <!--Reset Password-->
         <scene sceneID="qzc-lg-ka9">
@@ -881,7 +939,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uRY-mU-hgm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1532" y="975"/>
+            <point key="canvasLocation" x="3558" y="854"/>
         </scene>
         <!--Stats-->
         <scene sceneID="h6S-Xt-9ua">
@@ -1223,7 +1281,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1qz-Zo-hr5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2824.6376811594205" y="456.52173913043481"/>
+            <point key="canvasLocation" x="3301" y="-574"/>
         </scene>
         <!--Edit Activities-->
         <scene sceneID="KW8-7d-B11">
@@ -1550,7 +1608,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vgD-VN-WkR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2178" y="893"/>
+            <point key="canvasLocation" x="2977" y="112"/>
         </scene>
         <!--View Logs-->
         <scene sceneID="l1I-A0-dal">
@@ -1791,7 +1849,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jeC-ZB-CJc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2084" y="-1339"/>
+            <point key="canvasLocation" x="2026" y="-1643"/>
         </scene>
         <!--Title-->
         <scene sceneID="ffe-bs-9Gt">
@@ -2078,7 +2136,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zpj-65-5zg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2976.811594202899" y="-1339.4021739130435"/>
+            <point key="canvasLocation" x="2977" y="-1643"/>
         </scene>
         <!--Breathing-->
         <scene sceneID="mL4-Fe-3eO">
@@ -2208,7 +2266,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GGl-FB-kpQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2082.608695652174" y="-531.52173913043487"/>
+            <point key="canvasLocation" x="1349" y="-911"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="3zY-jU-Mlw">
@@ -2229,11 +2287,12 @@
                         <segue destination="RTs-vL-vdG" kind="relationship" relationship="viewControllers" id="eAw-ad-4rl"/>
                         <segue destination="k4K-73-izt" kind="relationship" relationship="viewControllers" id="Amy-sn-ASi"/>
                         <segue destination="pcn-OT-hEl" kind="relationship" relationship="viewControllers" id="dmu-bA-m4T"/>
+                        <segue destination="DEb-CF-Wjt" kind="relationship" relationship="viewControllers" id="hYc-WJ-hPt"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n8i-DM-KgT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="341" y="221"/>
+            <point key="canvasLocation" x="341" y="245"/>
         </scene>
         <!--View Logs-->
         <scene sceneID="U6y-eB-YKB">
@@ -2252,7 +2311,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HfA-3T-58k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1168" y="-1232"/>
+            <point key="canvasLocation" x="1161" y="-1643"/>
         </scene>
     </scenes>
     <resources>
@@ -2260,6 +2319,7 @@
         <image name="addLog.png" width="25" height="25"/>
         <image name="breathe.png" width="25" height="25"/>
         <image name="csv.png" width="25" height="25"/>
+        <image name="feedback.png" width="25" height="25"/>
         <image name="lineGraph.png" width="25" height="25"/>
         <image name="noMeds.png" width="500" height="500"/>
         <image name="resetPassword.png" width="25" height="25"/>
