@@ -54,6 +54,8 @@ class LogEntryViewController: UIViewController {
     
     let defaults = UserDefaults.standard
     
+    var logText: String? = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -111,6 +113,8 @@ class LogEntryViewController: UIViewController {
     // Display Alcohol information for units
     @IBAction func alcoholInfo(_ sender: Any) {
         displayAlertMessage(alertMessage: "Beer(pint): 2 units \n Spirts(25ml): 1 unit \n Wine(175ml): 2 units")
+        
+        print(logText)
     }
     
     @IBAction func logPressed(_ sender: Any) {
@@ -146,6 +150,38 @@ class LogEntryViewController: UIViewController {
         Whisper.show(whistle: murmur, action: .show(3))
     }
     
+    @IBAction func addNote(_ sender: Any) {
+        let alertController = UIAlertController(title: "Add a Note \n\n\n\n\n\n\n\n\n", message: "", preferredStyle: .alert)
+        
+        let point = CGPoint(x: 15,y: 50)
+        let rect = CGRect(origin: point, size: CGSize(width: 240, height: 180))
+        //let rect        = CGRectMake(15, 50, 240, 150.0)
+        let textView    = UITextView(frame: rect)
+        
+        textView.font               = UIFont(name: "Helvetica", size: 15)
+        //textView.textColor          = UIColor.lightGray
+        textView.backgroundColor    = UIColor.white
+        textView.layer.borderColor  = UIColor.lightGray.cgColor
+        textView.layer.borderWidth  = 1.0
+        textView.toolbarPlaceholder = "Enter message here"
+        textView.delegate           = self as? UITextViewDelegate
+        
+        alertController.view.addSubview(textView)
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: { action in
+            
+            let note = textView.text
+            print(note)
+            self.logText = note
+            //print(msg)
+            
+        })
+        alertController.addAction(cancel)
+        alertController.addAction(action)
+        
+        self.present(alertController, animated: true, completion: {})
+    }
     // Method to check what activities have been selected by the user
     func checkActivitiesSelected() {
         
