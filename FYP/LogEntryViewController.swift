@@ -54,7 +54,7 @@ class LogEntryViewController: UIViewController {
     
     let defaults = UserDefaults.standard
     
-    var logText: String? = ""
+    var logText: String? = "No note added"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -139,7 +139,8 @@ class LogEntryViewController: UIViewController {
                                                     "alcohol" : alcoholValue,
                                                     "work" : workValue,
                                                     "medication" : medValue,
-                                                    "activities" : activitiesSelected])
+                                                    "activities" : activitiesSelected,
+                                                    "note" : logText])
         
         tabBarController?.selectedIndex = 0
         
@@ -148,6 +149,8 @@ class LogEntryViewController: UIViewController {
         
         // Show and hide a message after delay
         Whisper.show(whistle: murmur, action: .show(3))
+        
+        logText = "No note added"
     }
     
     @IBAction func addNote(_ sender: Any) {
@@ -159,11 +162,9 @@ class LogEntryViewController: UIViewController {
         let textView    = UITextView(frame: rect)
         
         textView.font               = UIFont(name: "Helvetica", size: 15)
-        //textView.textColor          = UIColor.lightGray
         textView.backgroundColor    = UIColor.white
         textView.layer.borderColor  = UIColor.lightGray.cgColor
         textView.layer.borderWidth  = 1.0
-        textView.toolbarPlaceholder = "Enter message here"
         textView.delegate           = self as? UITextViewDelegate
         
         alertController.view.addSubview(textView)
