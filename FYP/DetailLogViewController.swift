@@ -68,6 +68,7 @@ class DetailLogViewController: UIViewController {
         }
         
         self.noteLabel.text = log.note
+        self.noteLabel.sizeToFit()
         
         switch log.activities.count {
         case 1:
