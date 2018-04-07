@@ -57,6 +57,7 @@ class CSVViewController: UIViewController, MFMailComposeViewControllerDelegate {
             let logAlcohol = dataDict!["alcohol"] as! Int
             let logWork = dataDict!["work"] as! Int
             let logMedication = dataDict!["medication"] as! Bool
+            let logNote = dataDict!["note"] as! String
             
             var logActivities = [String]()
             
@@ -66,7 +67,7 @@ class CSVViewController: UIViewController, MFMailComposeViewControllerDelegate {
             }
             
             // Create log object and add it to the LogDate list which will be accessed with the tableView methods.
-            let log = Log(date: logDate, mood: logMood, sleep: logSleep, alcohol: logAlcohol, work: logWork, medication: logMedication, activities: logActivities)
+            let log = Log(date: logDate, mood: logMood, sleep: logSleep, alcohol: logAlcohol, work: logWork, medication: logMedication, activities: logActivities, note: logNote)
             self.logData.append(log)
         })
     }

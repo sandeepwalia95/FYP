@@ -29,11 +29,13 @@ class DetailLogViewController: UIViewController {
     @IBOutlet weak var activityEleven: UILabel!
     @IBOutlet weak var acvtivityTweleve: UILabel!
     
+    @IBOutlet weak var noteLabel: UILabel!
+    
     @IBOutlet weak var sleepProgressView: MBCircularProgressBarView!
     @IBOutlet weak var alcoholProgressView: MBCircularProgressBarView!
     @IBOutlet weak var workProgressView: MBCircularProgressBarView!
     
-    var log = Log(date: "", mood: "", sleep: 0, alcohol: 0, work: 0, medication: true, activities: [])
+    var log = Log(date: "", mood: "", sleep: 0, alcohol: 0, work: 0, medication: true, activities: [], note: "")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +66,8 @@ class DetailLogViewController: UIViewController {
         } else {
             self.medImageView.image = UIImage(named: "noMeds.png")!
         }
+        
+        self.noteLabel.text = log.note
         
         switch log.activities.count {
         case 1:
