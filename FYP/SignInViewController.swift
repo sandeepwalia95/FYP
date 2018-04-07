@@ -14,6 +14,7 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var emailAddressTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var logoImageView: UIImageView!
     
     let defaults = UserDefaults.standard
     
@@ -24,6 +25,9 @@ class SignInViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         setupViews()
+        
+        logoImageView.layer.cornerRadius = 10.0
+        logoImageView.clipsToBounds = true
     }
     
     override func viewDidAppear(_ animated: Bool) {

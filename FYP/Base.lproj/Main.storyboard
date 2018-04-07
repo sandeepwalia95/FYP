@@ -25,7 +25,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="vdB-yu-qIP" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="38" y="248" width="339" height="40"/>
+                                <rect key="frame" x="38" y="437" width="339" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -54,7 +54,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="maI-ER-rbW">
-                                <rect key="frame" x="113" y="402" width="200" height="60"/>
+                                <rect key="frame" x="107" y="582" width="200" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -66,7 +66,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ntk-Mh-tNX">
-                                <rect key="frame" x="129" y="644" width="157" height="30"/>
+                                <rect key="frame" x="129" y="675" width="157" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Forgot your password?">
@@ -77,7 +77,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="lvB-eK-N0a" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="37" y="318" width="339" height="40"/>
+                                <rect key="frame" x="38" y="507" width="339" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -106,9 +106,20 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sign In" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8N-R8-qEm">
-                                <rect key="frame" x="156" y="174" width="101" height="56"/>
+                                <rect key="frame" x="157" y="373" width="101" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="27"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="beathaLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="C5p-vj-msq">
+                                <rect key="frame" x="87" y="139" width="240" height="240"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Beatha" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KhK-tg-2WV">
+                                <rect key="frame" x="38" y="20" width="339" height="111"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="86"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -118,6 +129,7 @@
                     </view>
                     <connections>
                         <outlet property="emailAddressTextField" destination="vdB-yu-qIP" id="9s8-yk-ZMi"/>
+                        <outlet property="logoImageView" destination="C5p-vj-msq" id="Hc5-fV-wkg"/>
                         <outlet property="passwordTextField" destination="lvB-eK-N0a" id="FXA-i2-nsq"/>
                         <outlet property="signInButton" destination="maI-ER-rbW" id="Oan-tT-0e6"/>
                     </connections>
@@ -2336,6 +2348,7 @@
     <resources>
         <image name="activities.png" width="25" height="25"/>
         <image name="addLog.png" width="25" height="25"/>
+        <image name="beathaLogo.png" width="500" height="500"/>
         <image name="breathe.png" width="25" height="25"/>
         <image name="csv.png" width="25" height="25"/>
         <image name="feedback.png" width="25" height="25"/>

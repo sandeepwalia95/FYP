@@ -25,6 +25,7 @@
 		DD1EFA7E207831630014F6A2 /* feedback@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1EFA7D207831620014F6A2 /* feedback@2x.png */; };
 		DD1EFA80207831690014F6A2 /* feedback.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1EFA7F207831680014F6A2 /* feedback.png */; };
 		DD1EFA82207835680014F6A2 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1EFA81207835680014F6A2 /* FeedbackViewController.swift */; };
+		DD1EFA882078451E0014F6A2 /* beathaLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1EFA872078451C0014F6A2 /* beathaLogo.png */; };
 		DD20E530206EEAA300E7B10C /* BreatheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD20E52F206EEAA300E7B10C /* BreatheViewController.swift */; };
 		DD20E532206FA65F00E7B10C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD20E531206FA65F00E7B10C /* CardView.swift */; };
 		DD2411BA20375CEE00515757 /* DetailLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2411B920375CEE00515757 /* DetailLogViewController.swift */; };
@@ -85,6 +86,7 @@
 		DD1EFA7D207831620014F6A2 /* feedback@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "feedback@2x.png"; sourceTree = "<group>"; };
 		DD1EFA7F207831680014F6A2 /* feedback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feedback.png; sourceTree = "<group>"; };
 		DD1EFA81207835680014F6A2 /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
+		DD1EFA872078451C0014F6A2 /* beathaLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beathaLogo.png; sourceTree = "<group>"; };
 		DD20E52F206EEAA300E7B10C /* BreatheViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreatheViewController.swift; sourceTree = "<group>"; };
 		DD20E531206FA65F00E7B10C /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		DD2411B920375CEE00515757 /* DetailLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLogViewController.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				DD1EFA81207835680014F6A2 /* FeedbackViewController.swift */,
 				DD09AE70206FC55E002A181B /* 5 - Minute.mp3 */,
 				DD1EFA712077B09A0014F6A2 /* samaritans_logo_ireland.png */,
+				DD1EFA872078451C0014F6A2 /* beathaLogo.png */,
 			);
 			path = FYP;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				DD5C4A442066C3F10054E035 /* lineGraph@2x.png in Resources */,
 				DD5C4A462066C3F70054E035 /* lineGraph.png in Resources */,
 				DD1EFA7C2078315C0014F6A2 /* feedback@3x.png in Resources */,
+				DD1EFA882078451E0014F6A2 /* beathaLogo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
