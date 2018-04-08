@@ -668,9 +668,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EFq-jc-RG9">
-                                <rect key="frame" x="323" y="593" width="46" height="30"/>
+                                <rect key="frame" x="319" y="593" width="75" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <color key="backgroundColor" red="0.55424654480000002" green="0.72634375100000004" blue="0.26663631199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="+ Note">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="addNote:" destination="tbB-uC-LLS" eventType="touchUpInside" id="Ufe-cf-OrQ"/>
                                 </connections>
@@ -700,6 +704,7 @@
                         <outlet property="medicationSwitch" destination="b8n-Zr-8Z3" id="8q9-ih-Z2Q"/>
                         <outlet property="moodLabel" destination="e9h-5v-i1X" id="gyW-jz-nHq"/>
                         <outlet property="moodSlider" destination="38H-1l-7W8" id="HJ2-xo-Qa4"/>
+                        <outlet property="noteButton" destination="EFq-jc-RG9" id="bQ3-M1-TOt"/>
                         <outlet property="sleepLabel" destination="GSu-8r-hj4" id="HDf-kg-tGR"/>
                         <outlet property="sleepSlider" destination="R0K-O8-DWe" id="zQp-Hj-Hbj"/>
                         <outlet property="workLabel" destination="ehV-2X-GO9" id="bID-E7-IUq"/>
@@ -708,7 +713,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u5Y-KT-Y6u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2355" y="-805"/>
+            <point key="canvasLocation" x="2353.6231884057975" y="-805.43478260869574"/>
         </scene>
         <!--Feedback-->
         <scene sceneID="slc-cx-0Aw">

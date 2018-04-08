@@ -46,6 +46,7 @@ class LogEntryViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var medicationSwitch: UISwitch!
     @IBOutlet weak var logButton: UIButton!
+    @IBOutlet weak var noteButton: UIButton!
     
     var ref: DatabaseReference!
     
@@ -73,6 +74,7 @@ class LogEntryViewController: UIViewController, UITextViewDelegate {
         setFluidSlider(slider: workSlider, maxVal: 10, minLabel: "0", maxLabel: "10+", color: UIColor.green)
         
         logButton.layer.cornerRadius = 8
+        noteButton.layer.cornerRadius = 8
     }
     
     override func viewDidAppear(_ animated: Bool) {
