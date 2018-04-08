@@ -25,10 +25,6 @@ class ViewLogsViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         
         // Ensure that there is no duplicates in the logs
         self.logData.removeAll()
@@ -74,6 +70,12 @@ class ViewLogsViewController: UIViewController, UITableViewDelegate, UITableView
             // Reload the tableView to make sure new log is visible in the tableView.
             self.tableView.reloadData()
         })
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -159,6 +161,8 @@ class ViewLogsViewController: UIViewController, UITableViewDelegate, UITableView
             cell.activityFive.text = " "
             cell.activitySix.text = " "
         }
+        
+        cell.selectionStyle = .none
         
         return cell
     }
