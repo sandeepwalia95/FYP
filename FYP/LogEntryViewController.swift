@@ -113,8 +113,6 @@ class LogEntryViewController: UIViewController, UITextViewDelegate {
     // Display Alcohol information for units
     @IBAction func alcoholInfo(_ sender: Any) {
         displayAlertMessage(alertMessage: "Beer(pint): 2 units \n Spirts(25ml): 1 unit \n Wine(175ml): 2 units")
-        
-        print(logText)
     }
     
     @IBAction func logPressed(_ sender: Any) {
@@ -165,7 +163,7 @@ class LogEntryViewController: UIViewController, UITextViewDelegate {
         textView.backgroundColor    = UIColor.white
         textView.layer.borderColor  = UIColor.lightGray.cgColor
         textView.layer.borderWidth  = 1.0
-        textView.delegate           = self as? UITextViewDelegate
+        textView.delegate           = self
         
         alertController.view.addSubview(textView)
         
@@ -173,10 +171,7 @@ class LogEntryViewController: UIViewController, UITextViewDelegate {
         let action = UIAlertAction(title: "Ok", style: .default, handler: { action in
             
             let note = textView.text
-            print(note)
             self.logText = note
-            //print(msg)
-            
         })
         alertController.addAction(cancel)
         alertController.addAction(action)
