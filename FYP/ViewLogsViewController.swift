@@ -9,6 +9,7 @@
 import UIKit
 import DynamicColor
 import FirebaseDatabase
+import UserNotifications
 
 class ViewLogsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -20,11 +21,42 @@ class ViewLogsViewController: UIViewController, UITableViewDelegate, UITableView
     var logData = [Log]()
     
     let dict: [String : AnyObject] = [:]
+    
+    var notificationGranted = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound], completionHandler: {isGranted, error in
+            self.notificationGranted = isGranted
+            if let error = error {
+                print("granted, but Error in notification permission:\(error.localizedDescription)")
+            }
+        })
+        
+        if notificationGranted {
+            var dateComponents = DateComponents()
+            dateComponents.hour = 22
+            dateComponents.minute = 22
+            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+            
+            let content = UNMutableNotificationContent()
+            content.title = "Hi, how are you feeling today?"
+            content.body = "Log in to keep up your streak"
+            content.categoryIdentifier = "logNotification"
+            
+            let request = UNNotificationRequest(identifier: "logNotification", content: content, trigger: trigger)
+            
+            UNUserNotificationCenter.current().add(request) { (error) in
+                if let error = error {
+                    print("error in log reminder: \(error.localizedDescription)")
+                }
+            }
+            print("added notification:\(request.identifier)")
+        }
+            
         
         // Ensure that there is no duplicates in the logs
         self.logData.removeAll()
@@ -205,6 +237,13 @@ class ViewLogsViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
         return color
+    }
+    
+    func repeatNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = "Hi, how are you feeling today"
+        content.body = "Why not log in to continue your streak..?"
+        content.categoryIdentifier = "logReminder"
     }
     
     /*
