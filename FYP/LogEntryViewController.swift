@@ -12,7 +12,7 @@ import FirebaseDatabase
 import fluid_slider
 import Whisper
 
-class LogEntryViewController: UIViewController {
+class LogEntryViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var moodLabel: UILabel!
     @IBOutlet weak var sleepLabel: UILabel!
@@ -353,5 +353,12 @@ class LogEntryViewController: UIViewController {
         }
         
         return moodValue
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let currentText = textView.text as NSString
+        let updatedText = currentText.replacingCharacters(in: range, with: text)
+        
+        return updatedText.count <= 450
     }
 }
