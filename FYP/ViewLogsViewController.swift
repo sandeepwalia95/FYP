@@ -38,8 +38,8 @@ class ViewLogsViewController: UIViewController, UITableViewDelegate, UITableView
         
         if notificationGranted {
             var dateComponents = DateComponents()
-            dateComponents.hour = 22
-            dateComponents.minute = 22
+            dateComponents.hour = 12
+            dateComponents.minute = 00
             let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
             
             let content = UNMutableNotificationContent()
