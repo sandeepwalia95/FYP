@@ -133,7 +133,8 @@ class LogEntryViewController: UIViewController, UITextViewDelegate {
         
         // ** NB -> Need to set these values in one go to avoid error of nil being read when this
         // is being observed in the ViewLogs VC **
-        let logBranch = ref.child("logs")
+        let uuid = UIDevice.current.identifierForVendor?.uuidString
+        let logBranch = ref.child("allLogs").child(uuid!)
         logBranch.child(getCurrentDate()).setValue(["mood" : moodValue,
                                                     "sleep" : sleepValue,
                                                     "alcohol" : alcoholValue,

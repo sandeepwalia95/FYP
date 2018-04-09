@@ -68,7 +68,8 @@ class ViewLogsViewController: UIViewController, UITableViewDelegate, UITableView
         // 'snapshot' will observe the node "logs" --> goes through all of the
         // children of "logs" and fires the below code for each child.
         // Observe returns a 'UInt'
-        databasehandle = ref?.child("logs").observe(.childAdded, with: { (snapshot) in
+        let uuid = UIDevice.current.identifierForVendor?.uuidString
+        databasehandle = ref?.child("allLogs").child(uuid!).observe(.childAdded, with: { (snapshot) in
             
             // Code to execute when a child is added under "logs"
             // take the value from the snapshot and add it to the 'logData' array.
