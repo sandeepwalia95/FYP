@@ -8,6 +8,7 @@
 
 import UIKit
 import HealthKit
+import LocalAuthentication
 
 class SignInViewController: UIViewController {
 
@@ -90,12 +91,12 @@ class SignInViewController: UIViewController {
         let userFirstName = defaults.string(forKey: "firstNameKey")!
         print(userEmailAddress)
         print(userFirstName)
-        
+
         // generate a random string of letters for temporary password
         let passString = Array("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
         let tempPassword = String((0..<8).map{ _ in passString[Int(arc4random_uniform(UInt32(passString.count)))]})
         print(tempPassword)
-        
+
         let smtpSession = MCOSMTPSession()
         smtpSession.hostname = "smtp.gmail.com"
         smtpSession.username = "sandeepfyp@gmail.com"
@@ -128,6 +129,11 @@ class SignInViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func touchIDpressed(_ sender: Any) {
+        self.authentication()
+    }
+    
     
     func setupViews() {
         // User will be registered at thios moment so display email address already.
@@ -171,5 +177,29 @@ class SignInViewController: UIViewController {
         }
         
         return isAvailable
+    }
+    
+    // Gives the application the ability to unlock using TouchID
+    func authentication() {
+        
+        let context: LAContext = LAContext()
+        
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil) {
+            
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Please verify using TouchID", reply: { (isSuccess, error) in
+                if isSuccess {
+                    print("VERIFIED")
+                    
+                    let tabViewController = self.storyboard?.instantiateViewController(withIdentifier: "Tab") as! UITabBarController
+                    
+                    self.present(tabViewController, animated: true)
+                } else {
+                    print("Not Verified")
+                }
+            })
+            
+        } else {
+            print("Sorry no auth")
+        }
     }
 }
