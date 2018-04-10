@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 class ResetPasswordViewController: UIViewController {
 
@@ -34,9 +35,9 @@ class ResetPasswordViewController: UIViewController {
             return
         }
         
-        let defaults = UserDefaults.standard
-        defaults.set(resetPasswordTextField.text, forKey: "passwordKey")
-        defaults.set(resetPasswordTextField.text, forKey: "tempPasswordKey")
+        //let defaults = UserDefaults.standard
+        KeychainWrapper.standard.set(resetPasswordTextField.text!, forKey: "passwordKey")
+        KeychainWrapper.standard.set(resetPasswordTextField.text!, forKey: "tempPasswordKey")
         resetPasswordTextField.text = ""
         
         displayAlertMessage(title: "Success!", alertMessage: "Password has been reset")

@@ -9,6 +9,7 @@
 import UIKit
 import HealthKit
 import LocalAuthentication
+import SwiftKeychainWrapper
 
 class SignInViewController: UIViewController {
 
@@ -56,10 +57,10 @@ class SignInViewController: UIViewController {
     @IBAction func signInPressed(_ sender: Any) {
         print("Sign In Pressed")
 
-        let email = defaults.string(forKey: "emailAddressKey")
+        let email = KeychainWrapper.standard.string(forKey: "emailAddressKey")
         
-        let password = defaults.string(forKey: "passwordKey")
-        let tempPassword = defaults.string(forKey: "tempPasswordKey")
+        let password = KeychainWrapper.standard.string(forKey: "passwordKey")
+        let tempPassword = KeychainWrapper.standard.string(forKey: "tempPasswordKey")
         
         if email != nil && password != nil {
             
@@ -87,7 +88,7 @@ class SignInViewController: UIViewController {
     @IBAction func forgotPasswordPressed(_ sender: Any) {
         print("forgotPasswordPressed")
         
-        let userEmailAddress = defaults.string(forKey: "emailAddressKey")!
+        let userEmailAddress = KeychainWrapper.standard.string(forKey: "emailAddressKey")
         let userFirstName = defaults.string(forKey: "firstNameKey")!
         print(userEmailAddress)
         print(userFirstName)
@@ -124,7 +125,7 @@ class SignInViewController: UIViewController {
                 NSLog("Error sending email: \(String(describing: error))")
             } else {
                 NSLog("Successfully sent email!")
-                self.defaults.set(tempPassword, forKey: "tempPasswordKey")
+                KeychainWrapper.standard.set(tempPassword, forKey: "tempPasswordKey")
                 self.displayAlertMessage(title: "Password reset", alertMessage: "An email has been sent to you on how to reset your password.")
             }
         }
@@ -137,7 +138,7 @@ class SignInViewController: UIViewController {
     
     func setupViews() {
         // User will be registered at thios moment so display email address already.
-        emailAddressTextField.text = defaults.string(forKey: "emailAddressKey")
+        emailAddressTextField.text = KeychainWrapper.standard.string(forKey: "emailAddressKey")
         
         signInButton.layer.cornerRadius = 7.0
         signInButton.clipsToBounds = true

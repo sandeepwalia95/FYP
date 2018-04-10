@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 class RegisterViewController: UIViewController {
 
@@ -60,14 +61,24 @@ class RegisterViewController: UIViewController {
         defaults.set(firstNameTextField.text, forKey: "firstNameKey")
         defaults.set(lastNameTextField.text, forKey: "lastNameKey")
         defaults.set(ageTextField.text, forKey: "ageTextFieldKey")
-        defaults.set(emailAddressTextField.text, forKey: "emailAddressKey")
-        defaults.set(passwordTextField.text, forKey: "passwordKey")
-        defaults.set(passwordTextField.text, forKey: "tempPasswordKey")
+        KeychainWrapper.standard.set(emailAddressTextField.text!, forKey: "emailAddressKey")
+        KeychainWrapper.standard.set(passwordTextField.text!, forKey: "passwordKey")
+        KeychainWrapper.standard.set(passwordTextField.text!, forKey: "tempPasswordKey")
+//        defaults.set(emailAddressTextField.text, forKey: "emailAddressKey")
+//        defaults.set(passwordTextField.text, forKey: "passwordKey")
+//        defaults.set(passwordTextField.text, forKey: "tempPasswordKey")
         
         defaults.set(true, forKey: "isRegistered")
         
         let email = defaults.string(forKey: "emailAddressKey")
         print(email)
+        
+        let newEmail = KeychainWrapper.standard.string(forKey: "emailAddressKey")
+        print(newEmail)
+        let newPassword = KeychainWrapper.standard.string(forKey: "passwordKey")
+        print(newPassword)
+        let newTemp = KeychainWrapper.standard.string(forKey: "tempPasswordKey")
+        print(newTemp)
         
         let registered = defaults.bool(forKey: "isRegistered")
         
