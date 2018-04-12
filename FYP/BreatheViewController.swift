@@ -10,6 +10,7 @@ import UIKit
 import fluid_slider
 import DynamicColor
 import AVFoundation
+import AudioToolbox
 
 class BreatheViewController: UIViewController {
 
@@ -116,8 +117,14 @@ class BreatheViewController: UIViewController {
     }
     
     @objc func action() {
+        
+        if timerValue % 5 == 0 {
+            AudioServicesPlaySystemSound(1519)
+        }
+        
         timerValue -= 1
         self.secondsLabel.text = String(self.timerValue) + " seconds"
+        
         
         if timerValue == 0 {
             timer.invalidate()
